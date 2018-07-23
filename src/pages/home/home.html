@@ -1,17 +1,11 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <ion-navbar >
+    <ion-title >首页</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <div class='notice'><img src="assets/imgs/notice.png" alt="公告" /> 今日所有技师工作提成翻倍，因为双人无时间开始</div>
+  <div class='nowTime'>{{nowTime}}</div>
+  <div class='nowDay'>{{nowDay}}</div>
 </ion-content>
