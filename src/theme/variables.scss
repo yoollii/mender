@@ -79,7 +79,13 @@ $colors: (
 // http://ionicframework.com/docs/ionicons/
 
 @import "ionic.ionicons";
-
+//自定义返回图标
+.ion-ios-myback:before { 
+    content: url("../assets/imgs/back.png"); 
+}
+.ion-md-myback:before { 
+    content: url("../assets/imgs/back.png"); 
+}
 
 // Fonts
 // --------------------------------------------------

@@ -19,7 +19,7 @@
 $Themecolor:#d1ae69;//主题色
 .content{
     color:#fff;
-    background-color:#222;
+    background-color:#181818;
 }
 .tabs-md .tabbar,.tabs-ios .tabbar{
     background-color:#171717;
@@ -38,4 +38,8 @@ $Themecolor:#d1ae69;//主题色
 }
 .tabs-ios .tab-button[aria-selected=true] .tab-button-icon,.tabs-ios .tab-button:hover:not(.disable-hover), .tabs-ios .tab-button[aria-selected=true],.tabs-md .tab-button[aria-selected=true] .tab-button-icon,.tabs-md .tab-button[aria-selected=true]{
     color:$Themecolor;
+}
+.bar-button-md{
+    position: absolute;
+    z-index:2
 }
