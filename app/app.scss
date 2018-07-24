@@ -1,0 +1,45 @@
+// http://ionicframework.com/docs/theming/
+@function rem($px){
+ @return $px / 37.5 * 2rem;
+}
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+$Themecolor:#d1ae69;//主题色
+.content{
+    color:#fff;
+    background-color:#181818;
+}
+.tabs-md .tabbar,.tabs-ios .tabbar{
+    background-color:#171717;
+}
+.toolbar-title-ios,.toolbar-title-md{
+    color:$Themecolor;
+    font-size:rem(36);
+}
+.toolbar-title-md{
+    text-align: center;
+    font-weight: 600;
+}
+.toolbar-background{
+    background: url(../assets/imgs/header_bg.png),linear-gradient(to right,#242424 ,#383838,#242424);
+    background-size:100% 100%;
+}
+.tabs-ios .tab-button[aria-selected=true] .tab-button-icon,.tabs-ios .tab-button:hover:not(.disable-hover), .tabs-ios .tab-button[aria-selected=true],.tabs-md .tab-button[aria-selected=true] .tab-button-icon,.tabs-md .tab-button[aria-selected=true]{
+    color:$Themecolor;
+}
+.bar-button-md{
+    position: absolute;
+    z-index:2
+}
