@@ -20,10 +20,11 @@ export class HomePage {
   }
   ionViewDidLoad() {
   	let nowtime=new Date();
+  	let m1;
   	if(nowtime.getMinutes()<10){
-  			let m1='0'+nowtime.getMinutes();
+  			m1='0'+nowtime.getMinutes();
   		}else{
-  			let m1=nowtime.getMinutes();
+  			m1=nowtime.getMinutes();
   		}
   	this.nowTime=nowtime.getHours()+' : '+m1;
   	let da=nowtime.getDate(); //获取当前日 
@@ -32,13 +33,14 @@ export class HomePage {
   	this.nowDay=mon+'月'+da+'日';
   	setInterval(()=>{
   		let nowtime1=new Date();
-  		let m=nowtime1.getMinutes();
+  		let m;
   		if(nowtime1.getMinutes()<10){
-  			let m='0'+nowtime1.getMinutes();
+  			m='0'+nowtime1.getMinutes();
   		}else{
-  			let m=nowtime1.getMinutes();
+  			m=nowtime1.getMinutes();
   		}
   		this.nowTime=nowtime1.getHours()+' : '+m;
+  		
   	},50000);
   }
   orderReZq(){//开始接单
