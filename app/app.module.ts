@@ -16,10 +16,10 @@ import { RanklistPage } from '../pages/ranklist/ranklist';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 //个人信息
-import { PeopleInformationPage } from '../pages/people-information/people-information';
+import { PeopleInformationPage } from '../pages/me-people-information/people-information';
 //消息通知
-import { MessageNoticePage } from '../pages/message-notice/message-notice';
-import { PerformancePage } from '../pages/performance/performance';
+import { MessageNoticePage } from '../pages/me-message-notice/message-notice';
+import { PerformancePage } from '../pages/me-performance/performance';
 
 @NgModule({
   declarations: [

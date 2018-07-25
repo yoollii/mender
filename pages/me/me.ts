@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { PeopleInformationPage } from '../people-information/people-information';
-import { MessageNoticePage } from '../message-notice/message-notice';
-import { PerformancePage } from '../performance/performance';
+import { PeopleInformationPage } from '../me-people-information/people-information';
+import { MessageNoticePage } from '../me-message-notice/message-notice';
+import { PerformancePage } from '../me-performance/performance';
 
 /**
  * Generated class for the MePage page.
