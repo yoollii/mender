@@ -26,7 +26,7 @@ export class MePage {
     }else if(list.nav=="PerformancePage"){
       this.navCtrl.push(PerformancePage);
     }
-  }
+  };
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.Lists=[{title:"消息通知",src:"../../assets/imgs/person/msg.png",nav:"MessageNoticePage"},
     {title:"我的配件",src:"../../assets/imgs/person/parts.png",nav:"PeopleInformationPage"},
