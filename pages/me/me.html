@@ -13,7 +13,8 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+    <div class="marginTop-yl"></div>
     <div class="wrap-yl">
         <div class="list-bg-yl">
             <div class="img-wrap-yl">
@@ -54,7 +55,7 @@
         <ion-list>
             <div class='my-content-yl' *ngFor="let list of Lists">
                 <span><img src="{{list.src}}">{{list.title}}</span>
-                <img src="../../assets/imgs/person/my-1.png">
+                <img (click)="personMsg(list)" src="../../assets/imgs/person/my-1.png">
             </div>
         </ion-list>
     </div>

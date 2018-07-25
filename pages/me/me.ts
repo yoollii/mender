@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { PeopleInformationPage } from '../people-information/people-information';
+import { MessageNoticePage } from '../message-notice/message-notice';
+
 
 /**
  * Generated class for the MePage page.
@@ -14,18 +17,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'me.html',
 })
 export class MePage {
-  private Lists=[];
+  public Lists=[];
+  personMsg(list){
+    if(list.nav=="MessageNoticePage"){
+      this.navCtrl.push(MessageNoticePage);
+    }else if(list.nav=="PeopleInformationPage"){
+      this.navCtrl.push(PeopleInformationPage);
+    }
+  }
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.Lists=[{title:"消息通知",src:"../../assets/imgs/person/msg.png"},
-    {title:"我的配件",src:"../../assets/imgs/person/parts.png"},
-    {title:"个人信息",src:"../../assets/imgs/person/person-msg.png"},
-    {title:"绩效管理",src:"../../assets/imgs/person/performance.png"},
-    {title:"师徒管理",src:"../../assets/imgs/person/teachers.png"},
-    {title:"推广管理",src:"../../assets/imgs/person/extension.png"}];
+    this.Lists=[{title:"消息通知",src:"../../assets/imgs/person/msg.png",nav:"MessageNoticePage"},
+    {title:"我的配件",src:"../../assets/imgs/person/parts.png",nav:"PeopleInformationPage"},
+    {title:"个人信息",src:"../../assets/imgs/person/person-msg.png",nav:"PeopleInformationPage"},
+    {title:"绩效管理",src:"../../assets/imgs/person/performance.png",nav:"PeopleInformationPage"},
+    {title:"师徒管理",src:"../../assets/imgs/person/teachers.png",nav:"PeopleInformationPage"},
+    {title:"推广管理",src:"../../assets/imgs/person/extension.png",nav:"PeopleInformationPage"}]
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MePage');
+   // console.log('ionViewDidLoad MePage');
   }
 
 }

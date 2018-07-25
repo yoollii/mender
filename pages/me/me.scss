@@ -3,8 +3,12 @@ page-me {
         width: rem(247);
         height: rem(400);
     }
-    .msg-top-yl {
-        margin-left: rem(34)
+    .content {
+        background-color: #222;
+    }
+    .marginTop-yl {
+        height: rem(38);
+        background-color: #181818;
     }
     .me-icon-yl {
         background: url("../../assets/imgs/person/portrait.png") no-repeat;
@@ -21,8 +25,6 @@ page-me {
     }
     .list-bg-yl {
         display: flex;
-        background: url("../../assets/imgs/person/background-top.png") no-repeat;
-        background-size: rem(490) rem(155);
         p {
             color: $Themecolor;
             font-size: rem(32);
@@ -64,20 +66,22 @@ page-me {
         }
     }
     .my-content-yl {
-        background-color: #222;
         color: $Themecolor;
         height: rem(100);
+        border-bottom: 1px solid #d1ae69;
         display: flex;
         justify-content: space-between;
         align-items: center;
         font-size: rem(32);
+        padding-left: rem(30);
         span {
             display: flex;
             justify-content: space-between;
             align-items: center;
             img {
                 margin-right: rem(25);
-                width: rem(55);
+                width: rem(45);
+                height: rem(45);
             }
         }
         img {
@@ -85,5 +89,9 @@ page-me {
             height: rem(50);
             margin-right: rem(122);
         }
+    }
+    .fixed-content {
+        background: url("../../assets/imgs/person/background.png") no-repeat;
+        background-size: cover;
     }
 }
