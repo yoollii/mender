@@ -6,13 +6,56 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>我的</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>我的</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    <div class="wrap-yl">
+        <div class="list-bg-yl">
+            <div class="img-wrap-yl">
+                <div class="me-icon-yl">
+                    <img src="../../assets/imgs/person/timg (10).png" alt="">
+                </div>
+            </div>
+            <div class="msg-top-yl">
+                <div class="me-msg-yl">
+                    <div class="listbg-yl">
+                        <p>张一</p>
+                        <p>工号：10000000</p>
+                    </div>
+                    <dir class="erweima-yl">
+                        <img src="../../assets/imgs/person/erwei.png" alt="二维码">
+                    </dir>
+                </div>
+                <div class="extract-yl">
+                    <div>
+                        <p>今日提成</p>
+                        <p>￥260</p>
+                    </div>
+                    <div>
+                        <p>本月提成</p>
+                        <p>￥7998</p>
+                    </div>
+                    <div>
+                        <p>总提成</p>
+                        <p>￥79798</p>
+                    </div>
+                </div>
+            </div>
+            <!-- msg-top-yl -->
 
+
+        </div>
+        <!-- list-bg-yl -->
+        <ion-list>
+            <div class='my-content-yl' *ngFor="let list of Lists">
+                <span><img src="{{list.src}}">{{list.title}}</span>
+                <img src="../../assets/imgs/person/my-1.png">
+            </div>
+        </ion-list>
+    </div>
 </ion-content>
