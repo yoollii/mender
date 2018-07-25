@@ -49,14 +49,14 @@
             </div>
             <!-- msg-top-yl -->
 
-
         </div>
         <!-- list-bg-yl -->
         <ion-list>
-            <div class='my-content-yl' *ngFor="let list of Lists">
-                <span><img src="{{list.src}}">{{list.title}}</span>
-                <img (click)="personMsg(list)" src="../../assets/imgs/person/my-1.png">
-            </div>
+            <ion-item (click)="personMsg(list)" class='my-content-yl' *ngFor="let list of Lists">
+                <div item-start><img class="{{list.classIcon}}" src="{{list.src}}"></div>
+                <span>{{list.title}}</span>
+                <img class="turn-to" src="../../assets/imgs/person/my-1.png" item-end>
+            </ion-item>
         </ion-list>
     </div>
 </ion-content>
