@@ -7,45 +7,23 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title style="margin-right: 60px">消息通知</ion-title>
+    <ion-title>消息通知</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-<ion-content padding style="background-color: #222222">
-  <div class="content-div1-wz">
+<ion-content  class="notice-content-wz">
+
+  <div class="content-div1-wz" *ngFor="let message of messages">
     <div class="content-div1-1-wz">
-      <p>2018-07-24 10:49</p>
+      <p>{{message.date | date: 'yyyy-MM-dd hh-ss-mm'}}</p>
     </div>
     <div class="content-div1-2-wz">
-      <p>月排行榜今日更新，恭喜刘明华师傅以一月807单的成绩位居榜首</p>
+      <p>{{message.content}}</p>
     </div>
     <div class="content-div1-3-wz">
-      <p>修匠手机维修测试店</p>
+      <p>{{message.footer}}</p>
     </div>
   </div>
 
-  <div class="content-div1-wz">
-    <div class="content-div1-1-wz">
-      <p>2018-07-24 10:49</p>
-    </div>
-    <div class="content-div1-2-wz">
-      <p>月排行榜今日更新，恭喜刘明华师傅以一月807单的成绩位居榜首</p>
-    </div>
-    <div class="content-div1-3-wz">
-      <p>修匠手机维修测试店</p>
-    </div>
-  </div>
-
-  <div class="content-div1-wz">
-    <div class="content-div1-1-wz">
-      <p>2018-07-24 10:49</p>
-    </div>
-    <div class="content-div1-2-wz">
-      <p>月排行榜今日更新，恭喜刘明华师傅以一月807单的成绩位居榜首</p>
-    </div>
-    <div class="content-div1-3-wz">
-      <p>修匠手机维修测试店</p>
-    </div>
-  </div>
 </ion-content>

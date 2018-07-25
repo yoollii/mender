@@ -3,7 +3,9 @@ page-message-notice {
     border: 1px solid black;
     border-radius: rem(10);
     height: 35%;
-    margin-bottom: 5%;
+    width: rem(635);
+    margin-top: rem(45);
+    margin-left: rem(60);
     background-color: #353535;
   }
   .content-div1-1-wz {
@@ -39,8 +41,7 @@ page-message-notice {
   .content-div1-3-wz p {
     margin-top: 1%;
     margin-bottom: 0px;
-    position: relative;
-    left: rem(370);
+    margin-left: rem(330);
     color: #d1ae69;
   }
 }

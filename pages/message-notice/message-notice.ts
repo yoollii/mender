@@ -15,7 +15,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MessageNoticePage {
 
+  messages = [];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.messages = [
+      {date: new Date(), content: '月排行榜今日更新，恭喜刘明华师傅以一月807单的成绩位居榜首', footer: '修匠手机维修测试店'},
+      {date: new Date(), content: '月排行榜今日更新，恭喜陈明华师傅以一月807单的成绩位居榜首', footer: '修匠手机维修测试店'},
+      {date: new Date(), content: '月排行榜今日更新，恭喜王明华师傅以一月807单的成绩位居榜首', footer: '修匠手机维修测试店'},
+      {date: new Date(), content: '月排行榜今日更新，恭喜李明华师傅以一月807单的成绩位居榜首', footer: '修匠手机维修测试店'},
+    ]
   }
 
   ionViewDidLoad() {
