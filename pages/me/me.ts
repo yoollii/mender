@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PeopleInformationPage } from '../people-information/people-information';
 import { MessageNoticePage } from '../message-notice/message-notice';
-
+import { PerformancePage } from '../performance/performance';
 
 /**
  * Generated class for the MePage page.
@@ -23,13 +23,15 @@ export class MePage {
       this.navCtrl.push(MessageNoticePage);
     }else if(list.nav=="PeopleInformationPage"){
       this.navCtrl.push(PeopleInformationPage);
+    }else if(list.nav=="PerformancePage"){
+      this.navCtrl.push(PerformancePage);
     }
   }
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.Lists=[{title:"消息通知",src:"../../assets/imgs/person/msg.png",nav:"MessageNoticePage"},
     {title:"我的配件",src:"../../assets/imgs/person/parts.png",nav:"PeopleInformationPage"},
     {title:"个人信息",src:"../../assets/imgs/person/person-msg.png",nav:"PeopleInformationPage"},
-    {title:"绩效管理",src:"../../assets/imgs/person/performance.png",nav:"PeopleInformationPage"},
+    {title:"绩效管理",src:"../../assets/imgs/person/performance.png",nav:"PerformancePage"},
     {title:"师徒管理",src:"../../assets/imgs/person/teachers.png",nav:"PeopleInformationPage"},
     {title:"推广管理",src:"../../assets/imgs/person/extension.png",nav:"PeopleInformationPage"}]
   }

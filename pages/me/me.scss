@@ -25,6 +25,7 @@ page-me {
     }
     .list-bg-yl {
         display: flex;
+        font-family: ”微软雅黑”;
         p {
             color: $Themecolor;
             font-size: rem(32);
@@ -57,9 +58,11 @@ page-me {
         display: flex;
         align-items: center;
         justify-content: center;
+        width: rem(71);
+        height: rem(71);
         background: url("../../assets/imgs/person/erwei-bg.png") no-repeat;
         background-size: rem(71) rem(71);
-        margin-left: rem(42);
+        margin: 0 0 0 rem(42);
         img {
             width: rem(50);
             height: rem(50);
