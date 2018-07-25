@@ -71,9 +71,9 @@ page-home {
       display: flex;
       justify-content:center;
       align-items: center;
-      position:relative;
-      left:rem(100);
-      top:rem(30);
+      position:absolute;
+      left:rem(90);
+      top:rem(10);
   }
   .bg_zq{
       background-color:$Themecolor;
@@ -88,6 +88,7 @@ page-home {
       display:flex;
       justify-content:center;
       align-items: center; 
+      position:relative;
   }
   .circle1_zq{
     background: url(../../assets/imgs/circle.png);

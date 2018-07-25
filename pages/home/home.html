@@ -19,17 +19,26 @@
   <ion-row>
     <ion-col col-4>
     	<br /><br />
-    	<ion-badge [ngClass]="{'bg_zq':order}">260</ion-badge>
-    	<div [ngClass]="{'circle_zq': true,'circle1_zq': !order,'circle2_zq': order}" (click)='orderZq()'>今日接单</div>
+    	
+    	<div [ngClass]="{'circle_zq': true,'circle1_zq': !order,'circle2_zq': order}" (click)='orderZq()'>
+    		<ion-badge [ngClass]="{'bg_zq':order}">260</ion-badge>
+    		今日接单
+    	</div>
     </ion-col>
     <ion-col col-4>
-    	<ion-badge [ngClass]="{'bg_zq':rankingList}">260</ion-badge>
-    	<div [ngClass]="{'circle_zq': true,'circle1_zq': !rankingList,'circle2_zq': rankingList}" (click)='rankingListZq()'>排行榜</div>
+    	
+    	<div [ngClass]="{'circle_zq': true,'circle1_zq': !rankingList,'circle2_zq': rankingList}" (click)='rankingListZq()'>
+    		<ion-badge [ngClass]="{'bg_zq':rankingList}">260</ion-badge>
+    		排行榜
+    	</div>
     </ion-col>
     <ion-col col-4>
     	<br /><br />
-    	<ion-badge [ngClass]="{'bg_zq':income}">260</ion-badge>
-    	<div [ngClass]="{'circle_zq': true,'circle1_zq': !income,'circle2_zq': income}" (click)='incomeZq()'>今日收入</div>
+    	
+    	<div [ngClass]="{'circle_zq': true,'circle1_zq': !income,'circle2_zq': income}" (click)='incomeZq()'>
+    		<ion-badge [ngClass]="{'bg_zq':income}">260</ion-badge>
+    		今日收入
+    	</div>
     </ion-col>
   </ion-row>
 </ion-grid>
