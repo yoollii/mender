@@ -15,6 +15,11 @@ import { RanklistPage } from '../pages/ranklist/ranklist';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+//个人信息
+import { PeopleInformationPage } from '../pages/people-information/people-information';
+//消息通知
+import { MessageNoticePage } from '../pages/message-notice/message-notice';
+import { PerformancePage } from '../pages/performance/performance';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     DayincomePage,
     RanklistPage,
-    IncomedetailPage
+    IncomedetailPage,
+    PeopleInformationPage,
+    MessageNoticePage,
+    PerformancePage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +53,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     DayincomePage,
     RanklistPage,
-    IncomedetailPage
+    IncomedetailPage,
+    PeopleInformationPage,
+    MessageNoticePage,
+    PerformancePage
   ],
   providers: [
     StatusBar,
