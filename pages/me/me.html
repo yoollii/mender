@@ -19,7 +19,7 @@
         <div class="list-bg-yl">
             <div class="img-wrap-yl">
                 <div class="me-icon-yl">
-                    <img src="assets/imgs/person/timg (10).png" alt="">
+                    <img src="assets/imgs/person/timg (10).png" alt="头像">
                 </div>
             </div>
             <div class="msg-top-yl">
@@ -52,7 +52,7 @@
         </div>
         <!-- list-bg-yl -->
         <ion-list>
-            <ion-item (click)="personMsg(list)" class='my-content-yl' *ngFor="let list of Lists">
+            <ion-item (click)="personMsg(list.nav)" class='my-content-yl' *ngFor="let list of Lists">
                 <div item-start><img class="{{list.classIcon}}" src="{{list.src}}"></div>
                 <span>{{list.title}}</span>
                 <img class="turn-to" src="assets/imgs/person/my-1.png" item-end>
