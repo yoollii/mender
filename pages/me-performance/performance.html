@@ -15,35 +15,34 @@
 
 <ion-content>
     <div class="marginTop-yl"></div>
-    <div class="person-information-yl">
-        <div class="portrait-yl">
+    <div class="wrap-yl">
+        <div class="list-bg-yl">
             <div class="img-wrap-yl">
-                <div class="icon-yl">
+                <div class="me-icon-yl">
                     <img src="../../assets/imgs/person/timg (10).png" alt="">
                 </div>
             </div>
             <div class="msg-top-yl">
-                <div class="msg-yl">
-                    <div class="name-yl">
+                <div class="me-msg-yl">
+                    <div class="listbg-yl">
                         <p>张一</p>
                         <p>工号：10000000</p>
                     </div>
+
                 </div>
-                <div class="evaluate-yl">
+                <div class="extract-yl">
                     <span>评价:</span>
                 </div>
+                <!-- msg-top-yl -->
             </div>
-            <!-- msg-top-yl -->
-
 
         </div>
-        <!-- portrait-yl -->
+        <!-- list-bg-yl -->
         <ion-list>
-            <div class='performance-content-yl' *ngFor="let list of Lists">
-                <span class="performance-content-left-yl">{{list.title}}</span>
-                <span class="performance-content-right-yl">{{list.num}}</span>
-            </div>
+            <ion-item class='my-content-yl' *ngFor="let list of Lists">
+                <span>{{list.title}}</span>
+                <span item-end class="performance-content-right-yl">{{list.num}}</span>
+            </ion-item>
         </ion-list>
     </div>
-    <!-- person-information-yl -->
 </ion-content>
