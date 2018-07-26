@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {DdChaoshiPage} from "../dd-chaoshi/dd-chaoshi";
+declare var BMap; //declare var BMap: any;
 /**
  * Generated class for the OrdermapPage page.
  *
@@ -14,12 +15,32 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'ordermap.html',
 })
 export class OrdermapPage {
-
+  public item:boolean=false;
+  public item1:boolean=false;
+  @ViewChild('map') mapElement: ElementRef;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
+  rankingList:boolean=false;
+  order:boolean=false;
+  income:boolean=false;
+  ionViewWillEnter() {
+    let map = new BMap.Map(this.mapElement.nativeElement, {enableMapClick: true});//创建地图实例
+    map.enableScrollWheelZoom();//启动滚轮放大缩小，默认禁用
+    map.enableContinuousZoom();//连续缩放效果，默认禁用
+    let point = new BMap.Point(104.067923463,30.6799428454);//坐标可以通过百度地图坐标拾取器获取
+    map.centerAndZoom(point, 12);//设置中心和地图显示级别
+  }
+  orderZq(){//今日订单
+    this.rankingList=false;
+    this.order=true;
+    this.income=false;
+  }
+  gochaoshi(){
+    this.item1=true;
+    this.item=false;
+    this.navCtrl.push(DdChaoshiPage);
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrdermapPage');
   }
-
 }

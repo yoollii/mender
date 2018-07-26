@@ -1,3 +1,57 @@
 page-ordermap {
+  .anchorBL{display:none}
+  #map{
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+    margin:0;
+    font-family:"微软雅黑";
 
+  }
+  .grid{
+    position: fixed;
+    bottom: rem(80);
+    background:linear-gradient(to top,rgba(26,26,26,1),rgba(255,255,255,0));
+    z-index: 1000;
+
+  }
+  .scroll{
+    height: 100%;
+  }
+  .badge-md,.badge-ios{
+    height:rem(44);
+    width:rem(44);
+    font-size:rem(20);
+    color:#000;
+    border-radius: 50%;
+    background-color:#fe0000;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    position:absolute;
+    left:rem(90);
+    top:rem(10);
+  }
+
+  .circle_zq{
+    height:rem(124);
+    width:rem(124);
+    margin:auto;
+    font-size:rem(28);
+    color: #ffffff;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    position:relative;
+  }
+  .circle1_zq{
+    background: url(../../assets/imgs/footerItem-ys.png);
+    background-size:100% 100%;
+  }
+  .circle2_zq{
+    background: url(../../assets/imgs/footerItem1-ys.png);
+    background-size:100% 100%;
+    color: #ffaa01;
+  }
 }

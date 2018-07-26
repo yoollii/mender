@@ -28,6 +28,8 @@ import { PerformancePage } from '../pages/me-performance/performance';
 import { TeachersPage } from '../pages/me/me-teachers/teachers';
 import {TelUpdatePage} from "../pages/me-people-information/tel-update/tel-update";
 
+import { DdChaoshiPage} from '../pages/dd-chaoshi/dd-chaoshi';
+import {ComponentsModule} from '../components/components.module';
 @NgModule({
   declarations: [
     MyApp,
@@ -45,10 +47,12 @@ import {TelUpdatePage} from "../pages/me-people-information/tel-update/tel-updat
     TeachersPage,
     OrderdetailPage,
     OrderacceptPage,
-    TelUpdatePage
+    TelUpdatePage,
+    DdChaoshiPage
   ],
   imports: [
     BrowserModule,
+    ComponentsModule,
     IonicModule.forRoot(MyApp,{
     	iconMode: 'ios',
     	mode: 'ios',  //平台样式
@@ -74,7 +78,8 @@ import {TelUpdatePage} from "../pages/me-people-information/tel-update/tel-updat
     TeachersPage,
     OrderdetailPage,
     OrderacceptPage,
-    TelUpdatePage
+    TelUpdatePage,
+    DdChaoshiPage
   ],
   providers: [
     StatusBar,
