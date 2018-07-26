@@ -1,6 +1,6 @@
 // http://ionicframework.com/docs/theming/
-@function rem($px){
- @return $px / 37.5 * 2rem;
+@function rem($px) {
+    @return $px / 37.5 * 2rem;
 }
 
 // App Global Sass
@@ -16,23 +16,28 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-$Themecolor:#d1ae69;//主题色
-.content{
-    color:#fff;
-    background-color:#181818;
-}
-.tabs-ios .tabbar{
-    background-color:#171717;
-}
-.toolbar-title-ios{
-    color:$Themecolor;
-    font-size:rem(36);
+$Themecolor:#d1ae69; //主题色
+.content {
+    color: #fff;
+    background-color: #181818;
 }
 
-.toolbar-background{
-    background: url(../assets/imgs/header_bg.png),linear-gradient(to right,#242424 ,#383838,#242424);
-    background-size:100% 100%;
+.tabs-ios .tabbar {
+    background-color: #171717;
 }
-.tabs-ios .tab-button[aria-selected=true] .tab-button-icon,.tabs-ios .tab-button:hover:not(.disable-hover), .tabs-ios .tab-button[aria-selected=true]{
-    color:$Themecolor;
+
+.toolbar-title-ios {
+    color: $Themecolor;
+    font-size: rem(36);
+}
+
+.toolbar-background {
+    background: url(../assets/imgs/header_bg.png), linear-gradient(to right, #242424, #383838, #242424);
+    background-size: 100% 100%;
+}
+
+.tabs-ios .tab-button[aria-selected=true] .tab-button-icon,
+.tabs-ios .tab-button:hover:not(.disable-hover),
+.tabs-ios .tab-button[aria-selected=true] {
+    color: $Themecolor;
 }
