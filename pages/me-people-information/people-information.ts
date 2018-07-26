@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {TelUpdatePage} from "./tel-update/tel-update";
 
 /**
  * Generated class for the PeopleInformationPage page.
@@ -21,6 +22,9 @@ export class PeopleInformationPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PeopleInformationPage');
+  }
+  goToTelUpdatePage() {
+    this.navCtrl.push(TelUpdatePage);
   }
 
 }
