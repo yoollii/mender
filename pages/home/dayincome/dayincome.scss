@@ -1,0 +1,64 @@
+page-dayincome {
+
+.list-ios{
+    margin:rem(20) 0 0 0;
+    padding:0 rem(16);
+    background-color:#222;
+}
+.item-ios{
+    background-color:#222;
+}
+.list-ios .item-block .item-inner,.item-ios.item-block .item-inner{
+     border-bottom:none;
+}
+.list-ios > .item-block:first-child,.list-ios > .item-block{
+    border-top:none;
+    border-bottom: 0.55px solid $Themecolor;
+}
+.list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{
+    border-bottom:none;
+    
+}
+.rankname_zq{
+   margin-top:rem(20);
+   height:rem(120);
+   width:100%;
+   font-size:rem(48); 
+   color:$Themecolor;
+   display: flex;
+   align-items:center ;
+   justify-content: center;
+   background-color:#222;
+}
+.item-ios h1{
+    color:$Themecolor;
+    text-align:center;
+    font-size:rem(36); 
+}
+.item-ios{
+    padding-left:rem(6);
+}
+.incomeimg_zq{
+    background-color: #222;
+    width:100%;
+}
+.flexcc_zq{
+    display: flex;
+   align-items:center ;
+   justify-content: flex-end;
+}
+.orderdetail_zq{
+    width:rem(157);
+    height:rem(34);
+    font-size:rem(20);
+    border-radius:rem(8);
+    color:#808080;
+    background-color:#383838;
+    margin-top:rem(20);
+}
+//
+//.content_zq{
+//  background: url(../assets/imgs/incomebg.png) #181818 no-repeat bottom center;
+//  background-size:100% rem(349);
+//}
+}

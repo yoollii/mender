@@ -1,0 +1,45 @@
+page-teachers {
+    .marginTop-yl {
+        height: rem(38);
+        background-color: #181818;
+    }
+    .content {
+        background: url(../assets/imgs/person/background-top.png) #222 50% 25% no-repeat;
+        background-size: 60%;
+    }
+    .teachers-group-yl {
+        .timg {
+            width: rem(120);
+        }
+        .img-wrap-yl {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: rem(69);
+            .teachers-icon-yl {
+                background: url("../assets/imgs/person/portrait.png") no-repeat;
+                background-size: rem(180) rem(180);
+                position: relative;
+                width: rem(180);
+                height: rem(180);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .teachername {
+                    width: rem(104);
+                    height: rem(103);
+                    position: absolute;
+                    left: rem(128);
+                    top: rem(-31);
+                }
+                .teacherRelationship {
+                    width: rem(86);
+                    height: rem(86);
+                    position: absolute;
+                    left: rem(160);
+                    top: rem(32);
+                }
+            }
+        }
+    }
+}

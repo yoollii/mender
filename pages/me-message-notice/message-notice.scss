@@ -1,0 +1,54 @@
+page-message-notice {
+  .content {
+    background-color: #222222;
+  }
+  .black-div-wz {
+    height: rem(40);
+    background-color: #181818;
+  }
+  .content-div1-wz {
+    border: 1px solid black;
+    border-radius: rem(10);
+    height: rem(380);
+    width: rem(635);
+    margin-top: rem(45);
+    margin-left: rem(60);
+    background: url("../../assets/imgs/person/notice/mm.png") no-repeat;
+    background-size: 100%;
+  }
+  .content-div1-1-wz {
+    height: rem(75);
+    border-bottom: 1px solid #d1ae69;
+    width: 90%;
+    margin-left: 5%;
+  }
+  .content-div1-1-wz p {
+    margin: 0px;
+    position: relative;
+    top: rem(40);
+    left: rem(12);
+  }
+  .content-div1-2-wz {
+    height: rem(245);
+    border-bottom: 1px solid #d1ae69;
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+  }
+  .content-div1-2-wz p {
+    width: 90%;
+    margin-left: 5%;
+    color: #d1ae69;
+  }
+  .content-div1-3-wz {
+    width: 90%;
+    margin-left: 5%;
+    p {
+      margin-top: rem(4);
+      margin-left: rem(330);
+      color: #d1ae69;
+      display: flex;
+    }
+  }
+}

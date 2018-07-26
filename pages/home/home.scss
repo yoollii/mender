@@ -1,0 +1,103 @@
+page-home {
+  .notice_zq{
+      background:linear-gradient(to right,#222 ,#404040,#222);
+      color:#fff;
+      height:rem(49);
+      line-height:rem(49);
+      padding:0 rem(24);
+      margin:rem(41) rem(16) rem(20) rem(16); 
+      font-size:rem(22);
+      img{
+          height:rem(36);
+          width:rem(36);
+          vertical-align: middle;
+      }
+  }
+  .nowTime_zq{
+      font-size:rem(128);
+      text-align: center;
+      color:$Themecolor;
+  }
+  .nowDay_zq{
+     text-align: center;
+     color:$Themecolor;
+     font-size:rem(22); 
+  }
+  .homeBg_zq{
+      height:rem(300);
+      width:100%;
+      margin-top:rem(38);
+      background:url(../../assets/imgs/home_bg.png);
+      background-size:100% 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .div_zq{
+          height:rem(300);
+          width:rem(300);
+          background:url(../../assets/imgs/home_circle.png);
+          background-size:100% 100%;
+          position: absolute;
+          z-index:1;
+      }
+      button:hover +.div_zq{
+          transform: rotate(360deg);
+          transform-origin: center center;
+          transition:transform 3s linear;
+      }
+      button{
+          font-size:rem(72);
+          line-height:rem(70);
+          font-weight: bold;
+          color:transparent;
+          -webkit-text-stroke:1px $Themecolor;
+          background-color:rgba(0,0,0,0);
+          width:rem(180);
+          height: rem(180);
+          border-radius: 50%;
+          position: absolute;
+          z-index:2;
+      }
+  }
+
+  .badge-ios{
+      height:rem(44);
+      width:rem(44);
+      font-size:rem(20);
+      color:#000;
+      border-radius: 50%;
+      background-color:#606060;
+      display: flex;
+      justify-content:center;
+      align-items: center;
+      position:absolute;
+      left:rem(90);
+      top:rem(10);
+  }
+  .bg_zq{
+      background-color:$Themecolor;
+  }
+  
+  .circle_zq{
+     height:rem(124);
+      width:rem(124);
+      margin:auto;
+      font-size:rem(28);
+      color:$Themecolor;
+      display:flex;
+      justify-content:center;
+      align-items: center; 
+      position:relative;
+  }
+  .circle1_zq{
+    background: url(../../assets/imgs/circle.png);
+    background-size:100% 100%;
+  }
+  .circle2_zq{
+    background: url(../../assets/imgs/circle_act.png);
+    background-size:100% 100%;
+  }
+  
+
+}
