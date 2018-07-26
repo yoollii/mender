@@ -40,9 +40,10 @@ import { PerformancePage } from '../pages/me-performance/performance';
     BrowserModule,
     IonicModule.forRoot(MyApp,{
     	iconMode: 'ios',
-    	mode: 'ios',  
+    	mode: 'ios',  //平台样式
     	backButtonText: '',//按钮内容
       backButtonIcon: 'myback',//按钮图标样式
+      tabsHideOnSubPages: 'true' , //隐藏全部子页面tabs
     })
   ],
   bootstrap: [IonicApp],
