@@ -39,6 +39,8 @@ import { PerformancePage } from '../pages/me-performance/performance';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp,{
+    	iconMode: 'ios',
+    	mode: 'ios',  
     	backButtonText: '',//按钮内容
       backButtonIcon: 'myback',//按钮图标样式
     })

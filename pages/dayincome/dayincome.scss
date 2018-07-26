@@ -1,25 +1,24 @@
 page-dayincome {
 
-.list-ios,.list-md{
+.list-ios{
     margin:rem(20) 0 0 0;
     padding:0 rem(16);
     background-color:#222;
 }
-.item-ios,.item-md{
+.item-ios{
     background-color:#222;
 }
-.list-ios .item-block .item-inner,.item-ios.item-block .item-inner,.list-md .item-block .item-inner,.item-md.item-block .item-inner{
+.list-ios .item-block .item-inner,.item-ios.item-block .item-inner{
      border-bottom:none;
 }
-.list-ios > .item-block:first-child,.list-ios > .item-block,.list-md > .item-block:first-child,.list-md > .item-block{
+.list-ios > .item-block:first-child,.list-ios > .item-block{
     border-top:none;
     border-bottom: 0.55px solid $Themecolor;
 }
-.list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block,.list-md > .item-block:last-child, .list-md > .item-wrapper:last-child .item-block {
+.list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{
     border-bottom:none;
     
 }
-
 .rankname_zq{
    margin-top:rem(20);
    height:rem(120);
@@ -31,7 +30,7 @@ page-dayincome {
    justify-content: center;
    background-color:#222;
 }
-.item-ios h1,.item-md h1{
+.item-ios h1{
     color:$Themecolor;
     text-align:center;
     font-size:rem(36); 
@@ -41,6 +40,7 @@ page-dayincome {
 }
 .incomeimg_zq{
     background-color: #222;
+    width:100%;
 }
 .flexcc_zq{
     display: flex;
@@ -55,4 +55,9 @@ page-dayincome {
     background-color:#383838;
     margin-top:rem(20);
 }
+//
+//.content_zq{
+//  background: url(../assets/imgs/incomebg.png) #181818 no-repeat bottom center;
+//  background-size:100% rem(349);
+//}
 }
