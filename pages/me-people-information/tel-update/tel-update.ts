@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 
 /**
  * Generated class for the TelUpdatePage page.
@@ -15,11 +15,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TelUpdatePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  isHidden = true;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertController: AlertController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TelUpdatePage');
   }
 
+  telSure() {
+    this.isHidden = false;
+  }
 }
