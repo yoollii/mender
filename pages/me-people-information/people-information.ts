@@ -10,7 +10,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'people-information',
+  selector: 'page-people-information',
   templateUrl: 'people-information.html'
 })
 export class PeopleInformationPage {
