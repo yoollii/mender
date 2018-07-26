@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {TelUpdatePage} from "./tel-update/tel-update";
 
 /**
- * Generated class for the PeopleInformationPage page.
+ * Generated class for the OrderacceptPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,20 +10,16 @@ import {TelUpdatePage} from "./tel-update/tel-update";
 
 @IonicPage()
 @Component({
-  selector: 'page-people-information',
-  templateUrl: 'people-information.html'
+  selector: 'page-orderaccept',
+  templateUrl: 'orderaccept.html',
 })
-export class PeopleInformationPage {
+export class OrderacceptPage {
 
-  str = 'nihao';
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PeopleInformationPage');
-  }
-  goToTelUpdatePage() {
-    this.navCtrl.push(TelUpdatePage);
+    console.log('ionViewDidLoad OrderacceptPage');
   }
 
 }
