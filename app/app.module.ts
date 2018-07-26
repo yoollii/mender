@@ -25,6 +25,7 @@ import { PeopleInformationPage } from '../pages/me-people-information/people-inf
 //消息通知
 import { MessageNoticePage } from '../pages/me-message-notice/message-notice';
 import { PerformancePage } from '../pages/me-performance/performance';
+import {TelUpdatePage} from "../pages/me-people-information/tel-update/tel-update";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { PerformancePage } from '../pages/me-performance/performance';
     MessageNoticePage,
     PerformancePage,
     OrderdetailPage,
-    OrderacceptPage
+    OrderacceptPage,
+    TelUpdatePage
   ],
   imports: [
     BrowserModule,
@@ -68,7 +70,8 @@ import { PerformancePage } from '../pages/me-performance/performance';
     MessageNoticePage,
     PerformancePage,
     OrderdetailPage,
-    OrderacceptPage
+    OrderacceptPage,
+    TelUpdatePage
   ],
   providers: [
     StatusBar,
