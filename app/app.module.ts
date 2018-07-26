@@ -9,9 +9,14 @@ import { MePage } from '../pages/me/me';
 import { TabsPage } from '../pages/tabs/tabs';
 //首页
 import { HomePage } from '../pages/home/home';
-import { DayincomePage } from '../pages/dayincome/dayincome';
-import { IncomedetailPage } from '../pages/incomedetail/incomedetail';
-import { RanklistPage } from '../pages/ranklist/ranklist';
+import { DayincomePage } from '../pages/home/dayincome/dayincome';
+import { IncomedetailPage } from '../pages/home/incomedetail/incomedetail';
+import { RanklistPage } from '../pages/home/ranklist/ranklist';
+//订单
+import { OrderdetailPage } from '../pages/order/orderdetail/orderdetail';
+import { OrderacceptPage } from '../pages/order/orderaccept/orderaccept';
+
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -34,7 +39,9 @@ import { PerformancePage } from '../pages/me-performance/performance';
     IncomedetailPage,
     PeopleInformationPage,
     MessageNoticePage,
-    PerformancePage
+    PerformancePage,
+    OrderdetailPage,
+    OrderacceptPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +66,9 @@ import { PerformancePage } from '../pages/me-performance/performance';
     IncomedetailPage,
     PeopleInformationPage,
     MessageNoticePage,
-    PerformancePage
+    PerformancePage,
+    OrderdetailPage,
+    OrderacceptPage
   ],
   providers: [
     StatusBar,
