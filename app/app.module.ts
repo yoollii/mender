@@ -17,7 +17,8 @@ import { RanklistPage } from '../pages/home/ranklist/ranklist';
 import { OrderdetailPage } from '../pages/order/orderdetail/orderdetail';
 import { OrderacceptPage } from '../pages/order/orderaccept/orderaccept';
 import { OrdertransferPage } from '../pages/order/ordertransfer/ordertransfer';
-
+//配件商城
+import { PartsMallPage } from '../pages/parts-mall/parts-mall';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -54,6 +55,7 @@ import {ReceiveRecordPage} from "../pages/me-receive-record/receive-record";
     DdChaoshiPage,
     OrdertransferPage,
     ShopChoosePage,
+    PartsMallPage,
     ReceiveRecordPage
   ],
   imports: [
@@ -89,6 +91,7 @@ import {ReceiveRecordPage} from "../pages/me-receive-record/receive-record";
     DdChaoshiPage,
     OrdertransferPage,
     ShopChoosePage,
+    PartsMallPage,
     ReceiveRecordPage
   ],
   providers: [

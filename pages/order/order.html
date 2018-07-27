@@ -25,39 +25,6 @@
   </ion-grid>
   <div class='custom-list'>
       <list-item (click)="viewDetail()"></list-item>
-      <!--ion-card *ngFor="let item of dataList" (click)="viewDetail" class="list-item">
-        <ion-card-content>
-            <ion-grid no-padding>
-                <ion-row>
-                  <ion-col text-left>
-                    订单编号：{{item.order_no}}
-                  </ion-col>
-                  <ion-col col-2 *ngIf="item.status==0" text-right>
-                    待接单
-                  </ion-col>
-                </ion-row>
-                <ion-row *ngFor="let pro_item of item.products_list;index as i">
-                    <ion-col >
-                      <ion-grid>
-                        <ion-row>
-                          <ion-col colo>
-                            <img src="{{pro_item.thumbnail}}" alt="">
-                          </ion-col>
-                          <ion-col >
-                              <div>{{pro_item.name}}</div>
-                              <div>{{pro_item.info}}</div>
-                              <div>颜色：{{pro_item.color}}</div>
-                          </ion-col>
-                        </ion-row>
-                      </ion-grid>
-                    </ion-col>
-                    <ion-col col-2>
-                      
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
-        </ion-card-content>
-      </ion-card-->
   </div>
   
 </ion-content>

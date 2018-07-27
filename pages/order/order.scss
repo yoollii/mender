@@ -33,6 +33,7 @@ page-order {
     }
     .badge{
         position: absolute;
+        border-radius: 50%;
         top:rem(-10);
         right:rem(20);
         background-color: $grey-background-color;
