@@ -26,27 +26,26 @@ list-item {
       color: #d1ae69;
     }
   }
-  .list-item-content-ys{
+  .list-item-content-ys {
     border-bottom: 2px solid #6c5c3e;
     padding-top: rem(20);
     font-weight: 500;
     padding-bottom: rem(20);
-    img{
-      display: inline-block;
-      margin: 0 rem(25);
-      vertical-align:sub;
+    img {
+        display: inline-block;
+        margin: 0 rem(25);
+        vertical-align: sub;
     }
-      ul{
+    ul {
         font-size: rem(20);
         padding: 0;
         display: inline-block;
-        li{
-          list-style: none;
-          line-height: rem(28);
+        li {
+            list-style: none;
+            line-height: rem(28);
         }
-
     }
-  }
+}
   .list-item-bottom-ys{
     border-bottom: 2px solid #6c5c3e;
     font-size: rem(20);

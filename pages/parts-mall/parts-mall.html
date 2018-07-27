@@ -1,0 +1,66 @@
+<!--
+  Generated template for the PartsMallPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>选取配件</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="main-content">
+  <ion-card no-padding class="custom-card">
+    <ion-card-header text-center class="wel-title">
+      请选择您需要的配件
+      <span class="shop-car">
+        <ion-badge class="badge">20</ion-badge>
+      </span>
+    </ion-card-header>
+    <ion-card-content text-center class="wel-text">
+      感谢您选择修匠手机上门维修手机回收平台，欢迎再次光临~
+    </ion-card-content>
+  </ion-card>
+  <ion-grid class="main-section" no-padding>
+    <ion-row>
+      <ion-col col-4 class="nav-section">
+        <ion-content>
+          <ul class="nav-list">
+            <li [ngClass]="{'nav-item':true,'active':i==navIndex}" *ngFor="let item of navList;index as i" (click)="navChange(i)">{{item}}</li>
+          </ul>
+        </ion-content>
+      </ion-col>
+      <ion-col class="content-section">
+        <ion-searchbar  class="serch-bar" placeholder="输入关键字"></ion-searchbar>
+        <div class="product-list">
+          <ion-content>
+              <ion-grid>
+                <ion-row class="pro-item">
+                  <ion-col col-4>
+                    <div class="thumbnail">
+                        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1532687059832&di=aabf21ba63e634ddfd830d95b74f3b15&imgtype=0&src=http%3A%2F%2Fpic27.nipic.com%2F20130310%2F6428558_154328322000_2.jpg" alt="">
+                    </div>
+                  </ion-col>
+                  <ion-col style="width:0">
+                      <div class="pro-name ellipse">4342硬盘4342硬盘4342硬盘4342硬盘4342硬盘4342硬盘</div>
+                      <div class="pro-price">￥320.00</div>
+                      <ion-toggle class="toggle" color="dark" checked="false"></ion-toggle>
+                    </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-content [ngClass]="{'brand-list':true,'show':show}" (click)="viewBrand()">
+                <ul>
+                  <li class="brand-item">iphone</li>
+                  <li class="brand-item">华为</li>
+                </ul>
+              </ion-content>
+          </ion-content>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
