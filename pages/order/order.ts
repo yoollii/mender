@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { OrderdetailPage } from './orderdetail/orderdetail';
+import { NavController,NavParams } from 'ionic-angular';
 /**
  * Generated class for the OrderPage page.
  *
@@ -66,7 +67,9 @@ export class OrderPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrderPage');
   }
+  
   changeTabs(index){
+  	console.log(index);
     if(this.tabsIndex!==index){
       this.tabsIndex = index;
     }

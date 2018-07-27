@@ -20,7 +20,6 @@ page-dayincome {
     
 }
 .rankname_zq{
-   margin-top:rem(20);
    height:rem(120);
    width:100%;
    font-size:rem(48); 
@@ -28,7 +27,7 @@ page-dayincome {
    display: flex;
    align-items:center ;
    justify-content: center;
-   background-color:#222;
+   background:linear-gradient(to right, #242424, #2c2c2c, #242424);
 }
 .item-ios h1{
     color:$Themecolor;
@@ -54,11 +53,13 @@ page-dayincome {
     border-radius:rem(8);
     color:#808080;
     background-color:#383838;
-    margin-top:rem(20);
 }
-//
-//.content_zq{
-//  background: url(../assets/imgs/incomebg.png) #181818 no-repeat bottom center;
-//  background-size:100% rem(349);
-//}
+.content_zq{
+    background:#222;
+}
+.blackdiv{
+    width:100%;
+    height:rem(20);
+    background-color:#181818;
+}
 }
