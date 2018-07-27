@@ -66,7 +66,9 @@ export class OrderPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrderPage');
   }
+  
   changeTabs(index){
+  	console.log(index);
     if(this.tabsIndex!==index){
       this.tabsIndex = index;
     }

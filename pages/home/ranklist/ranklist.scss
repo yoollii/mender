@@ -41,7 +41,7 @@ page-ranklist {
    display: flex;
    align-items:center ;
    justify-content: center;
-   background-color:#222;
+   background:linear-gradient(to right, #242424, #2c2c2c, #242424);
 }
 .item-ios h2{
     color:$Themecolor

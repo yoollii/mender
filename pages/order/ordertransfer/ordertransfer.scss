@@ -30,8 +30,9 @@ page-ordertransfer {
     color:$Themecolor;
     .form1_zq{
         padding:rem(18) rem(35);
+        min-height:rem(300);
         .info_zq{
-            width:rem(270);
+            width:rem(290);
             height:rem(230);
             margin:auto;
             margin-top:rem(30);
@@ -87,10 +88,9 @@ page-ordertransfer {
 .checkbox-ios .checkbox-checked .checkbox-inner{
     height:rem(27);
     width:rem(16);
-    top:-8px;
+    top:rem(-10);
+    left:rem(10);
     border-color:$Themecolor;
-}
-.checkbox-ios .checkbox-checked .checkbox-inner{
     border-width:rem(4);
     border-top-width: 0;
     border-left-width: 0;

@@ -2,6 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { FormsModule} from '@angular/forms';
 
 import { OrderPage } from '../pages/order/order';
 import { OrdermapPage } from '../pages/ordermap/ordermap';
@@ -16,7 +17,8 @@ import { RanklistPage } from '../pages/home/ranklist/ranklist';
 import { OrderdetailPage } from '../pages/order/orderdetail/orderdetail';
 import { OrderacceptPage } from '../pages/order/orderaccept/orderaccept';
 import { OrdertransferPage } from '../pages/order/ordertransfer/ordertransfer';
-
+//配件商城
+import { PartsMallPage } from '../pages/parts-mall/parts-mall';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -55,11 +57,14 @@ import { MeAllStudentsPage } from '../pages/me/me-all-students/me-all-students';
     OrdertransferPage,
     ShopChoosePage,
     ReceiveRecordPage,
-    MeAllStudentsPage
+    MeAllStudentsPage,
+    PartsMallPage,
+    ReceiveRecordPage
   ],
   imports: [
     BrowserModule,
     ComponentsModule,
+    FormsModule,
     IonicModule.forRoot(MyApp,{
     	iconMode: 'ios',
     	mode: 'ios',  //平台样式
@@ -90,7 +95,9 @@ import { MeAllStudentsPage } from '../pages/me/me-all-students/me-all-students';
     OrdertransferPage,
     ShopChoosePage,
     ReceiveRecordPage,
-    MeAllStudentsPage
+    MeAllStudentsPage,
+    PartsMallPage,
+    ReceiveRecordPage
   ],
   providers: [
     StatusBar,

@@ -8,10 +8,6 @@ page-message-notice {
   }
   .content-div1-wz {
     border-radius: rem(10);
-    height: rem(380);
-    width: rem(635);
-    margin-top: rem(45);
-    margin-left: rem(60);
     background: url("../../assets/imgs/person/notice/mm.png") no-repeat;
     background-size: 100%;
   }
@@ -46,9 +42,10 @@ page-message-notice {
   .content-div1-3-wz {
     width: 90%;
     margin-left: 5%;
+    display: flex;
+    justify-content: flex-end;
     p {
-      margin-top: rem(15);
-      margin-left: rem(380);
+      margin: 2% 3% 2% 0;
       color: $Themecolor;
       font-family: "Microsoft YaHei UI";
       font-size: rem(20);

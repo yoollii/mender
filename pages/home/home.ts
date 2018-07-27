@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { DayincomePage } from './dayincome/dayincome';
 import { RanklistPage } from './ranklist/ranklist';
-//import { OrderacceptPage } from '../order/orderaccept/orderaccept';
+//import { OrderPage } from '../order/order';
 import { OrdertransferPage } from '../order/ordertransfer/ordertransfer';
 @Component({
   selector: 'page-home',
@@ -57,8 +57,9 @@ export class HomePage {
   	this.rankingList=false;
   	this.order=true;
     this.income=false;
-//  this.navCtrl.push(OrderacceptPage);
+//  this.navCtrl.push(OrderPage,params:{'tabindex':1});
 		this.navCtrl.push(OrdertransferPage);
+//  this.navCtrl.parent.select(2);
   }
   incomeZq(){//今日收入
   	this.rankingList=false;

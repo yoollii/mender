@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { PartsMallPage } from '../../parts-mall/parts-mall';
 /**
  * Generated class for the OrderdetailPage page.
  *
@@ -21,5 +21,7 @@ export class OrderdetailPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrderdetailPage');
   }
-
+  partsMall(){
+    this.navCtrl.push(PartsMallPage);
+  }
 }

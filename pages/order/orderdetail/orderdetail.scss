@@ -4,6 +4,11 @@ page-orderdetail {
     ion-content {
        height: 92%;
     }
+    ul,li {
+        margin:0;
+        padding:0;
+        list-style: none;
+    }
     .custom-card {
         background:$pannel-background-color;
         width:100%;
@@ -144,6 +149,32 @@ page-orderdetail {
             }
             
             
+        }
+    }
+    .list-item-content-ys{
+        img{
+          width: rem(79);
+          height: rem(79);
+        }
+    
+      }
+    .list-item-content-ys {
+        padding-top: rem(20);
+        font-weight: 500;
+        padding-bottom: rem(20);
+        img {
+            display: inline-block;
+            margin: 0 rem(25);
+            vertical-align: sub;
+        }
+        ul {
+            font-size: rem(20);
+            padding: 0;
+            display: inline-block;
+            li {
+                list-style: none;
+                line-height: rem(28);
+            }
         }
     }
 }

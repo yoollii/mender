@@ -14,6 +14,7 @@
 
 
 <ion-content>
+<!--<form [formGroup]="validateForm"  class="login-form" (ngSubmit)="submitForm()">-->
 <div class="title_zq">
 	<div>
 	<h2>请填写您的转单详情</h2>
@@ -23,11 +24,14 @@
 <div class="turn_zq">
 <div class='form1_zq'>
 	<label class='label_zq'>技师工号:</label>
-	<input type="number" class='input_zq' />
-	<div class='info_zq'>
+	<input type="number" class='input_zq' [(ngModel)]="menderNum"  (change)='searchInfo()'/>
+	<div class='info_zq' *ngIf='showinfo'>
 		<p>姓名：张有才</p>
 		<p>工号：1234354355</p>
 		<p>电话：12222333345</p>
+	</div>
+	<div class='info_zq' *ngIf='showinfoe'>
+		<p>未找到该工号技师！</p>
 	</div>
 </div>
 <div class="line_zq">
@@ -37,14 +41,15 @@
 	<label class='label_zq'>转单原因:</label>
 	<ion-item class='mb_zq'>
 	  <ion-label>主板故障，需专业主板工程师维修。</ion-label>
-	  <ion-checkbox color="dark" checked="true"></ion-checkbox>
+	  <ion-checkbox color="dark" checked="false" [(ngModel)]="reason1"></ion-checkbox>
 	</ion-item>
 	<ion-item>
 	  <ion-label>我距离目的地较远，不能按时到达指定地点。</ion-label>
-	  <ion-checkbox color="dark" checked="true"></ion-checkbox>
+	  <ion-checkbox color="dark" checked="false" [(ngModel)]="reason2"></ion-checkbox>
 	</ion-item>
   
 </div>
 </div>
-<button class="sureOrder_zq">确认订单</button>
+<button class="sureOrder_zq" (click)='sureTurn()'>确认订单</button>
+<!--</form>-->
 </ion-content>
