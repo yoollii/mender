@@ -1,3 +1,149 @@
+$pannel-background-color: radial-gradient(90% 110%,#3d3d3d,rgb(43, 43, 43));
+$grey-text-color:#787878;
 page-orderdetail {
-
+    ion-content {
+       height: 92%;
+    }
+    .custom-card {
+        background:$pannel-background-color;
+        width:100%;
+        padding:0;
+        margin:rem(20) 0;
+        border-radius: 0;
+    }
+    .wel-title {
+        font-size: rem(32);
+        color:$Themecolor;
+    }
+    .wel-text {
+        font-size:rem(16);
+        color:$grey-text-color;
+    }
+    .custom-pannel-card {
+        background:$pannel-background-color;
+        
+        ion-row {
+            font-size: rem(22);
+            padding:rem(10) 0;
+            padding-left:rem(10);
+            padding-right:rem(10);
+        }
+    }
+    .pannel-title {
+        font-size: rem(22);
+        color:$Themecolor;
+    }
+    .border {
+        position: relative;
+       
+        &:after {
+            content:"";
+            display: block;
+            position: absolute;
+            bottom:0;
+            left:0;
+            right:0;
+            height: rem(1);
+            background-color:$Themecolor;
+            transform: scaleY(.5);
+        }
+        &:before {
+            content:"";
+            display: block;
+            position: absolute;
+            bottom:0;
+            right:0;
+            width:rem(10);
+            height: rem(10);
+            background-color:$Themecolor;
+            border-radius: 100%;
+            transform: translateY(50%)
+        }
+    }
+    .foot-tabs {
+        position: fixed;
+        bottom:0;
+        left:0;
+        width:100%;
+        padding:rem(13) 0 rem(9) 0;
+        background-color: #000;
+        z-index: 10000;
+        ion-col {
+            font-size: rem(20);
+            font-weight: bold;
+            color:$grey-text-color;
+            position: relative;
+            padding:0;
+            &:not(:last-child):after {
+                position: absolute;
+                right:0;
+                top:0;
+                bottom:0;
+                content:"";
+                display: block;
+                border-right:rem(1) solid #161616;
+                box-shadow: -1px 0 1px  #1b1b1b
+            }
+        }
+        .icon {
+            display: block;
+            width:rem(40);
+            height: rem(40);
+            margin:0 auto;
+            background-position: center;
+            background-size:rem(40);
+            background-repeat: no-repeat;
+            margin-bottom:rem(10);
+            &.active+span {
+                color:$Themecolor;
+            }
+            &.tel {
+                background-image:url('../../../assets/icon/icon-tel.svg');
+            }
+            &.tel-active {
+                background-image:url('../../../assets/icon/icon-tel-active.svg');
+            }
+            &.gps {
+                background-image:url('../../../assets/icon/icon-gps.svg');
+            }
+            &.cancel {
+                background-image:url('../../../assets/icon/icon-cancel.svg');
+                background-size:rem(42)
+            }
+            &.is_confirm {
+                background-image:url('../../../assets/icon/icon-order-confirm.svg');
+                background-size:rem(42)
+            }
+            &.components {
+                background-image:url('../../../assets/icon/icon-component.svg');
+                background-size:rem(50)
+            }
+            &.finish {
+                background-image:url('../../../assets/icon/icon-order-finish.svg');
+               
+            }
+            &.out {
+                background-image:url('../../../assets/icon/icon-order-out.svg');
+               
+            }
+            &.wallet {
+                background-image:url('../../../assets/icon/icon-wallet-active.svg');
+               
+            }
+            &.imei {
+                background-image:url('../../../assets/icon/icon-tel-02.svg');
+               
+            }
+            &.order {
+                background-image:url('../../../assets/icon/icon-order-02.svg');
+               
+            }
+            &.discuss {
+                background-image:url('../../../assets/icon/icon-discuss.svg');
+               
+            }
+            
+            
+        }
+    }
 }
