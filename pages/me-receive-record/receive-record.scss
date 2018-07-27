@@ -7,13 +7,14 @@ page-receive-record {
     background-color: #222222;
   }
   .record-img-wz {
-    background: url("../../assets/imgs/person/notice/mm.png") rem(20) rem(-20) no-repeat;
+    background: url("../../assets/imgs/person/notice/mm.png") 0 rem(-20) no-repeat;
     background-size: 100%;
   }
   .item-ios,.card-ios{
     background-color: #353535;
     color: #ffffff;
     padding-bottom: rem(15);
+    border-radius: rem(10);
   }
   .list-item-content-ys{
     height: rem(190);
