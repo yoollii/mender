@@ -1,3 +1,61 @@
+$grey-text-color:#808080;
+$tabs-font-size:rem(28);
+$grey-background-color:$grey-text-color;
+$red-background-color:#dc3c14;
 page-order {
-
+    .tabs {
+        background:radial-gradient(90% 110%,#3d3d3d,rgb(43, 43, 43))
+    }
+    .icon {
+        display: block;
+        width:rem(50);
+        height: rem(50);
+        color:$grey-text-color;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: rem(50);
+        margin:0 auto;
+        &+span {
+            color:$grey-text-color;
+            font-size: $tabs-font-size;
+        }
+        &.active+span {
+            color:$Themecolor;
+            font-size:$tabs-font-size;
+        }
+        &.active+.badge {
+            background:$red-background-color
+        }
+        &.wait,&.money {
+            background-size: rem(60);
+        }
+        
+    }
+    .badge{
+        position: absolute;
+        top:rem(-10);
+        right:rem(20);
+        background-color: $grey-background-color;
+        height:rem(44);
+        width:rem(44);
+        font-size:rem(20);
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        &.active {
+            background-color:$red-background-color
+        }
+    }
+    .custom-list {
+        position: absolute;
+        top:rem(166);
+        left:0;
+        right:0;
+        bottom:0;
+    }
+    .list-item {
+        background:radial-gradient(90% 110%,#3d3d3d,rgb(43, 43, 43));
+        width: calc(100% - 48px);
+        margin: 12px 24px;
+    }
 }
