@@ -1,65 +1,79 @@
 page-receive-record {
-  .header-title-wz {
-    margin-right: rem(110);
+  .black-div-wz {
+    height: rem(40);
+    background-color: #181818;
   }
-  .content-div1-wz {
-    border: 1px solid black;
-    border-radius: 5px;
-    height: 35%;
-    margin-bottom: 5%;
+  .content {
+    background-color: #222222;
+  }
+  .record-img-wz {
+    background: url("../../assets/imgs/person/notice/mm.png") rem(20) rem(-20) no-repeat;
+    background-size: 100%;
+  }
+  .item-ios,.card-ios{
     background-color: #353535;
+    color: #ffffff;
+    padding-bottom: rem(15);
   }
-  .content-div1-1-wz {
-    height: 23%;
-    border-bottom: 1px solid #d1ae69;
-    width: 90%;
-    margin-left: 5%;
+  .list-item-content-ys{
+    height: rem(190);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    label {
+      font-family: "Microsoft YaHei UI";
+      font-size: rem(24);
+    }
+    label:nth-of-type(2) {
+      margin-left: rem(80);
+    }
   }
-  .content-p1-wz {
-    margin: 0px;
-    position: relative;
-    top: 55%;
-    left: 2%;
+  .list-item-top-ys{
+    font-size: rem(24);
+    font-weight: 500;
+    color: #ffffff;
+    margin-top:rem(22);
+    border-bottom: 2px solid #6c5c3e;
+    span:first-child{
+      padding: 0 rem(14);
+    }
+    span:last-child{
+      float: right;
+      margin-right: rem(3);
+      color: #d1ae69;
+    }
   }
-  .content-p2-wz {
-    margin: 0px;
-    position: relative;
-    top: 18%;
-    float: right;
-    color: #d1ae69;
+  .list-item-content-ys{
+    border-bottom: 2px solid #6c5c3e;
+    padding-top: rem(20);
+    font-weight: 500;
+    padding-bottom: rem(20);
+    img{
+      display: inline-block;
+      margin: 0 rem(25);
+      vertical-align:sub;
+    }
+    ul{
+      font-size: rem(20);
+      padding: 0;
+      display: inline-block;
+      li{
+        list-style: none;
+        line-height: rem(28);
+      }
+
+    }
   }
-  .content-div1-2-wz {
-    height: 55%;
-    border-bottom: 1px solid #d1ae69;
-    width: 90%;
-    margin-left: 5%;
-  }
-  .content-div1-2-wz pre {
-    width: 90%;
-    margin-left: 5%;
-    position: relative;
-    top: 15%;
-  }
-  .content-div1-2-1-wz {
-    height: 25%;
-    border-top: 1px solid #d1ae69;
-    position: relative;
-    top: rem(85);
-  }
-  .content-div1-2-1-wz label {
-    float: right;
-    position: relative;
-    top: 20%;
-  }
-  .content-div1-3-wz {
-    height: 22%;
-    width: 90%;
-    margin-left: 5%;
-  }
-  .content-div1-3-wz p {
-    margin-top: 1%;
-    margin-bottom: 0px;
-    float: right;
-    color: #d1ae69;
+  .list-item-bottom-ys{
+    border-bottom: 2px solid #6c5c3e;
+    font-size: rem(20);
+    padding: rem(17) 0;
+    font-weight: 500;
+    span {
+      font-family: "Microsoft YaHei UI";
+      font-size: rem(20);
+      position: relative;
+      left: rem(490);
+    }
   }
 }
