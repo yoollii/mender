@@ -13,50 +13,19 @@
 </ion-header>
 
 
-<ion-content padding>
-  <div class="content-div1-wz">
-    <div class="content-div1-1-wz">
-      <p class="content-p1-wz">订单编号 20180728124353454</p>
-      <p class="content-p2-wz">已申请</p>
-    </div>
-    <div class="content-div1-2-wz">
-      <pre>共计占用额度233         共申请11件配件</pre>
-      <div class="content-div1-2-1-wz">
-        <label>订单金额￥8488</label>
+<ion-content>
+  <div class="black-div-wz"></div>
+  <ion-card *ngFor="let record of records">
+    <ion-item class="record-img-wz">
+      <div class="list-item-top-ys">
+        <span>订单编号</span><span>{{record.orderCode}}</span><span>{{record.state}}</span>
       </div>
-    </div>
-    <div class="content-div1-3-wz">
-      <p>修匠手机维修总部</p>
-    </div>
-  </div>
-  <div class="content-div1-wz">
-    <div class="content-div1-1-wz">
-      <p class="content-p1-wz">订单编号 20180728124353454</p>
-      <p class="content-p2-wz">已申请</p>
-    </div>
-    <div class="content-div1-2-wz">
-      <pre>共计占用额度233         共申请11件配件</pre>
-      <div class="content-div1-2-1-wz">
-        <label>订单金额￥8488</label>
+      <div class="list-item-content-ys">
+        <label>总计占用额度{{record.quota}}</label><label>共申请{{record.parts}}件配件</label>
       </div>
-    </div>
-    <div class="content-div1-3-wz">
-      <p>修匠手机维修总部</p>
-    </div>
-  </div>
-  <div class="content-div1-wz">
-    <div class="content-div1-1-wz">
-      <p class="content-p1-wz">订单编号 20180728124353454</p>
-      <p class="content-p2-wz">已申请</p>
-    </div>
-    <div class="content-div1-2-wz">
-      <pre>共计占用额度233         共申请11件配件</pre>
-      <div class="content-div1-2-1-wz">
-        <label>订单金额￥8488</label>
+      <div class="list-item-bottom-ys">
+        <span>订单金额￥{{record.money}}</span>
       </div>
-    </div>
-    <div class="content-div1-3-wz">
-      <p>修匠手机维修总部</p>
-    </div>
-  </div>
+    </ion-item>
+  </ion-card>
 </ion-content>

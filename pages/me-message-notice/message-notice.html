@@ -14,16 +14,27 @@
 
 <ion-content  class="notice-content-wz">
   <div class="black-div-wz"></div>
-  <div class="content-div1-wz" *ngFor="let message of messages">
-    <div class="content-div1-1-wz">
+  <!--<div class="content-div1-wz" *ngFor="let message of messages">-->
+    <!--<div class="content-div1-1-wz border">-->
+      <!--<p>{{message.date | date: 'yyyy-MM-dd hh-ss-mm'}}</p>-->
+    <!--</div>-->
+    <!--<div class="content-div1-2-wz border">-->
+      <!--<p>{{message.content}}</p>-->
+    <!--</div>-->
+    <!--<div class="content-div1-3-wz">-->
+      <!--<p>{{message.footer}}</p>-->
+    <!--</div>-->
+  <!--</div>-->
+  <ion-card *ngFor="let message of messages" class="content-div1-wz">
+      <div class="content-div1-1-wz border">
       <p>{{message.date | date: 'yyyy-MM-dd hh-ss-mm'}}</p>
-    </div>
-    <div class="content-div1-2-wz">
+      </div>
+      <div class="content-div1-2-wz border">
       <p>{{message.content}}</p>
-    </div>
-    <div class="content-div1-3-wz">
+      </div>
+      <div class="content-div1-3-wz">
       <p>{{message.footer}}</p>
-    </div>
-  </div>
+      </div>
+  </ion-card>
 
 </ion-content>

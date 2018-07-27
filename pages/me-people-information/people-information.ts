@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {TelUpdatePage} from "./tel-update/tel-update";
 import {ShopChoosePage} from "../me/shop-choose/shop-choose";
+import {ReceiveRecordPage} from "../me-receive-record/receive-record";
 
 /**
  * Generated class for the PeopleInformationPage page.
@@ -29,5 +30,7 @@ export class PeopleInformationPage {
   goToShopChoosePage() {
     this.navCtrl.push(ShopChoosePage);
   }
-
+  goToShopReceiveRecord() {
+    this.navCtrl.push(ReceiveRecordPage);
+  }
 }
