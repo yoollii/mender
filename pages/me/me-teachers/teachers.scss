@@ -3,19 +3,55 @@ page-teachers {
         height: rem(38);
         background-color: #181818;
     }
+    .bar-yl {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: rem(98);
+        background-color: #181818;
+        .bar-relationship {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        .bar-relationship-left-shadow {
+            box-shadow: rem(10) 0 rem(2) #1f1f1f;
+        }
+        .bar-relationship-right-shadow {
+            box-shadow: -rem(10) 0 rem(2) #0a0a0a;
+        }
+        .student {
+            width: rem(50);
+            height: rem(49);
+        }
+        .teacher {
+            width: rem(42);
+            height: rem(50);
+        }
+        span {
+            color: #ffd47f;
+        }
+        .controlText {
+            color: #808080;
+        }
+    }
     .content {
-        background: url(../assets/imgs/person/background-top.png) #222 50% 25% no-repeat;
+        background: url(../assets/imgs/person/background-top.png) #222 50% 29% no-repeat;
         background-size: 60%;
+        color: #ffd47f;
     }
     .teachers-group-yl {
         .timg {
             width: rem(120);
         }
+        margin-top: rem(69);
         .img-wrap-yl {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: rem(69);
             .teachers-icon-yl {
                 background: url("../assets/imgs/person/portrait.png") no-repeat;
                 background-size: rem(180) rem(180);
@@ -26,6 +62,12 @@ page-teachers {
                 align-items: center;
                 justify-content: center;
                 .teachername {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: url("../assets/imgs/person/teachers/teachername.png") no-repeat;
+                    background-size: rem(104) rem(103);
+                    color: #ffd57f;
                     width: rem(104);
                     height: rem(103);
                     position: absolute;
@@ -33,6 +75,11 @@ page-teachers {
                     top: rem(-31);
                 }
                 .teacherRelationship {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: url("../assets/imgs/person/teachers/teacherRelationship.png") no-repeat;
+                    background-size: rem(86) rem(86);
                     width: rem(86);
                     height: rem(86);
                     position: absolute;
@@ -40,6 +87,73 @@ page-teachers {
                     top: rem(32);
                 }
             }
+        }
+    }
+    .teachers-group-yl:nth-child(3) {
+        margin-top: rem(135);
+    }
+    .students-group-yl {
+        .studentstimg {
+            width: rem(102);
+        }
+        .students-wrap-yl {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: rem(69);
+            .students-icon-yl {
+                background: url("../assets/imgs/person//teachers/gearStudent.png") no-repeat;
+                background-size: rem(157) rem(156);
+                position: relative;
+                width: rem(157);
+                height: rem(156);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .studentsname {
+                    font-size: rem(17);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: url("../assets/imgs/person/teachers/studentName.png") no-repeat;
+                    background-size: rem(90) rem(90);
+                    color: #ffd57f;
+                    width: rem(90);
+                    height: rem(90);
+                    position: absolute;
+                    left: rem(108);
+                    top: rem(-29);
+                }
+                .studentsRelationship {
+                    font-size: rem(24);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: url("../assets/imgs/person/teachers/studentRelationship.png") no-repeat;
+                    background-size: rem(75) rem(75);
+                    width: rem(75);
+                    height: rem(75);
+                    position: absolute;
+                    left: rem(136);
+                    top: rem(27);
+                }
+            }
+        }
+    }
+    .grid {
+        margin-top: rem(60);
+        position: relative;
+        .col {
+            max-width: 32%;
+        }
+        .show-all-yl {
+            background-color: #282828;
+            color: $Themecolor;
+            position: absolute;
+            border-radius: rem(10);
+            padding: rem(26) rem(58);
+            bottom: 0;
+            right: rem(27);
         }
     }
 }

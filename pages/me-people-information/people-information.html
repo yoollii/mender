@@ -17,26 +17,32 @@
   <div class="black-div-wz"></div>
   <div class="people-list-content-wz">
     <ion-list class="people-list-wz">
-      <ion-item>
+      <ion-item class="border">
+        <label (click)="goToShopReceiveRecord()">领取记录</label>
+      </ion-item>
+      <ion-item class="border">
+        <label (click)="goToShopChoosePage()">门店选择</label>
+      </ion-item>
+      <ion-item class="border">
         <label>姓名 ：李小强</label>
       </ion-item>
-      <ion-item>
+      <ion-item class="border">
         <label>工号 ：10086</label>
       </ion-item>
-      <ion-item>
+      <ion-item class="border">
         <label>电话 ：138234534545435</label>
         <label class="people-tel-update-wz" (click)="goToTelUpdatePage()">修改</label>
       </ion-item>
-      <ion-item>
+      <ion-item class="border">
         <label>配件领用额度 ：4399</label>
       </ion-item>
-      <ion-item>
+      <ion-item class="border">
         <label>接单城市 ：成都</label>
       </ion-item>
-      <ion-item>
+      <ion-item class="border">
         <label>上门区域 ：金融城区</label>
       </ion-item>
-      <ion-item>
+      <ion-item class="border">
         <label>主板维修权限</label>
         <span>有</span>
       </ion-item>

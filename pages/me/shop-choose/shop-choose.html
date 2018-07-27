@@ -7,12 +7,19 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>shop-choose</ion-title>
+    <ion-title>门店选择</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <div class="black-div-wz"></div>
+  <div class="shopchoose-list-wz" *ngFor="let shop of shops">
+    <label>{{shop.name}}</label>
+    <br/>
+    <span>{{shop.address}}</span>
+    <label>{{shop.distance}}</label>
+  </div>
 
 </ion-content>
