@@ -90,7 +90,7 @@ page-teachers {
         }
     }
     .teachers-group-yl:nth-child(3) {
-        margin-top: rem(135);
+        margin-top: rem(100);
     }
     .students-group-yl {
         .studentstimg {
@@ -154,6 +154,56 @@ page-teachers {
             padding: rem(26) rem(58);
             bottom: 0;
             right: rem(27);
+        }
+    }
+    .div {
+        position: relative;
+        width: 100%
+    }
+    .mycanvas {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+}
+
+.alert-wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    color: $Themecolor;
+    min-width: 80%;
+    position: relative;
+    top: 33%;
+    background-color: #3c3c3c!important;
+    .alert-button-group {
+        width: 100%;
+        .alert-button:first-child {
+            border-right: 0.55px solid #726140;
+        }
+        .alert-button {
+            border-top: 0.55px solid #726140;
+            color: $Themecolor;
+            font-size: rem(28);
+            font-weight: normal;
+        }
+    }
+    .alert-message {
+        padding: 0;
+        font-size: rem(28);
+    }
+    .alert-head {
+        display: none;
+    }
+    .alert-input-group {
+        margin: 0;
+        padding: rem(50) 0;
+        .alert-input {
+            margin: 0;
+            background-color: #3c3c3c!important;
+            border: 0;
+            border-bottom: 1px solid $Themecolor;
+            border-radius: 0;
         }
     }
 }

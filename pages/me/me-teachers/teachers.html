@@ -14,86 +14,90 @@
 
 
 <ion-content>
-    <div class="marginTop-yl"></div>
-    <div class="teachers-group-yl">
-        <div class="img-wrap-yl">
-            <div class="teachers-icon-yl">
-                <div class="teachername">车迟明</div>
-                <div class="teacherRelationship">师</div>
-                <img class="timg" src="assets/imgs/person/timg (10).png" alt="头像">
-            </div>
-        </div>
-    </div>
-    <!-- <canvas #myCanvas width="685" height="365" style="background-color: #FFF;" (click)="clickCan($event)"></canvas> -->
-    <div class="teachers-group-yl">
-        <div class="img-wrap-yl">
-            <div class="teachers-icon-yl">
-                <div class="teachername">我</div>
-                <img class="timg" src="assets/imgs/person/timg (10).png" alt="头像">
-            </div>
-        </div>
-    </div>
 
-    <ion-grid>
-        <ion-row>
-            <ion-col col-4>
-                <div class="students-group-yl">
-                    <div class="students-wrap-yl">
-                        <div class="students-icon-yl">
-                            <div class="studentsname">
-                                刘雨
-                            </div>
-                            <div class="studentsRelationship">
-                                徒
-                            </div>
-                            <img class="studentstimg" src="assets/imgs/person/timg (10).png" alt="头像">
-                        </div>
-                    </div>
+    <div class="marginTop-yl"></div>
+    <div class='div'>
+        <canvas #myCanvas class='mycanvas'></canvas>
+        <div class="teachers-group-yl">
+            <div class="img-wrap-yl">
+                <div class="teachers-icon-yl teachers-canvas-1">
+                    <div class="teachername">车迟明</div>
+                    <div class="teacherRelationship">师</div>
+                    <img class="timg" src="assets/imgs/person/timg (10).png" alt="头像">
                 </div>
-            </ion-col>
-            <ion-col col-4>
-                <br /><br /> <br /> <br /> <br />
-                <div class="students-group-yl">
-                    <div class="students-wrap-yl">
-                        <div class="students-icon-yl">
-                            <div class="studentsname">
-                                王分子
-                            </div>
-                            <div class="studentsRelationship">
-                                徒
-                            </div>
-                            <img class="studentstimg" src="assets/imgs/person/teachers/timg (10).png" alt="头像">
-                        </div>
-                    </div>
-                </div>
-            </ion-col>
-            <ion-col col-4>
-                <div class="students-group-yl">
-                    <div class="students-wrap-yl">
-                        <div class="students-icon-yl">
-                            <div class="studentsname">
-                                郑雨杰
-                            </div>
-                            <div class="studentsRelationship">
-                                徒
-                            </div>
-                            <img class="studentstimg" src="assets/imgs/person/teachers/timg (10).png" alt="头像">
-                        </div>
-                    </div>
-                </div>
-            </ion-col>
-        </ion-row>
-        <div class="show-all-yl">
-            <span> 查看所有</span>
+            </div>
         </div>
-    </ion-grid>
+        <!-- <canvas #myCanvas width="685" height="365" style="background-color: #FFF;" (click)="clickCan($event)"></canvas> -->
+        <div class="teachers-group-yl">
+            <div class="img-wrap-yl">
+                <div class="teachers-icon-yl teachers-canvas-2">
+                    <div class="teachername">我</div>
+                    <img class="timg" src="assets/imgs/person/timg (10).png" alt="头像">
+                </div>
+            </div>
+        </div>
+
+        <ion-grid>
+            <ion-row>
+                <ion-col col-4>
+                    <div class="students-group-yl">
+                        <div class="students-wrap-yl">
+                            <div class="students-icon-yl">
+                                <div class="studentsname students-canvas-1">
+                                    刘雨
+                                </div>
+                                <div class="studentsRelationship">
+                                    徒
+                                </div>
+                                <img class="studentstimg" src="assets/imgs/person/timg (10).png" alt="头像">
+                            </div>
+                        </div>
+                    </div>
+                </ion-col>
+                <ion-col col-4>
+                    <br /><br /> <br /> <br /> <br />
+                    <div class="students-group-yl">
+                        <div class="students-wrap-yl">
+                            <div class="students-icon-yl">
+                                <div class="studentsname  students-canvas-2">
+                                    王分子
+                                </div>
+                                <div class="studentsRelationship">
+                                    徒
+                                </div>
+                                <img class="studentstimg" src="assets/imgs/person/teachers/timg (10).png" alt="头像">
+                            </div>
+                        </div>
+                    </div>
+                </ion-col>
+                <ion-col col-4>
+                    <div class="students-group-yl">
+                        <div class="students-wrap-yl">
+                            <div class="students-icon-yl">
+                                <div class="studentsname  students-canvas-3">
+                                    郑雨杰
+                                </div>
+                                <div class="studentsRelationship">
+                                    徒
+                                </div>
+                                <img class="studentstimg" src="assets/imgs/person/teachers/timg (10).png" alt="头像">
+                            </div>
+                        </div>
+                    </div>
+                </ion-col>
+            </ion-row>
+            <div class="show-all-yl" (click)="showAllAtudents()">
+                <span> 查看所有</span>
+            </div>
+        </ion-grid>
+    </div>
     <div class="bar-yl">
-        <div class="bar-relationship bar-relationship-left-shadow" (click)="toStudents()">
+        <div class="bar-relationship bar-relationship-left-shadow" (click)="toStudents('确定收徒')">
             <img class="student" [src]="student" alt="收徒">
             <span [ngClass]="{'controlText':controlText}"> 收徒</span>
 
         </div>
-        <div class="bar-relationship bar-relationship-right-shadow" (click)="toTeacher()">
+        <div class="bar-relationship bar-relationship-right-shadow" (click)="toTeacher('确定拜师')">
             <img class="teacher" [src]="teacher" alt="拜师">
             <span [ngClass]="{'controlText':!controlText}">拜师</span>
         </div>
