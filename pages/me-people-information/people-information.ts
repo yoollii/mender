@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {TelUpdatePage} from "./tel-update/tel-update";
+import {ShopChoosePage} from "../me/shop-choose/shop-choose";
 
 /**
  * Generated class for the PeopleInformationPage page.
@@ -16,7 +17,6 @@ import {TelUpdatePage} from "./tel-update/tel-update";
 })
 export class PeopleInformationPage {
 
-  str = 'nihao';
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -25,6 +25,9 @@ export class PeopleInformationPage {
   }
   goToTelUpdatePage() {
     this.navCtrl.push(TelUpdatePage);
+  }
+  goToShopChoosePage() {
+    this.navCtrl.push(ShopChoosePage);
   }
 
 }
