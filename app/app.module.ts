@@ -30,6 +30,7 @@ import {TelUpdatePage} from "../pages/me-people-information/tel-update/tel-updat
 
 import { DdChaoshiPage} from '../pages/dd-chaoshi/dd-chaoshi';
 import {ComponentsModule} from '../components/components.module';
+import {ShopChoosePage} from "../pages/me/shop-choose/shop-choose";
 @NgModule({
   declarations: [
     MyApp,
@@ -49,7 +50,8 @@ import {ComponentsModule} from '../components/components.module';
     OrderacceptPage,
     TelUpdatePage,
     DdChaoshiPage,
-    OrdertransferPage
+    OrdertransferPage,
+    ShopChoosePage
   ],
   imports: [
     BrowserModule,
@@ -81,7 +83,8 @@ import {ComponentsModule} from '../components/components.module';
     OrderacceptPage,
     TelUpdatePage,
     DdChaoshiPage,
-    OrdertransferPage
+    OrdertransferPage,
+    ShopChoosePage
   ],
   providers: [
     StatusBar,
