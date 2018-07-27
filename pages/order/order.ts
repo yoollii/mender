@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { OrderdetailPage } from './orderdetail/orderdetail';
-import { NavController,NavParams } from 'ionic-angular';
 /**
  * Generated class for the OrderPage page.
  *

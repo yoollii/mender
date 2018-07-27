@@ -27,7 +27,7 @@ export class OrdertransferPage {
 
   }
   searchInfo(){
-  	if(this.menderNum != null & this.menderNum != undefined){
+  	if(this.menderNum != null && this.menderNum != undefined){
   	setTimeout(()=>{
   		if(this.menderNum== 1234567890){
   			this.showinfo=true;

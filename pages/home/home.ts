@@ -2,6 +2,8 @@ import { Component} from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { DayincomePage } from './dayincome/dayincome';
 import { RanklistPage } from './ranklist/ranklist';
+//import { OrderPage } from '../order/order';
+import { OrdertransferPage } from '../order/ordertransfer/ordertransfer';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -55,7 +57,9 @@ export class HomePage {
   	this.rankingList=false;
   	this.order=true;
     this.income=false;
-    this.navCtrl.parent.select(2);//跳转到待受理页面
+//  this.navCtrl.push(OrderPage,params:{'tabindex':1});
+		this.navCtrl.push(OrdertransferPage);
+//  this.navCtrl.parent.select(2);
   }
   incomeZq(){//今日收入
   	this.rankingList=false;
