@@ -21,7 +21,33 @@ $Themecolor:#d1ae69; //主题色
     color: #fff;
     background-color: #181818;
 }
+.border {
+  position: relative;
 
+  &:after {
+    content:"";
+    display: block;
+    position: absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    height: rem(1);
+    background-color:$Themecolor;
+    transform: scaleY(.5);
+  }
+  &:before {
+    content:"";
+    display: block;
+    position: absolute;
+    bottom:0;
+    right:0;
+    width:rem(10);
+    height: rem(10);
+    background-color:$Themecolor;
+    border-radius: 100%;
+    transform: translateY(50%)
+  }
+}
 .tabs-ios .tabbar {
     background-color: #171717;
 }
