@@ -73,8 +73,8 @@ page-receive-record {
     span {
       font-family: "Microsoft YaHei UI";
       font-size: rem(20);
-      position: relative;
-      left: rem(490);
+      float: right;
+      margin-right: rem(10);
     }
   }
 }
