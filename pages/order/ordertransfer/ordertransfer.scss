@@ -1,0 +1,104 @@
+page-ordertransfer {
+.title_zq{
+    margin-top:rem(20);
+    width:100%;
+    height:rem(120);
+    background-color:#222;
+    text-align:center;
+    display: flex;
+    align-items:center ;
+    justify-content: center;
+   div{
+       h2{ 
+        color:$Themecolor;
+        font-size:rem(32);
+       }
+        p{
+            font-size:rem(22);
+            color:#808080;
+        }
+   }
+    
+}
+.turn_zq{
+    margin:rem(30) 4% rem(30) 4%;
+    width:92%;
+    height:rem(660);
+    border-radius:rem(10);
+    background:url(../assets/imgs/transterbg.png);
+    background-size:100% 100%;
+    color:$Themecolor;
+    .form1_zq{
+        padding:rem(18) rem(35);
+        .info_zq{
+            width:rem(270);
+            height:rem(230);
+            margin:auto;
+            margin-top:rem(30);
+            padding:rem(35) rem(35);
+            border-radius:rem(10);
+            background-color:rgba(255,255,255,0.1);
+            font-size:rem(24);
+        }
+    }
+    .label_zq{
+        font-size:rem(32);
+    }
+    .input_zq{
+        background: none;
+        border: none;
+        border-bottom:1px solid $Themecolor;
+    }
+    
+}
+.sureOrder_zq{
+    margin:0 4% rem(30) 4%;
+    width:92%;
+    height:rem(68);
+    border-radius:rem(10);
+    background:#3c3c3c;
+    color:$Themecolor;
+    font-size:rem(32);
+}
+.checkbox-ios .checkbox-icon{
+    border-radius:0;
+}
+.item-ios{
+  background:none; 
+  color:$Themecolor;
+  font-size:rem(22); 
+}
+.item-ios.item-block .item-inner{
+    border:none
+}
+.item.item-ios .checkbox-ios{
+    margin-right:rem(8)
+}
+.item-block{
+    min-height:rem(60);
+}
+.checkbox-ios-dark .checkbox-checked,.checkbox-ios .checkbox-icon {
+    height:rem(26);
+    width:rem(26);
+    border-radius:rem(4);
+    border:2px solid $Themecolor;
+    background:none;
+}
+.checkbox-ios .checkbox-checked .checkbox-inner{
+    height:rem(27);
+    width:rem(16);
+    top:-8px;
+    border-color:$Themecolor;
+}
+.checkbox-ios .checkbox-checked .checkbox-inner{
+    border-width:rem(4);
+    border-top-width: 0;
+    border-left-width: 0;
+}
+.mb_zq{
+    margin-top:rem(60);
+}
+.line_zq{
+    width:100%;
+}
+}

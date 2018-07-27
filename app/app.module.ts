@@ -15,7 +15,7 @@ import { RanklistPage } from '../pages/home/ranklist/ranklist';
 //订单
 import { OrderdetailPage } from '../pages/order/orderdetail/orderdetail';
 import { OrderacceptPage } from '../pages/order/orderaccept/orderaccept';
-
+import { OrdertransferPage } from '../pages/order/ordertransfer/ordertransfer';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -48,7 +48,8 @@ import {ComponentsModule} from '../components/components.module';
     OrderdetailPage,
     OrderacceptPage,
     TelUpdatePage,
-    DdChaoshiPage
+    DdChaoshiPage,
+    OrdertransferPage
   ],
   imports: [
     BrowserModule,
@@ -79,7 +80,8 @@ import {ComponentsModule} from '../components/components.module';
     OrderdetailPage,
     OrderacceptPage,
     TelUpdatePage,
-    DdChaoshiPage
+    DdChaoshiPage,
+    OrdertransferPage
   ],
   providers: [
     StatusBar,
