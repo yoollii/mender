@@ -14,12 +14,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'teachers.html',
 })
 export class TeachersPage {
-
+  student:string;
+  teacher:string;
+  controlText:boolean;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.student="assets/imgs/person/teachers/cupColor.png";
+    this.teacher='assets/imgs/person/teachers/teacherIcon.png';
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TeachersPage');
   }
-
+  toStudents(){
+    this.student="assets/imgs/person/teachers/cupColor.png";
+    this.teacher='assets/imgs/person/teachers/teacherIcon.png';
+    this.controlText=false;
+  }
+  toTeacher(){
+    this.student="assets/imgs/person/teachers/cup.png";
+    this.teacher='assets/imgs/person/teachers/teacherIconColor.png';
+    this.controlText=true;
+  }
 }
