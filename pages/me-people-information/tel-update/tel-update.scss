@@ -1,3 +1,27 @@
+.alert-ios .alert-wrapper {
+  border-radius: rem(10);
+  background-color: #3c3c3c;
+  width: rem(585);
+  height: rem(265);
+  position: relative;
+  top: rem(-100);
+  .alert-title {
+    font-family: "Microsoft YaHei UI";
+    font-size: rem(28);
+    color: $Themecolor;
+    font-weight: 500;
+    margin-top: rem(65);
+  }
+  .alert-sub-title {
+    font-family: "Microsoft YaHei UI";
+    font-size: rem(28);
+    color: $Themecolor;
+    margin-top: rem(65);
+  }
+  .alert-head {
+    padding: 0px;
+  }
+}
 page-tel-update {
   .black-div-wz {
     height: rem(40);
