@@ -15,7 +15,7 @@ import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angula
 })
 export class TelUpdatePage {
 
-  isHidden = true;
+  telphone = '138*****235';
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertController: AlertController) {
   }
 
@@ -24,6 +24,10 @@ export class TelUpdatePage {
   }
 
   telSure() {
-    this.isHidden = false;
+    const alert = this.alertController.create({
+      title: '修改手机成功',
+      subTitle: '您新的手机号为' + this.telphone
+    })
+    alert.present();
   }
 }

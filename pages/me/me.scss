@@ -42,7 +42,7 @@ page-me {
     .extract-yl {
         display: flex;
         div {
-            padding-right: rem(44);
+            flex: 1;
             p {
                 font-size: rem(20);
                 line-height: rem(20);
