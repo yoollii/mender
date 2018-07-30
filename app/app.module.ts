@@ -40,6 +40,9 @@ import { MeAllStudentsPage } from '../pages/me/me-all-students/me-all-students';
 
 //import { QRCodeModule } from 'angular2-qrcode';//生成二维码
 import { QRCodeModule } from 'angularx-qrcode';
+
+import {MessageServiceProvider} from "../providers/messageService/messageService";
+import { HttpModule }from '@angular/http';
 @NgModule({
   declarations: [
     MyApp,
@@ -72,6 +75,7 @@ import { QRCodeModule } from 'angularx-qrcode';
     ComponentsModule,
     FormsModule,
     QRCodeModule,
+    HttpModule,
     IonicModule.forRoot(MyApp,{
     	iconMode: 'ios',
     	mode: 'ios',  //平台样式
@@ -110,7 +114,8 @@ import { QRCodeModule } from 'angularx-qrcode';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    MessageServiceProvider
   ]
 })
 export class AppModule {}

@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { OrderdetailPage } from './orderdetail/orderdetail';
+import {MessageServiceProvider} from "../../providers/messageService/messageService";
+import { Subscription } from 'rxjs/Subscription';
 /**
  * Generated class for the OrderPage page.
  *
@@ -15,6 +17,7 @@ import { OrderdetailPage } from './orderdetail/orderdetail';
 })
 
 export class OrderPage {
+  subscription: Subscription;
   tabsIndex = 0;//tabs的选中项
   tabs = [
     {
@@ -60,15 +63,17 @@ export class OrderPage {
       total_price:'￥128'
     }
   ]
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public srv: MessageServiceProvider) {
+     	this.srv.getMessage().subscribe(message => {
+  		console.log(message.text);
+  		this.changeTabs(message.text);
+  		});
   }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrderPage');
   }
   
   changeTabs(index){
-  	console.log(index);
     if(this.tabsIndex!==index){
       this.tabsIndex = index;
     }

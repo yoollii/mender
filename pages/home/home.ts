@@ -3,7 +3,8 @@ import { NavController } from 'ionic-angular';
 import { DayincomePage } from './dayincome/dayincome';
 import { RanklistPage } from './ranklist/ranklist';
 //import { OrderPage } from '../order/order';
-import { OrdertransferPage } from '../order/ordertransfer/ordertransfer';
+//import { OrdertransferPage } from '../order/ordertransfer/ordertransfer';
+import {MessageServiceProvider} from "../../providers/messageService/messageService";
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -16,7 +17,7 @@ export class HomePage {
   rankingList:boolean=false;
   order:boolean=false;
   income:boolean=false;
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,public srv: MessageServiceProvider) {
 
   }
   ionViewDidLoad() {
@@ -57,9 +58,9 @@ export class HomePage {
   	this.rankingList=false;
   	this.order=true;
     this.income=false;
-//  this.navCtrl.push(OrderPage,params:{'tabindex':1});
-		this.navCtrl.push(OrdertransferPage);
-//  this.navCtrl.parent.select(2);
+    this.srv.sendMessage(1);
+    this.navCtrl.parent.select(2);
+   
   }
   incomeZq(){//今日收入
   	this.rankingList=false;
@@ -67,5 +68,4 @@ export class HomePage {
     this.income=true;
     this.navCtrl.push(DayincomePage);
   }
-
 }
