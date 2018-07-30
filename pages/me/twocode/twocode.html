@@ -24,7 +24,7 @@
       <h2>工号：{{workNum}}</h2>
     </ion-item>
     <ion-item class="rwm-img">
-      <qr-code [value]="key"  [size]="300" [level]="H"></qr-code>
+      <qrcode [qrdata]="key" [size]="256" [level]="'M'"></qrcode>
     </ion-item>
   </ion-card>
 </ion-content>

@@ -38,7 +38,8 @@ import {ReceiveRecordPage} from "../pages/me-receive-record/receive-record";
 import { MeAllStudentsPage } from '../pages/me/me-all-students/me-all-students';
 
 
-import { QRCodeModule } from 'angular2-qrcode';//生成二维码
+//import { QRCodeModule } from 'angular2-qrcode';//生成二维码
+import { QRCodeModule } from 'angularx-qrcode';
 @NgModule({
   declarations: [
     MyApp,
