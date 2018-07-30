@@ -35,6 +35,7 @@ import {ComponentsModule} from '../components/components.module';
 import {ShopChoosePage} from "../pages/me/shop-choose/shop-choose";
 import {ReceiveRecordPage} from "../pages/me-receive-record/receive-record";
 import { MeAllStudentsPage } from '../pages/me/me-all-students/me-all-students';
+import {OrderDetailsPage} from "../pages/me/order-details/order-details";
 @NgModule({
   declarations: [
     MyApp,
@@ -59,7 +60,8 @@ import { MeAllStudentsPage } from '../pages/me/me-all-students/me-all-students';
     ReceiveRecordPage,
     MeAllStudentsPage,
     PartsMallPage,
-    ReceiveRecordPage
+    ReceiveRecordPage,
+    OrderDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -97,7 +99,8 @@ import { MeAllStudentsPage } from '../pages/me/me-all-students/me-all-students';
     ReceiveRecordPage,
     MeAllStudentsPage,
     PartsMallPage,
-    ReceiveRecordPage
+    ReceiveRecordPage,
+    OrderDetailsPage
   ],
   providers: [
     StatusBar,
