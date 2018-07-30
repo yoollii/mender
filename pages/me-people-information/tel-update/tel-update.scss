@@ -1,143 +1,143 @@
 .alert-ios .alert-wrapper {
-  border-radius: rem(10);
-  background-color: #3c3c3c;
-  width: rem(585);
-  height: rem(265);
-  position: relative;
-  top: rem(-100);
-  .alert-title {
-    font-family: "Microsoft YaHei UI";
-    font-size: rem(28);
-    color: $Themecolor;
-    font-weight: 500;
-    margin-top: rem(65);
-  }
-  .alert-sub-title {
-    font-family: "Microsoft YaHei UI";
-    font-size: rem(28);
-    color: $Themecolor;
-    margin-top: rem(65);
-  }
-  .alert-head {
-    padding: 0px;
-  }
-}
-page-tel-update {
-  .black-div-wz {
-    height: rem(40);
-    background-color: #181818;
-  }
-  .tel-img-wz {
-    background: url("../../../assets/imgs/person/notice/mm3.png") rem(130) rem(-250) no-repeat;
-    background-size: 80%;
-  }
-  .content {
-    background-color: #222222;
-  }
-  .tel-header-wz {
-    height: rem(133);
-    display: flex;
-    align-items: flex-end;
-    margin-left: rem(70);
-    label {
-      font-family: "Microsoft YaHei UI";
-      font-size: rem(22);
-      color: $Themecolor;
-    }
-  }
-  .tel-content-wz {
-    height: rem(435);
-    input {
-      background-color: #222222;
-      border: 0px;
-      color: $Themecolor;
-      font-size: rem(28);
-    }
-    input::-webkit-input-placeholder {
-      color: $Themecolor;
-      font-family: "Microsoft YaHei UI";
-      font-size: rem(28);
-    }
-    label {
-      font-family: "Microsoft YaHei UI";
-      font-size: rem(28);
-      color: $Themecolor;
-    }
-    pre {
-      font-family: "Microsoft YaHei UI";
-      font-size: rem(28);
-      color: $Themecolor;
-      display: inline-block;
-      margin: 0px;
-    }
-    span {
-      font-family: "Microsoft YaHei UI";
-      font-size: rem(28);
-      color: #808080;
-    }
-    .tel-content-tel-wz {
-      border-bottom: 1px solid $Themecolor;
-      display: inline-block;
-      width: rem(430);
-    }
-    .tel-content-code-wz {
-      display: inline-block;
-      border-left: 0px;
-      border-bottom: 1px solid $Themecolor;
-    }
-    .tel-content-code-input-wz {
-      border-bottom: 0px;
-    }
-    .tel-content-btn-wz {
-      height: rem(70);
-      border: 1px solid black;
-      background-color: #3c3c3c;
-      width: rem(585);
-      border-radius: rem(10);
-      text-align: center;
-      line-height: rem(70);
-      color: $Themecolor;
-      margin-top: rem(105);
-      margin-left: rem(80);
-      font-family: "Microsoft YaHei UI";
-      font-size: rem(28);
-    }
-    .tel-content-input-wz {
-      margin-top: rem(125);
-      width: rem(590);
-      margin-left: rem(80);
-    }
-  }
-  .tel-footer-wz {
-    margin-left: rem(50);
-    pre {
-      margin: 0px;
-      padding: 0px;
-      font-family: "Microsoft YaHei UI";
-      font-size: rem(22);
-      color: #5a5a5a;
-    }
-  }
-  .tel-alert-wz {
+    border-radius: rem(10);
     background-color: #3c3c3c;
-    width: rem(590);
+    width: rem(585);
     height: rem(265);
-    border-radius:rem(10) ;
-    font-family: "Microsoft YaHei UI";
-    font-size: rem(28);
-    color: $Themecolor;
-    position: absolute;
-    top: rem(390);
-    left: rem(80);
-    :first-child {
-      display: flex;
-      justify-content: center;
-      padding-top: rem(30);
+    position: relative;
+    .alert-title {
+        font-family: "Microsoft YaHei UI";
+        font-size: rem(28);
+        color: $Themecolor;
+        font-weight: 500;
+        margin-top: rem(65);
     }
-    :last-child {
-      display: flex;
-      justify-content: center;
-      padding-top: rem(30);
+    .alert-sub-title {
+        font-family: "Microsoft YaHei UI";
+        font-size: rem(28);
+        color: $Themecolor;
+        margin-top: rem(65);
     }
-  }
+    .alert-head {
+        padding: 0px;
+    }
+}
+
+page-tel-update {
+    .black-div-wz {
+        height: rem(40);
+        background-color: #181818;
+    }
+    .tel-img-wz {
+        background: url("../../../assets/imgs/person/notice/mm3.png") rem(130) rem(-250) no-repeat;
+        background-size: 80%;
+    }
+    .content {
+        background-color: #222222;
+    }
+    .tel-header-wz {
+        height: rem(133);
+        display: flex;
+        align-items: flex-end;
+        margin-left: rem(70);
+        label {
+            font-family: "Microsoft YaHei UI";
+            font-size: rem(22);
+            color: $Themecolor;
+        }
+    }
+    .tel-content-wz {
+        height: rem(435);
+        input {
+            background-color: #222222;
+            border: 0px;
+            color: $Themecolor;
+            font-size: rem(28);
+        }
+        input::-webkit-input-placeholder {
+            color: $Themecolor;
+            font-family: "Microsoft YaHei UI";
+            font-size: rem(28);
+        }
+        label {
+            font-family: "Microsoft YaHei UI";
+            font-size: rem(28);
+            color: $Themecolor;
+        }
+        pre {
+            font-family: "Microsoft YaHei UI";
+            font-size: rem(28);
+            color: $Themecolor;
+            display: inline-block;
+            margin: 0px;
+        }
+        span {
+            font-family: "Microsoft YaHei UI";
+            font-size: rem(28);
+            color: #808080;
+        }
+        .tel-content-tel-wz {
+            border-bottom: 1px solid $Themecolor;
+            display: inline-block;
+            width: rem(430);
+        }
+        .tel-content-code-wz {
+            display: inline-block;
+            border-left: 0px;
+            border-bottom: 1px solid $Themecolor;
+        }
+        .tel-content-code-input-wz {
+            border-bottom: 0px;
+        }
+        .tel-content-btn-wz {
+            height: rem(70);
+            border: 1px solid black;
+            background-color: #3c3c3c;
+            width: rem(585);
+            border-radius: rem(10);
+            text-align: center;
+            line-height: rem(70);
+            color: $Themecolor;
+            margin-top: rem(105);
+            margin-left: rem(80);
+            font-family: "Microsoft YaHei UI";
+            font-size: rem(28);
+        }
+        .tel-content-input-wz {
+            margin-top: rem(125);
+            width: rem(590);
+            margin-left: rem(80);
+        }
+    }
+    .tel-footer-wz {
+        margin-left: rem(50);
+        pre {
+            margin: 0px;
+            padding: 0px;
+            font-family: "Microsoft YaHei UI";
+            font-size: rem(22);
+            color: #5a5a5a;
+        }
+    }
+    .tel-alert-wz {
+        background-color: #3c3c3c;
+        width: rem(590);
+        height: rem(265);
+        border-radius: rem(10);
+        font-family: "Microsoft YaHei UI";
+        font-size: rem(28);
+        color: $Themecolor;
+        position: absolute;
+        top: rem(390);
+        left: rem(80);
+         :first-child {
+            display: flex;
+            justify-content: center;
+            padding-top: rem(30);
+        }
+         :last-child {
+            display: flex;
+            justify-content: center;
+            padding-top: rem(30);
+        }
+    }
 }

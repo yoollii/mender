@@ -6,38 +6,38 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>修改手机</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>修改手机</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <div class="black-div-wz"></div>
-  <div class="tel-img-wz">
-    <div class="tel-header-wz">
-      <label>!我们不会泄露您的手机信息</label>
-    </div>
-    <div class="tel-content-wz">
-      <div class="tel-content-input-wz">
-        <label>手机号码 ：</label>
-        <div class="tel-content-tel-wz">
-          <input type="text" value="13845325463"/>
+    <div class="black-div-wz"></div>
+    <div class="tel-img-wz">
+        <div class="tel-header-wz">
+            <label>!我们不会泄露您的手机信息</label>
         </div>
-        <p></p>
-        <pre> 校 验 码 ：</pre>
-        <div class="tel-content-code-wz">
-          <input type="text" value="623716" class="tel-content-code-input-wz"/><span>免费获取</span>
+        <div class="tel-content-wz">
+            <div class="tel-content-input-wz">
+                <label>手机号码 ：</label>
+                <div class="tel-content-tel-wz">
+                    <input type="text" value="13845325463" />
+                </div>
+                <p></p>
+                <pre> 校 验 码 ：</pre>
+                <div class="tel-content-code-wz">
+                    <input type="text" value="623716" class="tel-content-code-input-wz" /><span>免费获取</span>
+                </div>
+            </div>
+            <div class="tel-content-btn-wz">
+                <label (click)="telSure()">确定</label>
+            </div>
         </div>
-      </div>
-      <div class="tel-content-btn-wz">
-        <label (click)="telSure()">确定</label>
-      </div>
     </div>
-  </div>
-  <div class="tel-footer-wz">
-    <pre>
+    <div class="tel-footer-wz">
+        <pre>
       手机验证码收不到帮助：
       1.您的手机验证码可能需要10分钟才能送达您的手机（这取决
       于您当地的移动运营商），为避免系统错误请不要重复点击。
@@ -46,5 +46,5 @@
       3.请检查您的手机是否已停止服务或拦截我们的短信或短信收
       件箱已满
       4.您也可以尝试将SIM卡移动到另一部手机，然后重试</pre>
-  </div>
+    </div>
 </ion-content>
