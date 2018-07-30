@@ -28,6 +28,7 @@ export class TeachersPage {
   showPrompt(text) {
     const prompt = this.alertCtrl.create({
       // title: 'Login',
+      cssClass:'teachersAlert',
       message: "输入工号：",
       inputs: [
         {
