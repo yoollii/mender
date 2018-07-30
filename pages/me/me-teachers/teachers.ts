@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MeAllStudentsPage } from '../me-all-students/me-all-students';
 import { AlertController } from 'ionic-angular';
 import * as $ from 'jquery';
-
+import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 /**
  * Generated class for the TeachersPage page.
  *
@@ -21,7 +21,7 @@ export class TeachersPage {
   student:string;
   teacher:string;
   controlText:boolean;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,private qrScanner: QRScanner) {
     this.student="assets/imgs/person/teachers/cupColor.png";
     this.teacher='assets/imgs/person/teachers/teacherIcon.png';
   }

@@ -158,7 +158,8 @@ page-teachers {
     }
     .div {
         position: relative;
-        width: 100%
+        width: 100%;
+        overflow: auto;
     }
     .mycanvas {
         position: absolute;
@@ -186,6 +187,9 @@ page-teachers {
                 color: $Themecolor;
                 font-size: rem(28);
                 font-weight: normal;
+            }
+            .activated {
+                background-color: #3c3c3c !important
             }
         }
         .alert-message {
