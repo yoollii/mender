@@ -4,6 +4,7 @@ import { PeopleInformationPage } from '../me-people-information/people-informati
 import { MessageNoticePage } from '../me-message-notice/message-notice';
 import { PerformancePage } from '../me-performance/performance';
 import { TeachersPage } from './me-teachers/teachers';
+import { TwocodePage } from './twocode/twocode';
 
 /**
  * Generated class for the MePage page.
@@ -34,5 +35,8 @@ export class MePage {
   ionViewDidLoad() {
    // console.log('ionViewDidLoad MePage');
   }
-
+  qrcode(){
+  	this.navCtrl.push(TwocodePage);
+  }
+  
 }

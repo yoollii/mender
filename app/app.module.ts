@@ -24,6 +24,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 //个人信息
 import { PeopleInformationPage } from '../pages/me-people-information/people-information';
+import { TwocodePage } from '../pages/me/twocode/twocode';
 //消息通知
 import { MessageNoticePage } from '../pages/me-message-notice/message-notice';
 import { PerformancePage } from '../pages/me-performance/performance';
@@ -35,6 +36,9 @@ import {ComponentsModule} from '../components/components.module';
 import {ShopChoosePage} from "../pages/me/shop-choose/shop-choose";
 import {ReceiveRecordPage} from "../pages/me-receive-record/receive-record";
 import { MeAllStudentsPage } from '../pages/me/me-all-students/me-all-students';
+
+
+import { QRCodeModule } from 'angular2-qrcode';//生成二维码
 @NgModule({
   declarations: [
     MyApp,
@@ -59,12 +63,14 @@ import { MeAllStudentsPage } from '../pages/me/me-all-students/me-all-students';
     ReceiveRecordPage,
     MeAllStudentsPage,
     PartsMallPage,
-    ReceiveRecordPage
+    ReceiveRecordPage,
+    TwocodePage
   ],
   imports: [
     BrowserModule,
     ComponentsModule,
     FormsModule,
+    QRCodeModule,
     IonicModule.forRoot(MyApp,{
     	iconMode: 'ios',
     	mode: 'ios',  //平台样式
@@ -97,7 +103,8 @@ import { MeAllStudentsPage } from '../pages/me/me-all-students/me-all-students';
     ReceiveRecordPage,
     MeAllStudentsPage,
     PartsMallPage,
-    ReceiveRecordPage
+    ReceiveRecordPage,
+    TwocodePage
   ],
   providers: [
     StatusBar,

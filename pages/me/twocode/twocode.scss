@@ -1,0 +1,26 @@
+page-twocode {
+    .content{
+        
+        background:#222 url(../../assets/imgs/person/backgrounp-bottom.png) 80% no-repeat;
+    }
+    .blackdiv{
+    width:100%;
+    height:rem(38);
+    background-color:#181818;
+    }
+    .card-ios{
+        margin:auto;
+        margin-top:rem(128);
+        width:rem(500);
+        
+    }
+    .rwm-mt h2{
+        font-size:rem(32);
+        line-height:rem(80);
+    }
+    .item-ios ion-avatar ion-img, .item-ios ion-avatar img{
+      width:rem(134);
+      height:rem(134);
+      border-radius:0;
+    }
+}

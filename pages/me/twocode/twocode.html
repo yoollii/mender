@@ -1,0 +1,30 @@
+<!--
+  Generated template for the QrcodePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>我的二维码</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<div class='blackdiv'></div>
+  <ion-card>
+    <ion-item class="rwm-mt">
+      <ion-avatar item-start>
+        <img src="assets/imgs/transterbg.png">
+      </ion-avatar>
+      <h2>{{name}}</h2>
+      <h2>工号：{{workNum}}</h2>
+    </ion-item>
+    <ion-item class="rwm-img">
+      <qr-code [value]="key"  [size]="300" [level]="H"></qr-code>
+    </ion-item>
+  </ion-card>
+</ion-content>
