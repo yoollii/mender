@@ -25,6 +25,8 @@ export class TelUpdatePage {
 
   telSure() {
     const alert = this.alertController.create({
+
+      cssClass: 'tel-alert',
       title: '修改手机成功',
       subTitle: '您新的手机号为' + this.telphone
     })
