@@ -1,0 +1,24 @@
+<!--
+  Generated template for the ShoppingCartPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>购物车</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <div class="black-div-wz"></div>
+    <div class="shopchoose-list-wz" *ngFor="let shop of shops">
+        <label>{{shop.name}}</label>
+        <br/>
+        <span>{{shop.address}}</span>
+        <label>{{shop.distance}}</label>
+    </div>
+</ion-content>
