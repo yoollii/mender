@@ -1,3 +1,100 @@
 page-order-details {
+  .btn-wz {
+    color: $Themecolor;
+    background-color: #333333;
+    height: rem(55);
+    width: rem(193);
+    border-radius: rem(10);
+    float: right;
+    margin-top: rem(40);
+  }
+  .black-div-wz {
+    height: rem(40);
+    background-color: #181818;
+  }
+  .content {
+    background: url("../../../assets/imgs/gear.png") rem(30) rem(700) no-repeat;
+    background-size: 20%;
+    background-color: #222222;
+  }
+  .shopchoose-list-wz {
+    background: -webkit-linear-gradient(left, #252525, #343434, #252525);
+    position: relative;
+    margin-bottom: rem(25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+      margin: 0px;
+    }
+    :first-child {
+      font-size: rem(24);
+      color: $Themecolor;
+      margin: rem(35) 0 rem(30) 0;
+    }
+    :last-child {
+      font-size: rem(22);
+      color: #808080;
+      margin-bottom: rem(25);
+    }
+  }
+  .content-list-wz {
+    background-color: #2b2b2b;
+    margin-left: rem(105);
+    width: 71%;
+    ion-list {
+      margin: 0px;
+    }
+    .item-height-wz {
+      height: rem(110);
+    }
+    p {
+      font-size: rem(20);
+      color: #222222;
+      text-align: center;
+      margin-top: rem(10);
+    }
+  }
+  .partsname-list-wz {
+    span {
+      font-size: rem(22);
+      color: #787878;
+      display: inline-block;
+    }
+    ion-label {
+      margin: rem(11) 0 0 0;
+    }
+    ion-item {
+      padding-left: 0px;
+      min-height: rem(30);
+    }
+    span:first-child {
+      width: 25%;
+    }
+    span:nth-of-type(2) {
+      width: 55%;
+    }
+  }
 
+
+  .list-ios,.list-md{
+
+    label {
+      color: $Themecolor;
+      font-size: rem(24);
+    }
+  }
+  .item-ios {
+    background-color: #2b2b2b;
+  }
+  .list-ios .item-block .item-inner,.item-ios.item-block .item-inner,.list-md .item-block .item-inner,.item-block .item-inner{
+    border-bottom:none;
+  }
+  .list-ios > .item-block:first-child,.list-ios > .item-block,.list-md > .item-block:first-child,.list-md > .item-block{
+    border-top:none;
+    border-bottom: 0.55px solid $Themecolor;
+  }
+  .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block,.list-md > .item-block:last-child, .list-md > .item-wrapper:last-child .item-block {
+    border-bottom: 0.55px solid $Themecolor;
+  }
 }
