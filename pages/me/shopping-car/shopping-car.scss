@@ -1,3 +1,40 @@
 page-shopping-car {
-
+  .black-div-wz {
+    height: rem(40);
+    background-color: #181818;
+  }
+  .content {
+    background-color: #222222;
+  }
+  .shopchoose-list-wz {
+    height: rem(140);
+    background: -webkit-linear-gradient(left, #252525, #343434, #252525);
+    position: relative;
+    margin-bottom: rem(25);
+    label {
+      font-family: "Microsoft YaHei UI";
+      font-size: rem(24);
+      color: $Themecolor;
+    }
+    span {
+      font-family: "Microsoft YaHei UI";
+      font-size: rem(22);
+      color: #808080;
+    }
+    label:nth-of-type(1) {
+      position: absolute;
+      top: rem(35);
+      left: rem(105);
+    }
+    label:nth-of-type(2) {
+      position: absolute;
+      top: rem(60);
+      right: rem(68);
+    }
+    span:nth-of-type(1) {
+      position: absolute;
+      top: rem(90);
+      left: rem(105);
+    }
+  }
 }

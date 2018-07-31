@@ -7,12 +7,18 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>shopping-car</ion-title>
+    <ion-title>配件筐</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <div class="black-div-wz"></div>
+  <div class="shopchoose-list-wz" *ngFor="let shop of parts">
+    <label>{{shop.name}}</label>
+    <br/>
+    <span>{{shop.num}}</span>
+    <label>{{shop.money}}</label>
+  </div>
 </ion-content>

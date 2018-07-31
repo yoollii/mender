@@ -15,7 +15,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ShoppingCarPage {
 
+  parts = [];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.parts = [
+      {name: 'S8内屏幕', num: '1600*3(占用额度20)',money: '4800.00'},
+      {name: 'S8内屏幕', num: '1600*3(占用额度20)',money: '4800.00'},
+      {name: 'S8内屏幕', num: '1600*3(占用额度20)',money: '4800.00'},
+      {name: 'S8内屏幕', num: '1600*3(占用额度20)',money: '4800.00'},
+      {name: 'S8内屏幕', num: '1600*3(占用额度20)',money: '4800.00'},
+      {name: 'S8内屏幕', num: '1600*3(占用额度20)',money: '4800.00'},
+      {name: 'S8内屏幕', num: '1600*3(占用额度20)',money: '4800.00'},
+      {name: 'S8内屏幕', num: '1600*3(占用额度20)',money: '4800.00'},
+      {name: 'S8内屏幕', num: '1600*3(占用额度20)',money: '4800.00'}
+    ];
   }
 
   ionViewDidLoad() {
