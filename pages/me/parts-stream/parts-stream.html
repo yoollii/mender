@@ -1,0 +1,35 @@
+<!--
+  Generated template for the PartsStreamPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>配件流水</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="black-div-wz"></div>
+  <ion-card *ngFor="let par of parts" class="content-div1-wz">
+    <div class="content-div1-1-wz border">
+      <p>订单编号 {{par.orderCode}}</p>
+    </div>
+    <div class="content-div1-2-wz border">
+      <div><img src="{{par.img}}"/></div>
+      <div>
+          <label>{{par.model}}</label><br/>
+          <label>{{par.fault}}</label><br/>
+          <label>{{par.color}}</label><br/>
+          <p>{{par.solve}}</p>
+      </div>
+    </div>
+    <div class="content-div1-3-wz">
+
+    </div>
+  </ion-card>
+</ion-content>

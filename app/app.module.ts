@@ -41,6 +41,9 @@ import { MeAllStudentsPage } from '../pages/me/me-all-students/me-all-students';
 //import { QRCodeModule } from 'angular2-qrcode';//生成二维码
 import { QRCodeModule } from 'angularx-qrcode';
 import {OrderDetailsPage} from "../pages/me/order-details/order-details";
+import {ShoppingCarPage} from "../pages/me/shopping-car/shopping-car";
+import {PartsStreamPage} from "../pages/me/parts-stream/parts-stream";
+import {ApplyPartsPage} from "../pages/me/apply-parts/apply-parts";
 @NgModule({
   declarations: [
     MyApp,
@@ -66,8 +69,15 @@ import {OrderDetailsPage} from "../pages/me/order-details/order-details";
     MeAllStudentsPage,
     PartsMallPage,
     ReceiveRecordPage,
+<<<<<<< HEAD
     TwocodePage,
     OrderDetailsPage
+=======
+    OrderDetailsPage,
+    ShoppingCarPage,
+    PartsStreamPage,
+    ApplyPartsPage
+>>>>>>> wzy
   ],
   imports: [
     BrowserModule,
@@ -107,8 +117,15 @@ import {OrderDetailsPage} from "../pages/me/order-details/order-details";
     MeAllStudentsPage,
     PartsMallPage,
     ReceiveRecordPage,
+<<<<<<< HEAD
     TwocodePage,
     OrderDetailsPage
+=======
+    OrderDetailsPage,
+    ShoppingCarPage,
+    PartsStreamPage,
+    ApplyPartsPage
+>>>>>>> wzy
   ],
   providers: [
     StatusBar,

@@ -4,6 +4,9 @@ import {TelUpdatePage} from "./tel-update/tel-update";
 import {ShopChoosePage} from "../me/shop-choose/shop-choose";
 import {ReceiveRecordPage} from "../me-receive-record/receive-record";
 import {OrderDetailsPage} from "../me/order-details/order-details";
+import {ShoppingCarPage} from "../me/shopping-car/shopping-car";
+import {PartsStreamPage} from "../me/parts-stream/parts-stream";
+import {ApplyPartsPage} from "../me/apply-parts/apply-parts";
 
 /**
  * Generated class for the PeopleInformationPage page.
@@ -25,6 +28,9 @@ export class PeopleInformationPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PeopleInformationPage');
   }
+  goToApplyParts() {
+    this.navCtrl.push(ApplyPartsPage);
+  }
   goToTelUpdatePage() {
     this.navCtrl.push(TelUpdatePage);
   }
@@ -36,5 +42,11 @@ export class PeopleInformationPage {
   }
   goToOrderDetailsPage() {
     this.navCtrl.push(OrderDetailsPage);
+  }
+  goToShoppingCar() {
+    this.navCtrl.push(ShoppingCarPage);
+  }
+  goToPartsStream() {
+    this.navCtrl.push(PartsStreamPage);
   }
 }
