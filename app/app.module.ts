@@ -36,6 +36,9 @@ import {ShopChoosePage} from "../pages/me/shop-choose/shop-choose";
 import {ReceiveRecordPage} from "../pages/me-receive-record/receive-record";
 import { MeAllStudentsPage } from '../pages/me/me-all-students/me-all-students';
 import {OrderDetailsPage} from "../pages/me/order-details/order-details";
+import {ShoppingCarPage} from "../pages/me/shopping-car/shopping-car";
+import {PartsStreamPage} from "../pages/me/parts-stream/parts-stream";
+import {ApplyPartsPage} from "../pages/me/apply-parts/apply-parts";
 @NgModule({
   declarations: [
     MyApp,
@@ -61,7 +64,10 @@ import {OrderDetailsPage} from "../pages/me/order-details/order-details";
     MeAllStudentsPage,
     PartsMallPage,
     ReceiveRecordPage,
-    OrderDetailsPage
+    OrderDetailsPage,
+    ShoppingCarPage,
+    PartsStreamPage,
+    ApplyPartsPage
   ],
   imports: [
     BrowserModule,
@@ -100,7 +106,10 @@ import {OrderDetailsPage} from "../pages/me/order-details/order-details";
     MeAllStudentsPage,
     PartsMallPage,
     ReceiveRecordPage,
-    OrderDetailsPage
+    OrderDetailsPage,
+    ShoppingCarPage,
+    PartsStreamPage,
+    ApplyPartsPage
   ],
   providers: [
     StatusBar,
