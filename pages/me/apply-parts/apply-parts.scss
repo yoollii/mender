@@ -1,17 +1,13 @@
 page-apply-parts {
-  .scroll-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    bottom: rem(27);
-  }
   .btn-wz {
     color: $Themecolor;
     background-color: #333333;
     height: rem(75);
     width: 71%;
     border-radius: rem(10);
+    position: fixed;
+    bottom: rem(25);
+    margin-left: rem(105);
   }
   .black-div-wz {
     height: rem(40);
@@ -55,7 +51,7 @@ page-apply-parts {
   }
   .content-list-wz {
     background-color: #2b2b2b;
-    //margin-left: rem(105);
+    margin-left: rem(105);
     width: 71%;
     ion-list {
       margin: 0px;

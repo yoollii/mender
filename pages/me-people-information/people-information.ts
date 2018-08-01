@@ -7,6 +7,7 @@ import {OrderDetailsPage} from "../me/order-details/order-details";
 import {ShoppingCarPage} from "../me/shopping-car/shopping-car";
 import {PartsStreamPage} from "../me/parts-stream/parts-stream";
 import {ApplyPartsPage} from "../me/apply-parts/apply-parts";
+import {MyPartsPage} from "../me/my-parts/my-parts";
 
 /**
  * Generated class for the PeopleInformationPage page.
@@ -28,25 +29,17 @@ export class PeopleInformationPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PeopleInformationPage');
   }
-  goToApplyParts() {
-    this.navCtrl.push(ApplyPartsPage);
-  }
+
   goToTelUpdatePage() {
     this.navCtrl.push(TelUpdatePage);
   }
   goToShopChoosePage() {
     this.navCtrl.push(ShopChoosePage);
   }
-  goToShopReceiveRecord() {
-    this.navCtrl.push(ReceiveRecordPage);
-  }
   goToOrderDetailsPage() {
     this.navCtrl.push(OrderDetailsPage);
   }
   goToShoppingCar() {
     this.navCtrl.push(ShoppingCarPage);
-  }
-  goToPartsStream() {
-    this.navCtrl.push(PartsStreamPage);
   }
 }

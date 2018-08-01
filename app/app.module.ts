@@ -44,6 +44,7 @@ import {OrderDetailsPage} from "../pages/me/order-details/order-details";
 import {ShoppingCarPage} from "../pages/me/shopping-car/shopping-car";
 import {PartsStreamPage} from "../pages/me/parts-stream/parts-stream";
 import {ApplyPartsPage} from "../pages/me/apply-parts/apply-parts";
+import {MyPartsPage} from "../pages/me/my-parts/my-parts";
 @NgModule({
   declarations: [
     MyApp,
@@ -69,15 +70,14 @@ import {ApplyPartsPage} from "../pages/me/apply-parts/apply-parts";
     MeAllStudentsPage,
     PartsMallPage,
     ReceiveRecordPage,
-<<<<<<< HEAD
     TwocodePage,
-    OrderDetailsPage
-=======
+    OrderDetailsPage,
     OrderDetailsPage,
     ShoppingCarPage,
     PartsStreamPage,
-    ApplyPartsPage
->>>>>>> wzy
+    ApplyPartsPage,
+    ApplyPartsPage,
+    MyPartsPage
   ],
   imports: [
     BrowserModule,
@@ -117,15 +117,14 @@ import {ApplyPartsPage} from "../pages/me/apply-parts/apply-parts";
     MeAllStudentsPage,
     PartsMallPage,
     ReceiveRecordPage,
-<<<<<<< HEAD
     TwocodePage,
-    OrderDetailsPage
-=======
+    OrderDetailsPage,
     OrderDetailsPage,
     ShoppingCarPage,
     PartsStreamPage,
-    ApplyPartsPage
->>>>>>> wzy
+    ApplyPartsPage,
+    ApplyPartsPage,
+    MyPartsPage
   ],
   providers: [
     StatusBar,
