@@ -1,0 +1,71 @@
+page-login {
+    .content{
+        .log-icon-ys{
+          .top-jl-ys{
+            height: rem(150);
+          }
+         img{
+           width: rem(265);
+           height: rem(305);
+           display: block;
+           margin: 0 auto;
+         }
+          background: url("../../assets/imgs/logbg.png");
+          background-position: 0% 0%;
+          background-repeat: no-repeat;
+          background-size: 100%;
+        }
+      }
+      
+      .item-block{
+        width: 80%;
+        margin: 0 auto;
+        border-radius: rem(20);
+        color: #ffffff;
+        .label-ios-primary {
+          color:#fff;
+        }
+      }
+      .item-ios{
+        background: #8a8a8a;
+    
+      }
+      .c-button {
+        width:80%;
+        margin:0 auto;
+        background-color:#a3a3a3;
+        color:#fff;
+      }
+      .list-ios {
+        margin-top:rem(73);
+        &>.item-block{
+          margin-bottom: rem(65);
+          &:first-child{
+            border-top-width:0;
+          }
+          &:last-child {
+            border-bottom-width:0;
+          }
+          .item-inner {
+            border-bottom-width:0;
+          }
+        }
+      }
+      ion-grid.grid {
+        width:80%;
+        margin:0 auto;
+        ion-label {
+          margin:0 rem(10);
+
+        }
+        .checkbox-icon {
+          border-radius: 0;
+          border-color: #a3a3a3;
+          background-color: #000;
+        }
+      }
+      .flex {
+        display: flex;
+
+      }
+}
