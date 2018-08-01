@@ -42,7 +42,8 @@ page-tel-update {
         height: rem(133);
         display: flex;
         align-items: flex-end;
-        margin-left: rem(70);
+        //margin-left: rem(70);
+      margin-left: 10%;
         label {
             font-family: "Microsoft YaHei UI";
             font-size: rem(22);
@@ -96,24 +97,29 @@ page-tel-update {
             height: rem(70);
             border: 1px solid black;
             background-color: #3c3c3c;
-            width: rem(585);
+            //width: rem(585);
+            width: 78%;
             border-radius: rem(10);
             text-align: center;
             line-height: rem(70);
             color: $Themecolor;
             margin-top: rem(105);
-            margin-left: rem(80);
+            //margin-left: rem(80);
+            margin-left: 11%;
             font-family: "Microsoft YaHei UI";
             font-size: rem(28);
         }
         .tel-content-input-wz {
             margin-top: rem(125);
-            width: rem(590);
-            margin-left: rem(80);
+            //width: rem(590);
+          width: 78%;
+            //margin-left: rem(80);
+          margin-left: 11%;
         }
     }
     .tel-footer-wz {
-        margin-left: rem(50);
+        //margin-left: rem(50);
+      margin-left: 7%;
         pre {
             margin: 0px;
             padding: 0px;
@@ -124,7 +130,8 @@ page-tel-update {
     }
     .tel-alert-wz {
         background-color: #3c3c3c;
-        width: rem(590);
+        //width: rem(590);
+        width: 78%;
         height: rem(265);
         border-radius: rem(10);
         font-family: "Microsoft YaHei UI";

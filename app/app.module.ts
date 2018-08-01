@@ -50,6 +50,10 @@ import { HttpClientModule,HTTP_INTERCEPTORS  } from '@angular/common/http';
 import { InterceptorServiceProvider } from '../providers/interceptor-service/interceptor-service';
 import { StorageServiceProvider } from '../providers/storage-service/storage-service';
 import { HttpServiceProvider } from '../providers/http-service/http-service';
+import {ShoppingCarPage} from "../pages/me/shopping-car/shopping-car";
+import {PartsStreamPage} from "../pages/me/parts-stream/parts-stream";
+import {ApplyPartsPage} from "../pages/me/apply-parts/apply-parts";
+import {MyPartsPage} from "../pages/me/my-parts/my-parts";
 @NgModule({
   declarations: [
     MyApp,
@@ -78,7 +82,12 @@ import { HttpServiceProvider } from '../providers/http-service/http-service';
     TwocodePage,
     OrderDetailsPage,
     LoginPage,
-    ChangeWordPage
+    ChangeWordPage,
+    ShoppingCarPage,
+    PartsStreamPage,
+    ApplyPartsPage,
+    ApplyPartsPage,
+    MyPartsPage
   ],
   imports: [
     BrowserModule,
@@ -122,7 +131,12 @@ import { HttpServiceProvider } from '../providers/http-service/http-service';
     TwocodePage,
     OrderDetailsPage,
     LoginPage,
-    ChangeWordPage
+    ChangeWordPage,
+    ShoppingCarPage,
+    PartsStreamPage,
+    ApplyPartsPage,
+    ApplyPartsPage,
+    MyPartsPage
   ],
   providers: [
     StatusBar,

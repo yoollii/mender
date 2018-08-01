@@ -1,4 +1,4 @@
-page-people-information {
+page-my-parts {
   .content {
     background-color: #222222;
   }
@@ -14,9 +14,9 @@ page-people-information {
     background-color: #181818;
   }
   .people-list-wz {
-    //width: rem(590);
-    width: 78%;
-    background: url("../../assets/imgs/person/background-top.png") #222 60% 26% no-repeat;
+    width: rem(590);
+    //background: url("../assets/imgs/person/background-top.png") #222 60% 45% no-repeat;
+    background: url("../../../assets/imgs/person/notice/mm3.png") #222 280% -650% no-repeat;
     background-size: 95%;
     label {
       color: #d1ae69;
@@ -40,6 +40,12 @@ page-people-information {
   }
   .item-ios {
     background-color: rgba(255, 255, 255, 0);
+    img {
+      width: rem(30);
+      height: rem(45);
+      margin-right: rem(25);
+      float: right;
+    }
   }
   .list-ios .item-block .item-inner,.item-ios.item-block .item-inner,.list-md .item-block .item-inner,.item-block .item-inner{
     border-bottom:none;
