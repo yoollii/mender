@@ -12,19 +12,21 @@
   <ion-list>
    <ion-item>
       <ion-label color="primary">手机号码:</ion-label>
-      <ion-input placeholder="请输入手机号码"></ion-input>
+      <ion-input placeholder="请输入手机号码" #tel></ion-input>
    </ion-item>
 
    <ion-item>
            <ion-label color="primary">输入密码:</ion-label>
-           <ion-input placeholder="请输入密码"></ion-input>
+           <ion-input placeholder="请输入密码" type="password" #password></ion-input>
    </ion-item>
 
-    <button type='button' color='light' class="c-button" ion-button block>登陆</button>
+    <button type='button' (click)="login(tel,password,status)" color='light' class="c-button" ion-button block>登陆</button>
+    <button type='button' (click)="getTest()" color='light' class="c-button" ion-button block>GETEST</button>
+    <button type='button' (click)="PUTest()" color='light' class="c-button" ion-button block>PUTest</button>
    <ion-grid>
      <ion-row>
        <ion-col class="flex">
-          <ion-checkbox checked="true"></ion-checkbox>
+          <ion-checkbox checked="true" #status></ion-checkbox>
           <ion-label>记住登录</ion-label>
        </ion-col>
        <ion-col text-right>

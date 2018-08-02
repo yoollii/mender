@@ -9,6 +9,9 @@ export class StorageServiceProvider {
   }
   write(key: string, value: any) {
     if (value) {
+      if(typeof value =="object"){
+        value = JSON.stringify(value);
+      }
       localStorage.setItem(key, value);
     }
     
@@ -18,9 +21,8 @@ export class StorageServiceProvider {
     let value: string = localStorage.getItem(key);
 
     if (value && value != "undefined" && value != "null") {
-      return value;
+      return JSON.parse(value);
     }
-
     return "";
   }
 

@@ -10,8 +10,8 @@ export class AppConfig {
     // false 正式, api = pro_api;
     static isWeb = true;
     //由于网页调试存在跨域问题,在网页中调试需要用反向代理
-    static proxy_dev_api = '/dev/api';
-    static proxy_pro_api = '/pro/api';
+    static proxy_dev_api = '/dev/api/';
+    static proxy_pro_api = '/pro/api/';
     static dev_api = 'http://192.168.1.250:8080/app/';
     static pro_api = '';
     debug;

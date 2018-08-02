@@ -54,6 +54,8 @@ import {ShoppingCarPage} from "../pages/me/shopping-car/shopping-car";
 import {PartsStreamPage} from "../pages/me/parts-stream/parts-stream";
 import {ApplyPartsPage} from "../pages/me/apply-parts/apply-parts";
 import {MyPartsPage} from "../pages/me/my-parts/my-parts";
+import { ErrorInfoProvider } from '../providers/error-info/error-info';
+import { AppConfig} from "./app.config";
 @NgModule({
   declarations: [
     MyApp,
@@ -145,6 +147,8 @@ import {MyPartsPage} from "../pages/me/my-parts/my-parts";
     {provide:HTTP_INTERCEPTORS,useClass:InterceptorServiceProvider,multi:true},
     StorageServiceProvider,
     HttpServiceProvider,
+    ErrorInfoProvider,
+    AppConfig
   ]
 })
 export class AppModule {}
