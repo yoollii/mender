@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {ApplyPartsPage} from "../apply-parts/apply-parts";
 import {ReceiveRecordPage} from "../../me-receive-record/receive-record";
 import {PartsStreamPage} from "../parts-stream/parts-stream";
+import {PartsMallPage} from "../../parts-mall/parts-mall";
+import {PartsStockPage} from "../parts-stock/parts-stock";
 
 /**
  * Generated class for the MyPartsPage page.
@@ -23,6 +25,9 @@ export class MyPartsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyPartsPage');
+  }
+  goToPartsStock() {
+    this.navCtrl.push(PartsStockPage);
   }
   goToPartsStream() {
     this.navCtrl.push(PartsStreamPage);
