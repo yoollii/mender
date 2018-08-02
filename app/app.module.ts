@@ -45,6 +45,7 @@ import {ShoppingCarPage} from "../pages/me/shopping-car/shopping-car";
 import {PartsStreamPage} from "../pages/me/parts-stream/parts-stream";
 import {ApplyPartsPage} from "../pages/me/apply-parts/apply-parts";
 import {MyPartsPage} from "../pages/me/my-parts/my-parts";
+import {PartsStockPage} from "../pages/me/parts-stock/parts-stock";
 @NgModule({
   declarations: [
     MyApp,
@@ -77,7 +78,8 @@ import {MyPartsPage} from "../pages/me/my-parts/my-parts";
     PartsStreamPage,
     ApplyPartsPage,
     ApplyPartsPage,
-    MyPartsPage
+    MyPartsPage,
+    PartsStockPage
   ],
   imports: [
     BrowserModule,
@@ -124,7 +126,8 @@ import {MyPartsPage} from "../pages/me/my-parts/my-parts";
     PartsStreamPage,
     ApplyPartsPage,
     ApplyPartsPage,
-    MyPartsPage
+    MyPartsPage,
+    PartsStockPage
   ],
   providers: [
     StatusBar,
