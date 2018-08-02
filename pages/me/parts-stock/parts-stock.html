@@ -7,12 +7,43 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>parts-stock</ion-title>
+    <ion-title>配件库存</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <div class="black-div-wz"></div>
+  <div class="shopchoose-list-wz" >
+    <label>您可以在这里查看您的剩余配件</label>
+    <br/>
+    <span>感谢您选择修匠上门维修手机回收平台，欢迎再次光临~</span>
+  </div>
+  <ion-grid class="main-section" no-padding>
+    <ion-row>
+      <ion-col col-4 class="nav-section">
+        <ul class="nav-list">
+          <li [ngClass]="{'nav-item':true,'active':i==navIndex}" *ngFor="let item of navList;index as i" (click)="navChange(i)">{{item}}</li>
+        </ul>
+      </ion-col>
+      <ion-col class="content-section">
+        <ion-searchbar class="serch-bar" placeholder="输入关键字"></ion-searchbar>
+        <ion-grid class="product-grid-wz">
+          <div *ngFor="let product of products">
+          <ion-row class="pro-item" >
+            <ion-col col-4>
+              <img src="{{product.img}}"/>
+            </ion-col>
+            <ion-col>
+              <label>{{product.name}}</label>
+              <label>￥{{product.price}}</label>
+              <label>您的剩余数量 : {{product.num}}</label>
+            </ion-col>
+          </ion-row>
+          </div>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
