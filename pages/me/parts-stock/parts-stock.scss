@@ -58,6 +58,8 @@ page-parts-stock {
       height: 100%;
       border-right: rem(3) solid $dark-themcolor;
       position: relative;
+      background: url("../assets/imgs/gear.png") rem(50) rem(430) no-repeat;
+      background-size: 70%;
       &:before {
         position: absolute;
         top:0;
@@ -68,9 +70,6 @@ page-parts-stock {
         width:100%;
         height: 100%;
         display: block;
-        background-image:url('../assets/imgs/person/notice/mm3.png');
-        background-repeat: no-repeat;
-        background-position: top left;
       }
       &:after {
         content: "";
