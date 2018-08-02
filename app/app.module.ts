@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { FormsModule} from '@angular/forms';
+//登录
+import { LoginPage } from '../pages/login/login';
+import { ChangeWordPage } from '../pages/login/change-word/change-word';
 
 import { OrderPage } from '../pages/order/order';
 import { OrdermapPage } from '../pages/ordermap/ordermap';
@@ -41,6 +44,12 @@ import { MeAllStudentsPage } from '../pages/me/me-all-students/me-all-students';
 //import { QRCodeModule } from 'angular2-qrcode';//生成二维码
 import { QRCodeModule } from 'angularx-qrcode';
 import {OrderDetailsPage} from "../pages/me/order-details/order-details";
+
+//网络
+import { HttpClientModule,HTTP_INTERCEPTORS  } from '@angular/common/http';
+import { InterceptorServiceProvider } from '../providers/interceptor-service/interceptor-service';
+import { StorageServiceProvider } from '../providers/storage-service/storage-service';
+import { HttpServiceProvider } from '../providers/http-service/http-service';
 import {ShoppingCarPage} from "../pages/me/shopping-car/shopping-car";
 import {PartsStreamPage} from "../pages/me/parts-stream/parts-stream";
 import {ApplyPartsPage} from "../pages/me/apply-parts/apply-parts";
@@ -73,7 +82,8 @@ import {PartsStockPage} from "../pages/me/parts-stock/parts-stock";
     ReceiveRecordPage,
     TwocodePage,
     OrderDetailsPage,
-    OrderDetailsPage,
+    LoginPage,
+    ChangeWordPage,
     ShoppingCarPage,
     PartsStreamPage,
     ApplyPartsPage,
@@ -92,7 +102,8 @@ import {PartsStockPage} from "../pages/me/parts-stock/parts-stock";
     	backButtonText: '',//按钮内容
       backButtonIcon: 'myback',//按钮图标样式
       tabsHideOnSubPages: 'true' , //隐藏全部子页面tabs
-    })
+    }),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -121,7 +132,8 @@ import {PartsStockPage} from "../pages/me/parts-stock/parts-stock";
     ReceiveRecordPage,
     TwocodePage,
     OrderDetailsPage,
-    OrderDetailsPage,
+    LoginPage,
+    ChangeWordPage,
     ShoppingCarPage,
     PartsStreamPage,
     ApplyPartsPage,
@@ -132,7 +144,10 @@ import {PartsStockPage} from "../pages/me/parts-stock/parts-stock";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    {provide:HTTP_INTERCEPTORS,useClass:InterceptorServiceProvider,multi:true},
+    StorageServiceProvider,
+    HttpServiceProvider,
   ]
 })
 export class AppModule {}

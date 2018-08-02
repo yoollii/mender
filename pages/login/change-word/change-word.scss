@@ -1,0 +1,61 @@
+page-change-word {
+    ion-grid.grid {
+        background-color:rgba($color: #eee, $alpha: 0.1);
+        position: absolute;
+        top:rem(38);
+        bottom:0;
+        left:0;
+        right:0;
+        ion-row {
+            width:80%;
+            margin:rem(33) auto;
+            color:$Themecolor;
+            ion-input {
+                .text-input {
+                    margin:0;
+                    padding:rem(10) 0;
+                }
+            }
+            .c-button {
+                background-color:#646464
+            }
+            .comment {
+                p {
+                    margin:0;
+                    padding:0;
+                    font-size:rem(24);
+                    color:#646464;
+                    line-height: rem(30);
+                }
+            }
+            .valicode {
+                position: relative;
+                ion-input {
+                    padding-right:rem(150);
+                }
+                button {
+                    position: absolute;
+                    right:0;
+                    bottom:rem(12);
+                    background-color:transparent;
+                    font-size:rem(30);
+                    color:#646464;
+                    text-align: center;
+                    font-weight: 300;
+                }
+            }
+        }
+        .tip {
+            margin:rem(80) auto rem(30) auto;
+            span {
+                display:inline-block;
+                padding-left:rem(40);
+                background-image: url('../../../assets/icon/icon-warn.svg');
+                background-position: left center;
+                background-size:rem(30);
+                background-repeat: no-repeat;
+            }
+        }
+        
+    }
+}
