@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ShoppingCartPage } from './shopping-cart/shopping-cart';
 
 /**
  * Generated class for the PartsMallPage page.
@@ -30,5 +31,8 @@ export class PartsMallPage {
   }
   viewBrand(){
     this.show = this.show?false:true;
+  }
+  shoppingCar(){
+    this.navCtrl.push(ShoppingCartPage);
   }
 }

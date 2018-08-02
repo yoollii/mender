@@ -1,0 +1,78 @@
+page-parts-stream {
+  .content {
+    background-color: #222222;
+  }
+  .black-div-wz {
+    height: rem(40);
+    background-color: #181818;
+  }
+  .content-div1-wz {
+    border-radius: rem(10);
+    background: url("../assets/imgs/person/notice/mm.png") no-repeat;
+    background-size: 100%;
+  }
+  .content-div1-1-wz {
+    height: rem(75);
+    width: 90%;
+    margin-left: 5%;
+  }
+  .content-div1-1-wz p {
+    margin: 0px;
+    position: relative;
+    top: rem(40);
+    left: rem(12);
+    font-family: "Microsoft YaHei UI";
+    font-size: rem(21.5);
+    color: #e6e6e6;
+  }
+  .content-div1-2-wz {
+    height: rem(245);
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+    img {
+      width: rem(79);
+      height: rem(79);
+    }
+    div:first-child {
+      margin-left: 3%;
+      margin-top: rem(-75);
+    }
+    div:nth-child(2) {
+      margin-top: rem(-50);
+      margin-left: rem(25);
+      label {
+        font-size: rem(20);
+        color: #ffffff;
+      }
+      p {
+        margin-left: 0px;
+        font-size: rem(20);
+        color: $Themecolor;
+        position: relative;
+        top: rem(50);
+      }
+    }
+  }
+  .content-div1-2-wz p {
+    width: 90%;
+    margin-left: 5%;
+    color: $Themecolor;
+    font-family: "Microsoft YaHei UI";
+    font-size: rem(20);
+  }
+  .content-div1-3-wz {
+    width: 90%;
+    height: rem(55);
+    margin-left: 5%;
+    display: flex;
+    justify-content: flex-end;
+    p {
+      margin: 2% 3% 2% 0;
+      color: $Themecolor;
+      font-family: "Microsoft YaHei UI";
+      font-size: rem(20);
+    }
+  }
+}

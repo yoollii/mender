@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { FormsModule} from '@angular/forms';
+//登录
+import { LoginPage } from '../pages/login/login';
+import { ChangeWordPage } from '../pages/login/change-word/change-word';
 
 import { OrderPage } from '../pages/order/order';
 import { OrdermapPage } from '../pages/ordermap/ordermap';
@@ -40,9 +43,23 @@ import { MeAllStudentsPage } from '../pages/me/me-all-students/me-all-students';
 
 //import { QRCodeModule } from 'angular2-qrcode';//生成二维码
 import { QRCodeModule } from 'angularx-qrcode';
-
 import {MessageServiceProvider} from "../providers/messageService/messageService";
 import { HttpModule }from '@angular/http';
+import {OrderDetailsPage} from "../pages/me/order-details/order-details";
+
+//网络
+import { HttpClientModule,HTTP_INTERCEPTORS  } from '@angular/common/http';
+import { InterceptorServiceProvider } from '../providers/interceptor-service/interceptor-service';
+import { StorageServiceProvider } from '../providers/storage-service/storage-service';
+import { HttpServiceProvider } from '../providers/http-service/http-service';
+import {ShoppingCarPage} from "../pages/me/shopping-car/shopping-car";
+import {PartsStreamPage} from "../pages/me/parts-stream/parts-stream";
+import {ApplyPartsPage} from "../pages/me/apply-parts/apply-parts";
+import {MyPartsPage} from "../pages/me/my-parts/my-parts";
+import { ErrorInfoProvider } from '../providers/error-info/error-info';
+import { AppConfig} from "./app.config";
+import {PartsStockPage} from "../pages/me/parts-stock/parts-stock";
+import {ApplyPartsTwoPage} from "../pages/me/apply-parts-two/apply-parts-two";
 @NgModule({
   declarations: [
     MyApp,
@@ -68,7 +85,17 @@ import { HttpModule }from '@angular/http';
     MeAllStudentsPage,
     PartsMallPage,
     ReceiveRecordPage,
-    TwocodePage
+    TwocodePage,
+    OrderDetailsPage,
+    LoginPage,
+    ChangeWordPage,
+    ShoppingCarPage,
+    PartsStreamPage,
+    ApplyPartsPage,
+    ApplyPartsPage,
+    MyPartsPage,
+    PartsStockPage,
+    ApplyPartsTwoPage
   ],
   imports: [
     BrowserModule,
@@ -82,7 +109,8 @@ import { HttpModule }from '@angular/http';
     	backButtonText: '',//按钮内容
       backButtonIcon: 'myback',//按钮图标样式
       tabsHideOnSubPages: 'true' , //隐藏全部子页面tabs
-    })
+    }),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -109,13 +137,28 @@ import { HttpModule }from '@angular/http';
     MeAllStudentsPage,
     PartsMallPage,
     ReceiveRecordPage,
-    TwocodePage
+    TwocodePage,
+    OrderDetailsPage,
+    LoginPage,
+    ChangeWordPage,
+    ShoppingCarPage,
+    PartsStreamPage,
+    ApplyPartsPage,
+    ApplyPartsPage,
+    MyPartsPage,
+    PartsStockPage,
+    ApplyPartsTwoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    MessageServiceProvider
+    MessageServiceProvider,
+    {provide:HTTP_INTERCEPTORS,useClass:InterceptorServiceProvider,multi:true},
+    StorageServiceProvider,
+    HttpServiceProvider,
+    ErrorInfoProvider,
+    AppConfig
   ]
 })
 export class AppModule {}

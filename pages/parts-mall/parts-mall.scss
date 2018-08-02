@@ -71,7 +71,7 @@ page-parts-mall {
         position: relative;
         width: 100%;
         height: 98%;
-        
+
         .nav-list {
             width: 96%;
             height: 100%;
@@ -90,8 +90,8 @@ page-parts-mall {
                 background-image:url('../../assets/imgs/person/notice/mm3.png');
                 background-repeat: no-repeat;
                 background-position: top left;
-         
-                
+
+
             }
             &:after {
                 content: "";
@@ -140,7 +140,7 @@ page-parts-mall {
                 display: block;
                 z-index: 999;
                 border:rem(4) solid #181818;
-                
+
             }
         }
     }
@@ -171,14 +171,14 @@ page-parts-mall {
                 &:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
                     color:#646464;
                 }
-                &:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
+                &:-ms-input-placeholder{  /* Internet Explorer 10-11 */
                     color:#646464;
                 }
             }
-            
+
         }
         .product-list {
-            flex:1; 
+            flex:1;
             ion-grid {
                 height: 100%;
                 margin:0 10px;
