@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {HttpServiceProvider} from "../../../providers/http-service/http-service";
 
 /**
  * Generated class for the PartsStreamPage page.
@@ -16,14 +17,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class PartsStreamPage {
 
   parts = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.parts = [
-      {orderCode: '201823435312',img: '../../assets/imgs/licImg-ys.png',model: 'iphone6',fault: '电池故障-电池膨胀/续航时间短',color: '银色',solve: '使用S内屏幕*1 S8触摸键*1'},
-      {orderCode: '201823435312',img: '../../assets/imgs/licImg-ys.png',model: 'iphone6',fault: '电池故障-电池膨胀/续航时间短',color: '银色',solve: '使用S内屏幕*1 S8触摸键*1'},
-      {orderCode: '201823435312',img: '../../assets/imgs/licImg-ys.png',model: 'iphone6',fault: '电池故障-电池膨胀/续航时间短',color: '银色',solve: '使用S内屏幕*1 S8触摸键*1'},
-      {orderCode: '201823435312',img: '../../assets/imgs/licImg-ys.png',model: 'iphone6',fault: '电池故障-电池膨胀/续航时间短',color: '银色',solve: '使用S内屏幕*1 S8触摸键*1'},
-      {orderCode: '201823435312',img: '../../assets/imgs/licImg-ys.png',model: 'iphone6',fault: '电池故障-电池膨胀/续航时间短',color: '银色',solve: '使用S内屏幕*1 S8触摸键*1'}
-    ];
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private http: HttpServiceProvider
+  ) {
+    this.http.request({
+      url: 'my/partsflow',
+      type: 'post',
+      data: {current: 1, size: 5},
+      success: res => {
+        console.log(res);
+        this.parts = res.records;
+      }
+    });
   }
 
   ionViewDidLoad() {
