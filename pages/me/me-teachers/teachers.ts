@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MeAllStudentsPage } from '../me-all-students/me-all-students';
 import { AlertController } from 'ionic-angular';
 import * as $ from 'jquery';
+import {HttpServiceProvider} from "../../../providers/http-service/http-service";
 /**
  * Generated class for the TeachersPage page.
  *
@@ -20,11 +21,22 @@ export class TeachersPage {
   student:string;
   teacher:string;
   controlText:boolean;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,
+              private http: HttpServiceProvider) {
     this.student="assets/imgs/person/teachers/cupColor.png";
     this.teacher='assets/imgs/person/teachers/teacherIcon.png';
+    this.http.request({
+      url: 'my/masterapprenticelistall',
+      type: 'get',
+      success: res => console.log('技师的所有徒弟' + res)
+    });
+    this.http.request({
+      url: 'my/masterapprenticerelationship',
+      type: 'get',
+      success: res => console.log(res)
+    });
   }
-  showPrompt(text) {
+  showPrompt(text, type: number) {
     const prompt = this.alertCtrl.create({
       // title: 'Login',
       cssClass:'teachersAlert',
@@ -74,17 +86,17 @@ export class TeachersPage {
     ctx.stroke();
 
   }
-  toStudents(text){
+  toStudents(text, type: number){
     this.student="assets/imgs/person/teachers/cupColor.png";
     this.teacher='assets/imgs/person/teachers/teacherIcon.png';
     this.controlText=false;
-    this.showPrompt(text);
+    this.showPrompt(text, type);
   }
-  toTeacher(text){
+  toTeacher(text, type: number){
     this.student="assets/imgs/person/teachers/cup.png";
     this.teacher='assets/imgs/person/teachers/teacherIconColor.png';
     this.controlText=true;
-    this.showPrompt(text);
+    this.showPrompt(text, type);
   }
   showAllAtudents(){
     this.navCtrl.push(MeAllStudentsPage);
