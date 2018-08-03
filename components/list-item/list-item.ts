@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input} from '@angular/core';
 /**
  * Generated class for the ListItemComponent component.
  *
@@ -10,12 +10,9 @@ import { Component } from '@angular/core';
   templateUrl: 'list-item.html'
 })
 export class ListItemComponent {
-
-  text: string;
-
+  @Input() item:Object;
   constructor() {
-    console.log('Hello ListItemComponent Component');
-    this.text = 'Hello World';
+    
   }
 
 }

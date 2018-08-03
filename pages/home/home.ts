@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,Platform,ToastController } from 'ionic-angular';
 import { DayincomePage } from './dayincome/dayincome';
 import { RanklistPage } from './ranklist/ranklist';
 //import { OrderPage } from '../order/order';
@@ -16,8 +16,17 @@ export class HomePage {
   rankingList:boolean=false;
   order:boolean=false;
   income:boolean=false;
-  constructor(public navCtrl: NavController) {
-
+  n=0;
+  constructor(public navCtrl: NavController,private toastCtrl:ToastController,private plat:Platform) {
+    const pl = this.plat;
+    this.plat.registerBackButtonAction(res=>{
+      this.n++;
+      if(this.n<2){
+        this.toast('再次按返回键将退出程序');
+      }else{
+        pl.exitApp();
+      }
+    })
   }
   ionViewDidLoad() {
   	let nowtime=new Date();
@@ -67,5 +76,12 @@ export class HomePage {
     this.income=true;
     this.navCtrl.push(DayincomePage);
   }
-
+  toast(msg){
+    const toast = this.toastCtrl.create({
+      message: msg,
+      position: 'middle', // “top”，“middle”，“bottom”。
+      duration: 3000
+    });
+    toast.present();
+  }
 }

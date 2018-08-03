@@ -54,13 +54,12 @@ import {ShoppingCarPage} from "../pages/me/shopping-car/shopping-car";
 import {PartsStreamPage} from "../pages/me/parts-stream/parts-stream";
 import {ApplyPartsPage} from "../pages/me/apply-parts/apply-parts";
 import {MyPartsPage} from "../pages/me/my-parts/my-parts";
-<<<<<<< HEAD
 import { ErrorInfoProvider } from '../providers/error-info/error-info';
 import { AppConfig} from "./app.config";
-=======
 import {PartsStockPage} from "../pages/me/parts-stock/parts-stock";
 import {ApplyPartsTwoPage} from "../pages/me/apply-parts-two/apply-parts-two";
->>>>>>> 67645ed8f6aa55f47f59614a3e23602edbd5fa4a
+import { PageDataProvider } from '../providers/page-data/page-data';
+import { Network }  from '@ionic-native/network';
 @NgModule({
   declarations: [
     MyApp,
@@ -157,7 +156,9 @@ import {ApplyPartsTwoPage} from "../pages/me/apply-parts-two/apply-parts-two";
     StorageServiceProvider,
     HttpServiceProvider,
     ErrorInfoProvider,
-    AppConfig
+    AppConfig,
+    PageDataProvider,
+    Network
   ]
 })
 export class AppModule {}
