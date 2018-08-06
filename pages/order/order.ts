@@ -2,7 +2,6 @@ import { Component} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { OrderdetailPage } from './orderdetail/orderdetail';
 import {MessageServiceProvider} from "../../providers/messageService/messageService";
-import { Subscription } from 'rxjs/Subscription';
 import { PageDataProvider } from '../../providers/page-data/page-data';
 import { HttpServiceProvider } from '../../providers/http-service/http-service';
 /**
@@ -19,7 +18,6 @@ import { HttpServiceProvider } from '../../providers/http-service/http-service';
 })
 
 export class OrderPage {
-  subscription: Subscription;
   haveData=true;//判定有没有更多数据
   tabsIndex = 0;//tabs的选中项
   tabs = [
@@ -71,7 +69,6 @@ export class OrderPage {
       total_price:'￥128'
     }
   ]
-  dataList = []
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
