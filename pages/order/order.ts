@@ -52,23 +52,7 @@ export class OrderPage {
       cnt:0
     }
   ]
-  dataList = [
-    {
-      order_no:'20192138388423424',
-      status:0,
-      products_list:[
-        {
-          name:'iphone6',
-          thumbnail:'',
-          color:'红色',
-          info:'电池故障-电池膨胀/续航时间',
-          price:"￥128.00"
-        }
-      ],
-      count:'一',
-      total_price:'￥128'
-    }
-  ]
+  
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
