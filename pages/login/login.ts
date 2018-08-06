@@ -47,6 +47,7 @@ export class LoginPage {
     }
     this.http.request({
       url:'workerInfo/login',
+      loading_text:'登录中...',
       data:{
         userName:telNum,
         passWord:password
@@ -59,30 +60,6 @@ export class LoginPage {
   loginSuccess(data){
     this.storage.write("user",data);
     this.app.getRootNav().push(TabsPage);
-  }
-  getTest(){
-    this.http.request({
-      url:"order/countorderbystatus",
-      type:"get",
-      data:{
-        
-      },
-      success:res=>{
-        alert(res);
-      }
-    })
-  }
-  PUTest(){
-    this.http.request({
-      url:"order/cancelorder",
-      type:"put",
-      data:{
-        orderno:'201803212342412164691'
-      },
-      success:res=>{
-        alert(res);
-      }
-    })
   }
   toast(msg){
     const toast = this.toastCtrl.create({

@@ -60,6 +60,7 @@ import {PartsStockPage} from "../pages/me/parts-stock/parts-stock";
 import {ApplyPartsTwoPage} from "../pages/me/apply-parts-two/apply-parts-two";
 import { PageDataProvider } from '../providers/page-data/page-data';
 import { Network }  from '@ionic-native/network';
+import { CallNumber } from '@ionic-native/call-number';
 @NgModule({
   declarations: [
     MyApp,
@@ -158,7 +159,8 @@ import { Network }  from '@ionic-native/network';
     ErrorInfoProvider,
     AppConfig,
     PageDataProvider,
-    Network
+    Network,
+    CallNumber
   ]
 })
 export class AppModule {}

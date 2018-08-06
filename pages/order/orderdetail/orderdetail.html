@@ -30,10 +30,22 @@
             订单编号
           </ion-col>
           <ion-col text-center>
-            23321313123
+            {{item.orderno}}
           </ion-col>
-          <ion-col col-3 text-right>
-            待接单
+          <ion-col col-3 text-right *ngIf="item.status==1">
+            待受理
+          </ion-col>
+          <ion-col col-3 text-right *ngIf="item.status==2">
+            已受理
+          </ion-col>
+          <ion-col col-3 text-right *ngIf="item.status==3">
+            已确定
+          </ion-col>
+          <ion-col col-3 text-right *ngIf="item.status==4">
+            已支付
+          </ion-col>
+          <ion-col col-3 text-right *ngIf="item.status==5">
+            已完成
           </ion-col>
         </ion-row>
         <ion-row class="border">
@@ -41,7 +53,7 @@
             联系人
           </ion-col>
           <ion-col col-8 text-right>
-            测试接单
+            {{detail.nickname}}
           </ion-col>
         </ion-row>
         <ion-row class="border">
@@ -49,7 +61,7 @@
             联系电话
           </ion-col>
           <ion-col col-4 text-right>
-            13011111111
+            {{detail.phone}}
           </ion-col>
         </ion-row>
         <ion-row class="border">
@@ -57,7 +69,7 @@
             联系地址
           </ion-col>
           <ion-col col-8 text-right>
-            四川省四川省四
+            {{detail.address}}
           </ion-col>
         </ion-row>
         <ion-row class="border">
@@ -65,15 +77,21 @@
             下单时间
           </ion-col>
           <ion-col col-8 text-right>
-            2012-12-23 10：00：00
+            {{detail.createtime}}
           </ion-col>
         </ion-row>
         <ion-row class="border">
           <ion-col class="pannel-title" text-left>
             服务方式
           </ion-col>
-          <ion-col col-8 text-right>
+          <ion-col col-8 text-right *ngIf="detail.servertype==1">
             上门
+          </ion-col>
+          <ion-col col-8 text-right *ngIf="detail.servertype==2">
+            到店
+          </ion-col>
+          <ion-col col-8 text-right *ngIf="detail.servertype==3">
+            邮寄
           </ion-col>
         </ion-row>
         <ion-row>
@@ -81,7 +99,7 @@
             预约时间
           </ion-col>
           <ion-col col-8 text-right>
-            07-03 12121
+            {{detail.bookingtime}}
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -89,14 +107,14 @@
   </ion-card>
   <ion-card class="custom-pannel-card">
     <ion-card-content>
-        <div class="list-item-content-ys">
-            <img src="../../assets/imgs/licImg-ys.png" alt="">
-              <ul>
-                 <li>iphone 6</li>
-                 <li>电池故障-电池膨胀/续航时间短</li>
-                 <li>颜色：银色</li>
-              </ul>
-            </div>
+      <div class="list-item-content-ys">
+        <img src={{item.img}} alt="">
+        <ul>
+          <li>{{detail.version}}</li>
+          <li>{{item.fault}}</li>
+          <li>颜色：{{item.color}}</li>
+        </ul>
+      </div>
     </ion-card-content>
   </ion-card>
   <ion-card class="custom-pannel-card">
@@ -104,54 +122,43 @@
       买家备注
     </ion-card-header>
     <ion-card-content>
-      1231232313123
+      {{detail.remark}}
     </ion-card-content>
   </ion-card>
-  <ion-card class="custom-pannel-card">
+  <ion-card class="custom-pannel-card" *ngIf="item.status!=1">
     <ion-card-header class="pannel-title" text-left>
       配件明细
     </ion-card-header>
     <ion-card-content>
-      1231232313123
+      {{detail.parts}}
     </ion-card-content>
   </ion-card>
-  <ion-card class="custom-pannel-card">
-      <ion-card-content no-padding>
-        <ion-grid>
-          <ion-row class="border">
-            <ion-col class="pannel-title" text-left>
-              订单总额
-            </ion-col>
-            <ion-col col-8 text-right class="pannel-title">
-              ￥89232.00
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="pannel-title" text-left>
-              支付方式
-            </ion-col>
-            <ion-col col-4 text-right class="pannel-title">
-              支付宝
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-card-content>
-    </ion-card>
-    <ion-card class="custom-pannel-card">
-        <ion-card-content no-padding>
-          <ion-grid>
-            <ion-row>
-              <ion-col col-3 class="pannel-title" text-left>
-                IMEI
-              </ion-col>
-              <ion-col text-right class="pannel-title">
-                123123123
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card-content>
-      </ion-card>
-  <ion-card class="custom-pannel-card">
+  <ion-card class="custom-pannel-card" *ngIf="item.status==4||item.status==5">
+    <ion-card-content no-padding>
+      <ion-grid>
+        <ion-row class="border">
+          <ion-col class="pannel-title" text-left>
+            订单总额
+          </ion-col>
+          <ion-col col-8 text-right class="pannel-title">
+            ￥{{detail.fee}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="pannel-title" text-left>
+            支付方式
+          </ion-col>
+          <ion-col col-4 text-right class="pannel-title" *ngIf="detail.paytype==1">
+            在线支付
+          </ion-col>
+          <ion-col col-4 text-right class="pannel-title" *ngIf="detail.paytype==2">
+            线下支付
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="custom-pannel-card" *ngIf="item.status!=4&&item.status!=5">
     <ion-card-content no-padding>
       <ion-grid>
         <ion-row>
@@ -159,7 +166,7 @@
             订单总额
           </ion-col>
           <ion-col text-right>
-            ￥128.00
+            ￥{{detail.fee}}
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -167,7 +174,7 @@
   </ion-card>
 </ion-content>
 <!--状态1-->
-<!--ion-grid class="foot-tabs">
+<ion-grid class="foot-tabs" *ngIf="item.status==1">
   <ion-row>
     <ion-col text-center>
 
@@ -175,24 +182,24 @@
     <ion-col text-center>
 
     </ion-col>
-    <ion-col text-center>
+    <ion-col text-center (click)="makeCallNumber()">
       <span class="icon active tel-active"></span>
       <span>联系客户</span>
     </ion-col>
-    <ion-col text-center>
+    <ion-col text-center (click)="cancelOrder()">
       <span class="icon cancel"></span>
       <span>取消订单</span>
     </ion-col>
-    <ion-col text-center>
+    <ion-col text-center (click)="receiveOrder()">
       <span class="icon is_confirm"></span>
       <span>接手订单</span>
     </ion-col>
   </ion-row>
-</ion-grid-->
+</ion-grid>
 <!--状态2-->
-<ion-grid class="foot-tabs">
+<ion-grid class="foot-tabs" *ngIf="item.status==2">
   <ion-row>
-    <ion-col text-center>
+    <ion-col text-center (click)="makeCallNumber()">
       <span class="icon tel"></span>
       <span>联系客户</span>
     </ion-col>
@@ -204,18 +211,18 @@
       <span class="icon active components"></span>
       <span>选取配件</span>
     </ion-col>
-    <ion-col text-center>
+    <ion-col text-center (click)="confirmOrder()">
       <span class="icon finish"></span>
       <span>确认订单</span>
     </ion-col>
-    <ion-col text-center>
+    <ion-col text-center (click)="transferOrder()">
       <span class="icon out"></span>
       <span>转单</span>
     </ion-col>
   </ion-row>
 </ion-grid>
 <!--状态3-->
-<!--ion-grid class="foot-tabs">
+<ion-grid class="foot-tabs" *ngIf="item.status==3">
   <ion-row>
     <ion-col text-center>
 
@@ -224,20 +231,20 @@
 
     </ion-col>
     <ion-col text-center>
-      
+
     </ion-col>
-    <ion-col text-center>
+    <ion-col text-center (click)="makeCallNumber()">
       <span class="icon tel"></span>
       <span>联系客户</span>
     </ion-col>
-    <ion-col text-center>
+    <ion-col text-center (click)="underPay()"> 
       <span class="icon active wallet"></span>
       <span>线下支付</span>
     </ion-col>
   </ion-row>
-</ion-grid-->
+</ion-grid>
 <!--状态4-->
-<!--ion-grid class="foot-tabs">
+<ion-grid class="foot-tabs" *ngIf="item.status==4">
   <ion-row>
     <ion-col text-center>
 
@@ -253,14 +260,14 @@
       <span class="icon tel"></span>
       <span>联系客户</span>
     </ion-col>
-    <ion-col text-center>
+    <ion-col text-center (click)="finishOrder()">
       <span class="icon order active"></span>
       <span>结束订单</span>
     </ion-col>
   </ion-row>
-</ion-grid-->
+</ion-grid>
 <!--状态5-->
-<!--ion-grid class="foot-tabs">
+<ion-grid class="foot-tabs" *ngIf="item.status==5">
   <ion-row>
     <ion-col text-center>
 
@@ -269,14 +276,14 @@
 
     </ion-col>
     <ion-col text-center>
-     
+
     </ion-col>
     <ion-col text-center>
-      
+
     </ion-col>
     <ion-col text-center>
       <span class="icon discuss"></span>
       <span>查看评价</span>
     </ion-col>
   </ion-row>
-</ion-grid-->
+</ion-grid>

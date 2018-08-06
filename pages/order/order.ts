@@ -73,8 +73,11 @@ export class OrderPage {
       this.orderList();
     }
   }
-  viewDetail(){
-    this.navCtrl.push(OrderdetailPage);
+  viewDetail(idx){
+    const item = this.dataList[idx];
+    this.navCtrl.push(OrderdetailPage,{
+      item:JSON.stringify(item)
+    });
   }
   orderCount(){
     this.http.request({

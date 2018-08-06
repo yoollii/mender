@@ -24,7 +24,7 @@
 <div class="turn_zq">
 <div class='form1_zq'>
 	<label class='label_zq'>技师工号:</label>
-	<input type="number" class='input_zq' [(ngModel)]="menderNum"  (change)='searchInfo()'/>
+	<input type="number" class='input_zq' [(ngModel)]="menderNum"  (input)='searchInfo()'/>
 	<div class='info_zq' *ngIf='showinfo'>
 		<p>姓名：张有才</p>
 		<p>工号：1234354355</p>

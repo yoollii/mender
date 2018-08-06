@@ -225,7 +225,7 @@ export class HttpServiceProvider {
       case 401:
         break;
       case 200://请求成功,响应结果不成功
-        this.doResError(err.body.result, err.body['msg']);
+        this.doResError(err.body.result, err.body['msg'],apiName);
         break;
       case 404:
         if (this.config.debug) {
@@ -258,7 +258,7 @@ export class HttpServiceProvider {
    * 1002 token过期  需要重新登录
    * @param code 
    */
-  private doResError(code, msg) {
+  private doResError(code, msg,apiName) {
     switch (code) {
       case '1002':
         this.alertMsg(this.errorInfo.invalidError)
@@ -266,7 +266,7 @@ export class HttpServiceProvider {
         break;
       default: {
         if (this.config.debug) {
-          alert(msg + "(" + code + ")");
+          alert(msg + "("+apiName+":"+ code + ")");
         } else {
           this.alertMsg(msg);
         }

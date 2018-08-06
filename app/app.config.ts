@@ -8,7 +8,7 @@ export class AppConfig {
     //控制网络请求、日志输出等,外网不需要输出的日志用该阀值控制
     //  true 调试,api=dev_api
     // false 正式, api = pro_api;
-    static isWeb = true;
+    static isWeb = false;
     //由于网页调试存在跨域问题,在网页中调试需要用反向代理
     static proxy_dev_api = '/dev/api/';
     static proxy_pro_api = '/pro/api/';

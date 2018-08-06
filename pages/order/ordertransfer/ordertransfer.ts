@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HttpServiceProvider } from '../../../providers/http-service/http-service';
 //import {FormBuilder,FormGroup,Validators} from '@angular/forms';
 
 /**
@@ -20,28 +21,29 @@ export class OrdertransferPage {
   menderNum:number;
   reason1:boolean=false;
   reason2:boolean=false;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+	  public navCtrl: NavController, 
+	  public navParams: NavParams,
+	  private http:HttpServiceProvider
+	) {
   }
 
   ionViewDidLoad() {
 
   }
   searchInfo(){
-  	if(this.menderNum != null && this.menderNum != undefined){
-  	setTimeout(()=>{
-  		if(this.menderNum== 1234567890){
-  			this.showinfo=true;
-  			this.showinfoe=false;
-  		}else{
-  			this.showinfoe=true;
-  			this.showinfo=false;
-  		}
-  	},100)
-  	}else{
-  		this.showinfoe=false;
-  		this.showinfo=false;
-  	}
+	this.http.request({
+		url:"order/gettransferworker",
+		type:'get',
+		data:{
+			worknum:this.menderNum
+		},
+		success:res=>{
+			console.log(res)
+		}
+	})
   }
+  
   sureTurn(){
   	console.log(this.reason2);
   	console.log(this.reason1);
