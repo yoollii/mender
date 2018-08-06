@@ -34,28 +34,27 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
   login(tel:HTMLInputElement,pwd:HTMLInputElement,status:HTMLInputElement){
-  	this.app.getRootNav().push(TabsPage);
-//  const telNum = tel.value;
-//  const password = pwd.value.trim();
-//  const checked = status.checked;
-//  if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(telNum))){
-//    this.toast('手机号码不正确');
-//    return false;
-//  }
-//  if(!password||password.length<6){
-//    this.toast('密码不正确');
-//    return false;
-//  }
-//  this.http.request({
-//    url:'workerInfo/login',
-//    data:{
-//      userName:telNum,
-//      passWord:password
-//    },
-//    success:res=>{
-//      this.loginSuccess(res);
-//    }
-//  });
+    const telNum = tel.value;
+    const password = pwd.value.trim();
+    const checked = status.checked;
+    if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(telNum))){
+      this.toast('手机号码不正确');
+      return false;
+    }
+    if(!password||password.length<6){
+      this.toast('密码不正确');
+      return false;
+    }
+    this.http.request({
+      url:'workerInfo/login',
+      data:{
+        userName:telNum,
+        passWord:password
+      },
+      success:res=>{
+        this.loginSuccess(res);
+      }
+    });
   }
   loginSuccess(data){
     this.storage.write("user",data);
