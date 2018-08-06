@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {HttpServiceProvider} from "../../../providers/http-service/http-service";
+import {PageDataProvider} from "../../../providers/page-data/page-data";
 
 /**
  * Generated class for the PartsStreamPage page.
@@ -17,24 +18,52 @@ import {HttpServiceProvider} from "../../../providers/http-service/http-service"
 export class PartsStreamPage {
 
   parts = [];
+  haveData = true;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private http: HttpServiceProvider
+    private http: HttpServiceProvider,
+    private pageData: PageDataProvider
   ) {
-    this.http.request({
-      url: 'my/partsflow',
-      type: 'post',
-      data: {current: 1, size: 5},
-      success: res => {
-        console.log(res);
-        this.parts = res.records;
-      }
-    });
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PartsStreamPage');
+    this.getPartsList();
   }
-
+  getPartsList(operation?:any) {
+    let flag = operation?false:true;
+    this.http.request({
+      url: 'my/partsflow',
+      type: 'post',
+      loading:flag,
+      data: {pageIndex: this.pageData.next_page, pageSize: 10},
+      success: res => {
+        this.pageData.load(res);
+        this.parts = this.pageData.list;
+        console.log(this.parts);
+        this.haveData = this.pageData.more_data;
+        console.log(this.haveData);
+      },
+      complete:res => {
+        if(operation){
+          operation.complete();
+        }
+      }
+    });
+  }
+  //下拉刷新
+  doRefresh(refresher) {
+    console.log(refresher);
+    this.pageData.refresh();
+    this.getPartsList(refresher);
+  }
+  //上拉加载
+  doInfinite(infiniteScroll) {
+    if(this.haveData){
+      this.getPartsList(infiniteScroll);
+    }else{
+      infiniteScroll.enable(false);
+      infiniteScroll.complete();
+    }
+  }
 }
