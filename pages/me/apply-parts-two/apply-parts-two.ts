@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {HttpServiceProvider} from "../../../providers/http-service/http-service";
+import {PageDataProvider} from "../../../providers/page-data/page-data";
 
 /**
  * Generated class for the ApplyPartsTwoPage page.
@@ -19,7 +20,8 @@ export class ApplyPartsTwoPage {
   navList = [];
   navIndex =0;
   products = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpServiceProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpServiceProvider,
+              private pageData: PageDataProvider) {
     this.http.request({
       url: 'my/applypartsmenu',
       type: 'get',
@@ -27,7 +29,7 @@ export class ApplyPartsTwoPage {
     });
     this.http.request({
       url: 'my/applypartsdetail',
-      data : {classifyid: 1, current: 1, size: 10},
+      data : {classifyid: 1, current: this.pageData.next_page, size: 10},
       success: res => this.products = res.records
     });
   }
