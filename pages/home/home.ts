@@ -17,7 +17,7 @@ export class HomePage {
   income:boolean=false;
   myrotate:boolean=false;
   n=0;
-  constructor(public navCtrl: NavController,private toastCtrl:ToastController,private plat:Platform,,public srv: MessageServiceProvider) {
+  constructor(public navCtrl: NavController,private toastCtrl:ToastController,private plat:Platform,public srv: MessageServiceProvider) {
     const pl = this.plat;
     this.plat.registerBackButtonAction(res=>{
       this.n++;
