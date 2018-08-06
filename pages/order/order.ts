@@ -52,7 +52,7 @@ export class OrderPage {
       cnt:0
     }
   ]
-  
+  dataList=[];
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
