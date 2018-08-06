@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {HttpServiceProvider} from "../../../providers/http-service/http-service";
 
 /**
  * Generated class for the PartsStockPage page.
@@ -26,7 +27,13 @@ export class PartsStockPage {
     {img: 'assets/imgs/person/notice/phone.jpg', name: 'iphone12 内屏', price: '1099', num: '2'},
     {img: 'assets/imgs/person/notice/phone.jpg', name: 'iphone13 内屏', price: '1199', num: '3'},
   ];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpServiceProvider) {
+    this.http.request({
+      url: 'my/partsinventorydetail',
+      type: 'post',
+      data: {classifyid: 2, current: 1, size: 10},
+      success: res => console.log(res)
+    });
   }
 
   ionViewDidLoad() {

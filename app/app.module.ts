@@ -60,6 +60,8 @@ import { ErrorInfoProvider } from '../providers/error-info/error-info';
 import { AppConfig} from "./app.config";
 import {PartsStockPage} from "../pages/me/parts-stock/parts-stock";
 import {ApplyPartsTwoPage} from "../pages/me/apply-parts-two/apply-parts-two";
+import { PageDataProvider } from '../providers/page-data/page-data';
+import { Network }  from '@ionic-native/network';
 @NgModule({
   declarations: [
     MyApp,
@@ -158,7 +160,9 @@ import {ApplyPartsTwoPage} from "../pages/me/apply-parts-two/apply-parts-two";
     StorageServiceProvider,
     HttpServiceProvider,
     ErrorInfoProvider,
-    AppConfig
+    AppConfig,
+    PageDataProvider,
+    Network
   ]
 })
 export class AppModule {}

@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {ApplyPartsPage} from "../apply-parts/apply-parts";
 import {ReceiveRecordPage} from "../../me-receive-record/receive-record";
 import {PartsStreamPage} from "../parts-stream/parts-stream";
-import {PartsMallPage} from "../../parts-mall/parts-mall";
 import {PartsStockPage} from "../parts-stock/parts-stock";
+import {ApplyPartsTwoPage} from "../apply-parts-two/apply-parts-two";
 
 /**
  * Generated class for the MyPartsPage page.
@@ -32,8 +31,8 @@ export class MyPartsPage {
   goToPartsStream() {
     this.navCtrl.push(PartsStreamPage);
   }
-  goToApplyParts() {
-    this.navCtrl.push(ApplyPartsPage);
+  goToApplyPartsTwo() {
+    this.navCtrl.push(ApplyPartsTwoPage);
   }
   goToShopReceiveRecord() {
     this.navCtrl.push(ReceiveRecordPage);

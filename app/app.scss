@@ -67,3 +67,14 @@ $Themecolor:#d1ae69; //主题色
 .tabs-ios .tab-button[aria-selected=true] {
     color: $Themecolor;
 }
+.loading-ios .loading-wrapper {
+    background-color:rgba($color: #1e1e1e, $alpha: 0.8);
+    color:#7a7a7a;
+}
+
+.no-data {
+    margin:rem(30) 0;
+    text-align: center;
+    color:#747474;
+    width:100%;
+}

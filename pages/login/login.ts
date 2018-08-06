@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ToastController ,App} from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ToastController ,App,Platform} from 'ionic-angular';
 import { HttpServiceProvider } from '../../providers/http-service/http-service';
 import { StorageServiceProvider } from '../../providers/storage-service/storage-service';
 import { TabsPage } from '../../pages/tabs/tabs';
@@ -9,15 +9,25 @@ import { TabsPage } from '../../pages/tabs/tabs';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
+  n=0;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     private http:HttpServiceProvider,
     private toastCtrl:ToastController,
     private storage:StorageServiceProvider,
-    private app:App
+    private app:App,
+    private plat:Platform
   ) {
+    const pl = this.plat;
+    this.plat.registerBackButtonAction(res=>{
+      this.n++;
+      if(this.n<2){
+        this.toast('再次按返回键将退出程序');
+      }else{
+        pl.exitApp();
+      }
+    })
   }
 
   ionViewDidLoad() {

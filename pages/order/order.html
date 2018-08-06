@@ -14,17 +14,33 @@
 
 
 <ion-content>
+
   <ion-grid margin-top margin-bottom class="tabs">
     <ion-row>
       <ion-col *ngFor="let item of tabs;index as idx" text-center (click)="changeTabs(idx)">
-        <span [ngClass]="{'icon':true,'active':idx===tabsIndex,'wait':idx===0,'money':idx===3}"  [ngStyle]="{'background-image':idx==tabsIndex?'url('+item.backimg_active+')':'url('+item.backimg+')'}"></span>
+        <span [ngClass]="{'icon':true,'active':idx===tabsIndex,'wait':idx===0,'money':idx===3}" [ngStyle]="{'background-image':idx==tabsIndex?'url('+item.backimg_active+')':'url('+item.backimg+')'}"></span>
         <span>{{item.name}}</span>
-        <ion-badge item-end [ngClass]="{'badge':true,'active':idx===tabsIndex}">20</ion-badge>
+        <ion-badge item-end [ngClass]="{'badge':true,'active':idx===tabsIndex}">{{item.cnt}}</ion-badge>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <div class='custom-list'>
-      <list-item (click)="viewDetail()"></list-item>
-  </div>
-  
+  <ion-content class="list-content" style="margin-bottom:0;">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content
+      pullingText="下拉刷新"
+      refreshingText="刷新中..."
+      >
+      </ion-refresher-content>
+    </ion-refresher>
+    <div class='custom-list' >
+      <list-item (click)="viewDetail()" *ngFor ="let item of dataList" [item]="item"></list-item>
+    </div>
+    <div *ngIf="!haveData" class="no-data">暂无更多数据</div>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content
+        loadingText='加载中...'
+        enabled=false
+        ></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-content>
 </ion-content>
