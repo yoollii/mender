@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {HttpServiceProvider} from "../../../providers/http-service/http-service";
+import {PageDataProvider} from "../../../providers/page-data/page-data";
 
 /**
  * Generated class for the PartsStreamPage page.
@@ -16,18 +18,52 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class PartsStreamPage {
 
   parts = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.parts = [
-      {orderCode: '201823435312',img: '../../assets/imgs/licImg-ys.png',model: 'iphone6',fault: '电池故障-电池膨胀/续航时间短',color: '银色',solve: '使用S内屏幕*1 S8触摸键*1'},
-      {orderCode: '201823435312',img: '../../assets/imgs/licImg-ys.png',model: 'iphone6',fault: '电池故障-电池膨胀/续航时间短',color: '银色',solve: '使用S内屏幕*1 S8触摸键*1'},
-      {orderCode: '201823435312',img: '../../assets/imgs/licImg-ys.png',model: 'iphone6',fault: '电池故障-电池膨胀/续航时间短',color: '银色',solve: '使用S内屏幕*1 S8触摸键*1'},
-      {orderCode: '201823435312',img: '../../assets/imgs/licImg-ys.png',model: 'iphone6',fault: '电池故障-电池膨胀/续航时间短',color: '银色',solve: '使用S内屏幕*1 S8触摸键*1'},
-      {orderCode: '201823435312',img: '../../assets/imgs/licImg-ys.png',model: 'iphone6',fault: '电池故障-电池膨胀/续航时间短',color: '银色',solve: '使用S内屏幕*1 S8触摸键*1'}
-    ];
+  haveData = true;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private http: HttpServiceProvider,
+    private pageData: PageDataProvider
+  ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PartsStreamPage');
+    this.getPartsList();
   }
-
+  getPartsList(operation?:any) {
+    let flag = operation?false:true;
+    this.http.request({
+      url: 'my/partsflow',
+      type: 'post',
+      loading:flag,
+      data: {pageIndex: this.pageData.next_page, pageSize: 10},
+      success: res => {
+        this.pageData.load(res);
+        this.parts = this.pageData.list;
+        console.log(this.parts);
+        this.haveData = this.pageData.more_data;
+        console.log(this.haveData);
+      },
+      complete:res => {
+        if(operation){
+          operation.complete();
+        }
+      }
+    });
+  }
+  //下拉刷新
+  doRefresh(refresher) {
+    console.log(refresher);
+    this.pageData.refresh();
+    this.getPartsList(refresher);
+  }
+  //上拉加载
+  doInfinite(infiniteScroll) {
+    if(this.haveData){
+      this.getPartsList(infiniteScroll);
+    }else{
+      infiniteScroll.enable(false);
+      infiniteScroll.complete();
+    }
+  }
 }

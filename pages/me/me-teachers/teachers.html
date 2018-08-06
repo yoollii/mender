@@ -92,12 +92,12 @@
         </ion-grid>
     </div>
     <div class="bar-yl">
-        <div class="bar-relationship bar-relationship-left-shadow" (click)="toStudents('确定收徒')">
+        <div class="bar-relationship bar-relationship-left-shadow" (click)="toStudents('确定收徒', 2)">
             <img class="student" [src]="student" alt="收徒">
             <span [ngClass]="{'controlText':controlText}"> 收徒</span>
 
         </div>
-        <div class="bar-relationship bar-relationship-right-shadow" (click)="toTeacher('确定拜师')">
+        <div class="bar-relationship bar-relationship-right-shadow" (click)="toTeacher('确定拜师', 1)">
             <img class="teacher" [src]="teacher" alt="拜师">
             <span [ngClass]="{'controlText':!controlText}">拜师</span>
         </div>

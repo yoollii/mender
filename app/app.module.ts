@@ -43,6 +43,8 @@ import { MeAllStudentsPage } from '../pages/me/me-all-students/me-all-students';
 
 //import { QRCodeModule } from 'angular2-qrcode';//生成二维码
 import { QRCodeModule } from 'angularx-qrcode';
+import {MessageServiceProvider} from "../providers/messageService/messageService";
+import { HttpModule }from '@angular/http';
 import {OrderDetailsPage} from "../pages/me/order-details/order-details";
 
 //网络
@@ -103,6 +105,7 @@ import { CallNumber } from '@ionic-native/call-number';
     ComponentsModule,
     FormsModule,
     QRCodeModule,
+    HttpModule,
     IonicModule.forRoot(MyApp,{
     	iconMode: 'ios',
     	mode: 'ios',  //平台样式
@@ -153,6 +156,7 @@ import { CallNumber } from '@ionic-native/call-number';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    MessageServiceProvider,
     {provide:HTTP_INTERCEPTORS,useClass:InterceptorServiceProvider,multi:true},
     StorageServiceProvider,
     HttpServiceProvider,

@@ -7,12 +7,56 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>apply-parts-two</ion-title>
+    <ion-title>申请配件</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <div class="black-div-wz"></div>
+  <div class="shopchoose-list-wz" >
+    <label>您可以在这里查看您的剩余配件</label>
+    <br/>
+    <span>感谢您选择修匠上门维修手机回收平台，欢迎再次光临~</span>
+  </div>
+  <ion-grid class="main-section" no-padding>
+    <ion-row>
+      <ion-col col-4 class="nav-section">
+        <ul class="nav-list">
+          <li [ngClass]="{'nav-item':true,'active':i==navIndex}" *ngFor="let item of navList;index as i" (click)="navChange(i)">{{item}}</li>
+        </ul>
+      </ion-col>
+      <ion-col class="content-section">
+        <ion-searchbar class="serch-bar" placeholder="输入关键字"></ion-searchbar>
+        <ion-grid class="product-grid-wz">
+          <div *ngFor="let product of products">
+            <ion-row class="pro-item" >
+              <ion-col col-4>
+                <img src="{{product.img}}"/>
+              </ion-col>
+              <ion-col col-4>
+                <label>{{product.title}}</label>
+                <label>￥{{product.diprice}}</label>
+                <label>剩余数量 : {{product.stock}}</label>
+              </ion-col>
+              <ion-col col-4>
+                <div>
+                <button (click)="buyNumber = buyNumber - 1">-</button>&nbsp;<input value="{{buyNumber}}"/>&nbsp;<button (click)="buyNumber = buyNumber + 1">+</button>
+                </div>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-grid>
+        <ion-grid class="submitt-btn-wz">
+          <ion-row>
+            <ion-col>
+              <button class="btn-wz">提交订单</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
