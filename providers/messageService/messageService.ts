@@ -4,9 +4,9 @@ import { Observable,Subject } from 'rxjs';
 @Injectable()
 export class MessageServiceProvider {
     private subject = new Subject<any>();
-
+    
     sendMessage(message: number) {
-        this.subject.next({ text: message });
+        this.subject.next(message);
     }
 
     clearMessage() {

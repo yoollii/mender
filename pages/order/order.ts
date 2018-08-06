@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { OrderdetailPage } from './orderdetail/orderdetail';
 import {MessageServiceProvider} from "../../providers/messageService/messageService";
 import { Subscription } from 'rxjs/Subscription';
+
+import { Events } from 'ionic-angular';
+
 /**
  * Generated class for the OrderPage page.
  *
@@ -63,16 +66,23 @@ export class OrderPage {
       total_price:'￥128'
     }
   ]
-  constructor(public navCtrl: NavController, public navParams: NavParams,public srv: MessageServiceProvider) {
-     	this.srv.getMessage().subscribe(message => {
-  		console.log(message.text);
-  		this.changeTabs(message.text);
-  		});
+  constructor(public navCtrl: NavController, public navParams: NavParams,public srv: MessageServiceProvider,public events: Events) { 
+    
+    this.srv.getMessage().subscribe(message =>{//从home页或ordermap页进入订单页(第二次到订单页),根据订阅信息显示页面内容
+    	 this.changeTabs(message);
+    });
+
   }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OrderPage');
+  ionViewDidLoad() { //第一次进入订单页面,根据tabs页面参数判断是从哪个页面进入的
+  	  if(parseInt(this.navParams.data)==0 ){//home
+  	  	this.changeTabs(parseInt(this.navParams.data)+1);
+  	  }else if(parseInt(this.navParams.data)==1){//ordermap
+  	  	this.changeTabs(parseInt(this.navParams.data)-1);
+  	  }else{//其他页面
+  	  	this.changeTabs(0);
+  	  }
+  	  
   }
-  
   changeTabs(index){
     if(this.tabsIndex!==index){
       this.tabsIndex = index;

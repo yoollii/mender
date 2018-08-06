@@ -2,8 +2,6 @@ import { Component} from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { DayincomePage } from './dayincome/dayincome';
 import { RanklistPage } from './ranklist/ranklist';
-//import { OrderPage } from '../order/order';
-//import { OrdertransferPage } from '../order/ordertransfer/ordertransfer';
 import {MessageServiceProvider} from "../../providers/messageService/messageService";
 @Component({
   selector: 'page-home',
@@ -17,6 +15,7 @@ export class HomePage {
   rankingList:boolean=false;
   order:boolean=false;
   income:boolean=false;
+  myrotate:boolean=false;
   constructor(public navCtrl: NavController,public srv: MessageServiceProvider) {
 
   }
@@ -46,7 +45,14 @@ export class HomePage {
   	},50000);
   }
   orderReZq(){//开始接单
-  	this.btnText='结束接单';
+  	if(this.btnText=='开始接单'){
+  		this.btnText='结束接单';
+  	  this.myrotate=true;//开始旋转动画
+  	}else{
+  		this.btnText='开始接单';
+  	  this.myrotate=false;//结束旋转动画
+  	}
+  	
   }
   rankingListZq(){//排行榜
   	this.rankingList=true;
@@ -60,7 +66,6 @@ export class HomePage {
     this.income=false;
     this.srv.sendMessage(1);
     this.navCtrl.parent.select(2);
-   
   }
   incomeZq(){//今日收入
   	this.rankingList=false;

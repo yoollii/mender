@@ -3,14 +3,21 @@ page-home {
       background:linear-gradient(to right,#222 ,#404040,#222);
       color:#fff;
       height:rem(49);
-      line-height:rem(49);
       padding:0 rem(24);
       margin:rem(41) rem(16) rem(20) rem(16); 
+      display: flex;
+      align-items: center;
       font-size:rem(22);
       img{
           height:rem(36);
           width:rem(36);
           vertical-align: middle;
+      }
+      p{
+           flex: 1;
+           overflow: hidden;
+           text-overflow: ellipsis;
+           white-space: nowrap;
       }
   }
   .nowTime_zq{
@@ -41,10 +48,18 @@ page-home {
           position: absolute;
           z-index:1;
       }
-      button:hover +.div_zq{
-          transform: rotate(360deg);
-          transform-origin: center center;
-          transition:transform 3s linear;
+      @keyframes myrotate {
+        0% {
+        transform:rotate(0deg);
+        transform-origin: center center;
+        }
+        100% {
+        transform:rotate(360deg);
+        transform-origin: center center;
+        }
+        }
+      .myrotate{
+          animation:1s myrotate linear infinite normal;
       }
       button{
           font-size:rem(72);
