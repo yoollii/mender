@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { OrderdetailPage } from './orderdetail/orderdetail';
 import {MessageServiceProvider} from "../../providers/messageService/messageService";
 import { Subscription } from 'rxjs/Subscription';
-import { Events } from 'ionic-angular';
 import { PageDataProvider } from '../../providers/page-data/page-data';
 import { HttpServiceProvider } from '../../providers/http-service/http-service';
 /**
@@ -72,25 +71,21 @@ export class OrderPage {
       total_price:'￥128'
     }
   ]
-  constructor(public navCtrl: NavController, public navParams: NavParams,public srv: MessageServiceProvider,public events: Events) { 
-    
-    this.srv.getMessage().subscribe(message =>{//从home页或ordermap页进入订单页(第二次到订单页),根据订阅信息显示页面内容
-    	 this.changeTabs(message);
-    });
   dataList = []
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     private pageData:PageDataProvider,
-    private http:HttpServiceProvider
+    private http:HttpServiceProvider,
+    public srv: MessageServiceProvider
   ) {
-  }
-
-  ionViewDidLoad() {
-    this.orderList();
-    this.orderCount();
+  	 this.srv.getMessage().subscribe(message =>{//从home页或ordermap页进入订单页(第二次到订单页),根据订阅信息显示页面内容
+    	 this.changeTabs(message);
+    });
   }
   ionViewDidLoad() { //第一次进入订单页面,根据tabs页面参数判断是从哪个页面进入的
+	this.orderList();
+    this.orderCount();
   	  if(parseInt(this.navParams.data)==0 ){//home
   	  	this.changeTabs(parseInt(this.navParams.data)+1);
   	  }else if(parseInt(this.navParams.data)==1){//ordermap
