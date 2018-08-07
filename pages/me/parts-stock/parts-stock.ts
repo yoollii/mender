@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {HttpServiceProvider} from "../../../providers/http-service/http-service";
+import { PageDataProvider } from '../../../providers/page-data/page-data';
 
 /**
  * Generated class for the PartsStockPage page.
@@ -15,34 +16,78 @@ import {HttpServiceProvider} from "../../../providers/http-service/http-service"
   templateUrl: 'parts-stock.html',
 })
 export class PartsStockPage {
-  navList = ['屏幕','按键', '外框', '喇叭', '相机', '电池', '主板', '其他'];
+  navList = [];
   navIndex =0;
-  products = [
-    {img: 'assets/imgs/person/notice/phone.jpg', name: 'iphone6 内屏', price: '499', num: '0'},
-    {img: 'assets/imgs/person/notice/phone.jpg', name: 'iphone7 内屏', price: '599', num: '1'},
-    {img: 'assets/imgs/person/notice/phone.jpg', name: 'iphone8 内屏', price: '699', num: '2'},
-    {img: 'assets/imgs/person/notice/phone.jpg', name: 'iphone9 内屏', price: '799', num: '0'},
-    {img: 'assets/imgs/person/notice/phone.jpg', name: 'iphone10 内屏', price: '899', num: '3'},
-    {img: 'assets/imgs/person/notice/phone.jpg', name: 'iphone11 内屏', price: '999', num: '1'},
-    {img: 'assets/imgs/person/notice/phone.jpg', name: 'iphone12 内屏', price: '1099', num: '2'},
-    {img: 'assets/imgs/person/notice/phone.jpg', name: 'iphone13 内屏', price: '1199', num: '3'},
-  ];
-  constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpServiceProvider) {
-    this.http.request({
-      url: 'my/partsinventorydetail',
-      type: 'post',
-      data: {classifyid: 2, current: 1, size: 10},
-      success: res => console.log(res)
-    });
+  products = [];
+  haveData = true;
+  classId = 4;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpServiceProvider,
+              private pageData: PageDataProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PartsStockPage');
+    this.getNavList();
+    this.getproductList();
   }
-  navChange(index){
+  ionInputEvent(searchValue: string) {
+    if(searchValue != '') {
+      this.http.request({
+        url: 'my/partsinventorysearch',
+        data: {classifyid: this.classId, title: searchValue, currentPage: 1},
+        success: res => {
+          this.products.splice(0, this.products.length);
+          this.products = res.list;
+        }
+      });
+    }
+  }
+  navChange(index, classifyid){
     if(this.navIndex!=index){
       this.navIndex = index;
     }
-
+    this.classId = classifyid;
+    this.products.splice(0, this.products.length);
+    this.getproductList(classifyid);
+  }
+  getNavList() {
+    this.http.request({
+      url: 'my/partsinventorymenu',
+      type: 'get',
+      success: res => this.navList = res
+    });
+  }
+  getproductList(index: number = 4, operation?: any) {
+    let flag = operation?false:true;
+    this.http.request({
+      url: 'my/partsinventorydetail',
+      type: 'post',
+      data: {classifyid: index, currentPage: this.pageData.next_page},
+      success: res => {
+        this.pageData.load(res);
+        console.log(res);
+        this.products = this.pageData.list;
+        this.haveData = this.pageData.more_data;
+      },
+      complete: res => {
+        if(operation){
+          operation.complete();
+        }
+      }
+    });
+  }
+  //下拉刷新
+  doRefresh(refresher) {
+    this.pageData.refresh();
+    this.getproductList(this.classId, refresher);
+  }
+  //上拉加载
+  doInfinite(infiniteScroll) {
+    if(this.haveData){
+      this.getproductList(this.classId, infiniteScroll);
+    }else{
+      infiniteScroll.enable(false);
+      infiniteScroll.complete();
+    }
+   
   }
 }
