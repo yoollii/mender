@@ -16,7 +16,7 @@
 <ion-content padding>
   <div class="black-div-wz"></div>
   <div class="shopchoose-list-wz" >
-    <label>您可以在这里查看您的剩余配件</label>
+    <label>您可以在这里向公司申请配件</label>
     <br/>
     <span>感谢您选择修匠上门维修手机回收平台，欢迎再次光临~</span>
   </div>
@@ -29,6 +29,13 @@
       </ion-col>
       <ion-col class="content-section">
         <ion-searchbar class="serch-bar" placeholder="输入关键字"></ion-searchbar>
+        <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content
+          pullingText="下拉刷新"
+          refreshingText="刷新中..."
+          >
+          </ion-refresher-content>
+        </ion-refresher>
         <ion-grid class="product-grid-wz">
           <div *ngFor="let product of products">
             <ion-row class="pro-item" >
@@ -42,16 +49,23 @@
               </ion-col>
               <ion-col col-4>
                 <div>
-                <button (click)="buyNumber = buyNumber - 1">-</button>&nbsp;<input value="{{buyNumber}}"/>&nbsp;<button (click)="buyNumber = buyNumber + 1">+</button>
+                <button (click)="clickEvent(product.partsid,'-')">-</button>&nbsp;<input value="{{product.buyNumber}}"/>&nbsp;<button (click)="clickEvent(product.partsid,'+')">+</button>
                 </div>
               </ion-col>
             </ion-row>
           </div>
+          <div *ngIf="!haveData" class="no-data">暂无更多数据</div>
+          <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+              <ion-infinite-scroll-content
+              loadingText='加载中...'
+              enabled=false
+              ></ion-infinite-scroll-content>
+          </ion-infinite-scroll>
         </ion-grid>
         <ion-grid class="submitt-btn-wz">
           <ion-row>
             <ion-col>
-              <button class="btn-wz">提交订单</button>
+              <button class="btn-wz" (click)="goToApplyParts()">提交订单</button>
             </ion-col>
           </ion-row>
         </ion-grid>
