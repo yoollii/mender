@@ -6,6 +6,7 @@ import { PerformancePage } from '../me-performance/performance';
 import { TeachersPage } from './me-teachers/teachers';
 import { TwocodePage } from './twocode/twocode';
 import {MyPartsPage} from "./my-parts/my-parts";
+import { HttpServiceProvider } from '../../providers/http-service/http-service';
 
 /**
  * Generated class for the MePage page.
@@ -24,7 +25,8 @@ export class MePage {
   personMsg(nav){
     this.navCtrl.push(nav);
   };
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private http: HttpServiceProvider) {
     this.Lists=[{title:"消息通知",src:"../../assets/imgs/person/msg.png",nav:MessageNoticePage,classIcon:"notice-icon"},
     // {title:"我的配件",src:"../../assets/imgs/person/parts.png",nav:PartsMallPage,classIcon:"parts-icon"},
     {title:"我的配件",src:"../../assets/imgs/person/parts.png",nav:MyPartsPage,classIcon:"parts-icon"},
@@ -40,5 +42,5 @@ export class MePage {
   qrcode(){
   	this.navCtrl.push(TwocodePage);
   }
-
+  
 }
