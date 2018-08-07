@@ -15,42 +15,14 @@
 
 <ion-content>
     <ion-list>
-        <ion-item>
+        <ion-item *ngFor="let item of apprentices" >
             <div class='imgBorder' item-start>
-                <img src="assets/imgs/avatar.png">
+                <img src="{{item.avatar}}">
             </div>
-            <h2>张一</h2>
-            <h2>工号：1000000</h2>
-            <p>完成单数：500</p>
-            <p>收入：¥100000</p>
+            <h2>{{item.name}}</h2>
+            <h2>工号：{{item.worknum}}</h2>
+            <p>完成单数：{{item.ordercount}}</p>
+            <p>收入：¥{{item.totalincome}}</p>
         </ion-item>
-        <ion-item>
-            <div class='imgBorder' item-start>
-                <img src="assets/imgs/avatar.png">
-            </div>
-            <h2>张一</h2>
-            <h2>工号：1000000</h2>
-            <p>完成单数：500</p>
-            <p>收入：¥100000</p>
-        </ion-item>
-        <ion-item>
-            <div class='imgBorder' item-start>
-                <img src="assets/imgs/avatar.png">
-            </div>
-            <h2>张一</h2>
-            <h2>工号：1000000</h2>
-            <p>完成单数：500</p>
-            <p>收入：¥100000</p>
-        </ion-item>
-        <ion-item>
-            <div class='imgBorder' item-start>
-                <img src="assets/imgs/avatar.png">
-            </div>
-            <h2>张一</h2>
-            <h2>工号：1000000</h2>
-            <p>完成单数：500</p>
-            <p>收入：¥100000</p>
-        </ion-item>
-
     </ion-list>
 </ion-content>
