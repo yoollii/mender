@@ -19,14 +19,14 @@
         <div class="list-bg-yl">
             <div class="img-wrap-yl">
                 <div class="me-icon-yl">
-                    <img src="assets/imgs/person/timg (10).png" alt="头像">
+                    <img src="{{userInfo.avatar}}" alt="头像">
                 </div>
             </div>
             <div class="msg-top-yl">
                 <div class="me-msg-yl">
                     <div class="listbg-yl">
-                        <p>张一</p>
-                        <p>工号：10000000</p>
+                        <p>{{userInfo.name}}</p>
+                        <p>工号:{{userInfo.worknum}}</p>
                     </div>
                     <div class="erweima-yl" (click)='qrcode()'>
                         <img src="assets/imgs/person/erwei.png" alt="二维码">
@@ -35,15 +35,15 @@
                 <div class="extract-yl">
                     <div>
                         <p>今日提成</p>
-                        <p>￥260</p>
+                        <p>￥{{userInfo.dayincome}}</p>
                     </div>
                     <div>
                         <p>本月提成</p>
-                        <p>￥7998</p>
+                        <p>￥{{userInfo.monthincome}}</p>
                     </div>
                     <div>
                         <p>总提成</p>
-                        <p>￥79798</p>
+                        <p>￥{{userInfo.totalincome}}</p>
                     </div>
                 </div>
             </div>
