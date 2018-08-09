@@ -22,7 +22,7 @@
     >
     </ion-refresher-content>
   </ion-refresher>
-  <ion-card *ngFor="let record of records">
+  <ion-card *ngFor="let record of records" (click)="goToOrderDetail(record.orderno)">
     <ion-item class="record-img-wz">
       <div class="list-item-top-ys">
         <span>订单编号</span><span>{{record.orderno}}</span><span>{{record.status == 1 ? '已申请' : '未申请'}}</span>
