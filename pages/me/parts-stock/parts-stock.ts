@@ -20,14 +20,13 @@ export class PartsStockPage {
   navIndex =0;
   products = [];
   haveData = true;
-  classId = 4;
+  classId: number;
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpServiceProvider,
               private pageData: PageDataProvider) {
   }
 
   ionViewDidLoad() {
     this.getNavList();
-    this.getproductList();
   }
   ionInputEvent(searchValue: string) {
     if(searchValue != '') {
@@ -53,10 +52,14 @@ export class PartsStockPage {
     this.http.request({
       url: 'my/partsinventorymenu',
       type: 'get',
-      success: res => this.navList = res
+      success: res => {
+        this.navList = res;
+        this.classId = this.navList[0].classifyid;
+        this.getproductList(this.navList[0].classifyid);
+      }
     });
   }
-  getproductList(index: number = 4, operation?: any) {
+  getproductList(index: number, operation?: any) {
     let flag = operation?false:true;
     this.http.request({
       url: 'my/partsinventorydetail',
