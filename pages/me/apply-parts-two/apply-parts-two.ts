@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import {HttpServiceProvider} from "../../../providers/http-service/http-service";
 import {PageDataProvider} from "../../../providers/page-data/page-data";
 import { ApplyPartsPage } from '../apply-parts/apply-parts';
+import { StorageServiceProvider } from '../../../providers/storage-service/storage-service';
 
 /**
  * Generated class for the ApplyPartsTwoPage page.
@@ -23,7 +24,8 @@ export class ApplyPartsTwoPage {
   haveData = true;
   buyProducts = {};
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpServiceProvider,
-              private pageData: PageDataProvider, private alertController: AlertController) {
+              private pageData: PageDataProvider, private alertController: AlertController,
+              private storage: StorageServiceProvider) {
   }
 
   ionViewDidLoad() {
@@ -35,20 +37,21 @@ export class ApplyPartsTwoPage {
       if(id == product.partsid) {
         str == '-' ? product.buyNumber = product.buyNumber - 1 : product.buyNumber = product.buyNumber + 1;
         if(product.buyNumber < 0) {
-          this.tipsAlert();
+          this.tipsAlert('最少需要申请一个配件');
           product.buyNumber = 0;
         }
         this.buyProducts[id] = product.buyNumber;
         if(this.buyProducts[id] == 0) {
           delete this.buyProducts[id];
         }
+        break;
       }
     }
   }
-  tipsAlert() {
+  tipsAlert(text: string) {
     const alert = this.alertController.create({
       cssClass: 'tips-alert',
-      title: '至少需要申请1件配件'
+      title: text
     })
     alert.present();
   }
@@ -57,6 +60,7 @@ export class ApplyPartsTwoPage {
     this.http.request({
       url: 'my/applypartsdetail',
       type: 'post',
+      loading: flag,
       data : {classifyid: id, currentPage: this.pageData.next_page},
       success: res => {
         this.pageData.load(res);
@@ -94,23 +98,25 @@ export class ApplyPartsTwoPage {
       sendParam += item + '|' + this.buyProducts[item] + ',';
     }
     // let sendParam1 = 'data:'+sendParam;
-    console.log(sendParam);
     this.http.request({
       url: 'my/applypartssubmit',
       type: 'post',
-      data: {data: sendParam},
-      success: res => console.log(res)
+      data: {data:sendParam},
+      success: res => {
+        this.storage.write('orderCode',res);
+        this.navCtrl.push(ApplyPartsPage); 
+      }
     });
   }
   //下拉刷新
   doRefresh(refresher) {
     this.pageData.refresh();
-    this.getProductList(this.navIndex, refresher);
+    this.getProductList(this.navIndex+1, refresher);
   }
   //上拉加载
   doInfinite(infiniteScroll) {
     if(this.haveData){
-      this.getProductList(this.navIndex, infiniteScroll);
+      this.getProductList(this.navIndex+1, infiniteScroll);
     }else{
       infiniteScroll.enable(false);
       infiniteScroll.complete();
