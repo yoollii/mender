@@ -4,6 +4,8 @@ import { MeAllStudentsPage } from '../me-all-students/me-all-students';
 import { AlertController } from 'ionic-angular';
 import * as $ from 'jquery';
 import {HttpServiceProvider} from "../../../providers/http-service/http-service";
+import { StorageServiceProvider } from '../../../providers/storage-service/storage-service';
+import { PerformancePage } from '../../me-performance/performance';
 /**
  * Generated class for the TeachersPage page.
  *
@@ -20,6 +22,7 @@ export class TeachersPage {
   @ViewChild('myCanvas') canvasRef: any;
   student:string;
   teacher:string;
+  userInfo: Object;
   controlText:boolean;
   apprentice1: object;
   isHidden1 = true;
@@ -30,7 +33,8 @@ export class TeachersPage {
   teachers: any;
   isHidden4 = true;
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,
-              private http: HttpServiceProvider) {
+              private http: HttpServiceProvider,
+              private storage: StorageServiceProvider) {
     this.student="assets/imgs/person/teachers/cupColor.png";
     this.teacher='assets/imgs/person/teachers/teacherIcon.png';
   }
@@ -80,6 +84,7 @@ export class TeachersPage {
     prompt.present();
   }
   ionViewDidLoad() {
+    this.userInfo = this.storage.read('user');
     this.canvasRef.nativeElement.height=parseInt($('.div').css('height'));
     this.canvasRef.nativeElement.width=parseInt($('.div').css('width'));
     let ctx: CanvasRenderingContext2D =this.canvasRef.nativeElement.getContext('2d');
@@ -92,6 +97,11 @@ export class TeachersPage {
           this.apprentice2 = res[1];
           this.apprentice3 = res[2];
           return;
+        }
+        if(res.length <= 0) {
+          this.isHidden1 = false;
+          this.isHidden2 = false;
+          this.isHidden3 = false;
         }
         if(res.length > 0 && res.length < 3) {
           this.apprentice1 = res[0];
@@ -159,5 +169,10 @@ export class TeachersPage {
       title: str + '请求发送成功'
     })
     alert.present();
+  }
+  goToStudent(student: Object) {
+    console.log(1);
+    this.storage.write('student', student);
+    this.navCtrl.push(PerformancePage);
   }
 }

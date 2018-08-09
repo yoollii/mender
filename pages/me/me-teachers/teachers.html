@@ -32,7 +32,7 @@
             <div class="img-wrap-yl">
                 <div class="teachers-icon-yl teachers-canvas-2">
                     <div class="teachername">我</div>
-                    <img class="timg" src="assets/imgs/person/timg (10).png" alt="头像">
+                    <img class="timg" src="{{userInfo?.avatar}}" alt="头像">
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
                 <ion-col col-4 *ngIf="isHidden1">
                     <div class="students-group-yl">
                         <div class="students-wrap-yl">
-                            <div class="students-icon-yl">
+                            <div class="students-icon-yl" (click)="goToStudent(apprentice1)">
                                 <div class="studentsname students-canvas-1">
                                     {{apprentice1?.name}}
                                 </div>
@@ -58,7 +58,7 @@
                     <br /><br /> <br /> <br /> <br />
                     <div class="students-group-yl">
                         <div class="students-wrap-yl">
-                            <div class="students-icon-yl">
+                            <div class="students-icon-yl" (click)="goToStudent(apprentice2)">
                                 <div class="studentsname  students-canvas-2">
                                     {{ apprentice2?.name }}
                                 </div>
@@ -73,7 +73,7 @@
                 <ion-col col-4 *ngIf="isHidden3">
                     <div class="students-group-yl">
                         <div class="students-wrap-yl">
-                            <div class="students-icon-yl">
+                            <div class="students-icon-yl" (click)="goToStudent(apprentice3)">
                                 <div class="studentsname  students-canvas-3">
                                     {{apprentice3?.name}}
                                 </div>
