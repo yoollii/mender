@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HttpServiceProvider } from '../../providers/http-service/http-service';
+import { StorageServiceProvider } from '../../providers/storage-service/storage-service';
 
 /**
  * Generated class for the PerformancePage page.
@@ -14,20 +16,48 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'performance.html',
 })
 export class PerformancePage {
-  public Lists=[];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.Lists=[{title:"总单量",num:1244},
-    {title:"转单量",num:234},
-    {title:"售后量",num:545},
-    {title:"月单量",num:65},
-    {title:"日单量",num:543},
-    {title:"日收益",num:123},
-    {title:"推广人数",num:2354},
-    {title:"推广收益评分",num:234}]
+  public Lists: Object;
+  starts = [];
+  url = '';
+  student: Object;
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private http: HttpServiceProvider,
+              private storage: StorageServiceProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PerformancePage');
+    if(this.storage.read('student') != null && this.storage.read('student') != '') {
+      this.student = this.storage.read('student');
+      this.url = 'workerInfo/apprenticeachievment/'+this.student['worknum'];
+      this.storage.remove('student');
+    }else {
+      this.url = 'workerInfo/perfomancemanage';
+    }
+    this.http.request({
+      url: this.url,
+      type: 'get',
+      success: res => {
+        this.Lists = res;
+        if(!this.Lists['worknum']) {
+          this.Lists['worknum'] = '';
+        }
+        if(!this.Lists['avatar']) {
+          this.Lists['avatar'] = '';
+        }
+        let num = this.Lists['score'];
+        let flag = num.indexOf('.0') != -1;
+        if(flag) {
+          for(let i = 0; i < parseInt(num); i++) {
+            this.starts.push({img: 'assets/imgs/person/star.png', style: 'star'});
+          }
+        }else {
+          for(let i = 0; i < parseInt(num.substring(0, 1)); i++) {
+            this.starts.push({img: 'assets/imgs/person/star.png', style: 'star'});
+          }
+          this.starts.push({img: 'assets/imgs/person/halfstar1.png', style: 'halfstar'});
+        }
+      }
+    });
   }
 
 }
