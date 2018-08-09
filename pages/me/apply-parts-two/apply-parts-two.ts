@@ -25,7 +25,8 @@ export class ApplyPartsTwoPage {
   buyProducts = {};
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpServiceProvider,
               private pageData: PageDataProvider, private alertController: AlertController,
-              private storage: StorageServiceProvider) {
+              private storage: StorageServiceProvider,
+              private alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -92,7 +93,10 @@ export class ApplyPartsTwoPage {
     this.getProductList(parseInt(index) + 1);
   }
   goToApplyParts() {
-    // this.navCtrl.push(ApplyPartsPage);
+    if(JSON.stringify(this.buyProducts) == '{}') {
+      this.tipsAlert('您还未选择申请的配件');
+      return;
+    }
     let sendParam = '';
     for(let item in this.buyProducts) {
       sendParam += item + '|' + this.buyProducts[item] + ',';
@@ -121,6 +125,5 @@ export class ApplyPartsTwoPage {
       infiniteScroll.enable(false);
       infiniteScroll.complete();
     }
-   
   }
 }
