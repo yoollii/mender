@@ -21,6 +21,17 @@
     .alert-head {
       padding: 0px;
     }
+    .disable-hover,.alert-button,.alert-button-ios,.alert-button-default,.alert-button-default-ios {
+      margin-top: rem(20);
+      // border: 1px solid $Themecolor;
+      border-top: 1px solid $Themecolor;
+      background-color: #3c3c3c;
+    }
+    .disable-hover {
+      font-size: rem(25);
+      font-weight: 500;
+      color: $Themecolor;
+    }
   }
 }
 page-apply-parts {

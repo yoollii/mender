@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { StorageServiceProvider } from '../../../providers/storage-service/storage-service';
 import { HttpServiceProvider } from '../../../providers/http-service/http-service';
+import { ApplyPartsTwoPage } from '../apply-parts-two/apply-parts-two';
 
 /**
  * Generated class for the ApplyPartsPage page.
@@ -47,7 +48,9 @@ export class ApplyPartsPage {
   tipsAlert() {
     const alert = this.alertCtrl.create({
       cssClass: 'tips-alert',
-      title: '配件申请成功'
+      title: '配件申请成功',
+      enableBackdropDismiss: false,
+      buttons: [{text: '返回配件列表', handler: () => {this.navCtrl.push(ApplyPartsTwoPage)}}]
     })
     alert.present();
   }
