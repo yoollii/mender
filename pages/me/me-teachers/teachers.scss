@@ -1,3 +1,28 @@
+.tips-alert {
+    .alert-wrapper {
+      border-radius: rem(10);
+      background-color: #3c3c3c;
+      width: rem(585);
+      height: rem(265);
+      position: relative;
+      .alert-title {
+        font-family: "Microsoft YaHei UI";
+        font-size: rem(28);
+        color: $Themecolor;
+        font-weight: 500;
+        margin-top: rem(95);
+      }
+      .alert-sub-title {
+        font-family: "Microsoft YaHei UI";
+        font-size: rem(28);
+        color: $Themecolor;
+        margin-top: rem(65);
+      }
+      .alert-head {
+        padding: 0px;
+      }
+    }
+  }
 page-teachers {
     .marginTop-yl {
         height: rem(38);
@@ -44,8 +69,10 @@ page-teachers {
         color: #ffd47f;
     }
     .teachers-group-yl {
+        height: rem(180);
         .timg {
             width: rem(120);
+            border-radius: 30px;
         }
         margin-top: rem(69);
         .img-wrap-yl {
@@ -95,6 +122,7 @@ page-teachers {
     .students-group-yl {
         .studentstimg {
             width: rem(102);
+            border-radius: 30px;
         }
         .students-wrap-yl {
             display: flex;

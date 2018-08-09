@@ -19,11 +19,11 @@
     <div class='div'>
         <canvas #myCanvas class='mycanvas'></canvas>
         <div class="teachers-group-yl">
-            <div class="img-wrap-yl">
+            <div class="img-wrap-yl" *ngIf="isHidden4">
                 <div class="teachers-icon-yl teachers-canvas-1">
-                    <div class="teachername">车迟明</div>
+                    <div class="teachername">{{teachers?.name}}</div>
                     <div class="teacherRelationship">师</div>
-                    <img class="timg" src="assets/imgs/person/timg (10).png" alt="头像">
+                    <img class="timg" src="{{teachers?.avatar}}" alt="头像">
                 </div>
             </div>
         </div>
@@ -32,55 +32,55 @@
             <div class="img-wrap-yl">
                 <div class="teachers-icon-yl teachers-canvas-2">
                     <div class="teachername">我</div>
-                    <img class="timg" src="assets/imgs/person/timg (10).png" alt="头像">
+                    <img class="timg" src="{{userInfo?.avatar}}" alt="头像">
                 </div>
             </div>
         </div>
 
         <ion-grid>
             <ion-row>
-                <ion-col col-4>
+                <ion-col col-4 *ngIf="isHidden1">
                     <div class="students-group-yl">
                         <div class="students-wrap-yl">
-                            <div class="students-icon-yl">
+                            <div class="students-icon-yl" (click)="goToStudent(apprentice1)">
                                 <div class="studentsname students-canvas-1">
-                                    刘雨
+                                    {{apprentice1?.name}}
                                 </div>
                                 <div class="studentsRelationship">
                                     徒
                                 </div>
-                                <img class="studentstimg" src="assets/imgs/person/timg (10).png" alt="头像">
+                                <img class="studentstimg" src="{{apprentice1?.avatar}}" alt="头像">
                             </div>
                         </div>
                     </div>
                 </ion-col>
-                <ion-col col-4>
+                <ion-col col-4 *ngIf="isHidden2">
                     <br /><br /> <br /> <br /> <br />
                     <div class="students-group-yl">
                         <div class="students-wrap-yl">
-                            <div class="students-icon-yl">
+                            <div class="students-icon-yl" (click)="goToStudent(apprentice2)">
                                 <div class="studentsname  students-canvas-2">
-                                    王分子
+                                    {{ apprentice2?.name }}
                                 </div>
                                 <div class="studentsRelationship">
                                     徒
                                 </div>
-                                <img class="studentstimg" src="assets/imgs/person/teachers/timg (10).png" alt="头像">
+                                <img class="studentstimg" src="{{ apprentice2?.avatar }}" alt="头像">
                             </div>
                         </div>
                     </div>
                 </ion-col>
-                <ion-col col-4>
+                <ion-col col-4 *ngIf="isHidden3">
                     <div class="students-group-yl">
                         <div class="students-wrap-yl">
-                            <div class="students-icon-yl">
+                            <div class="students-icon-yl" (click)="goToStudent(apprentice3)">
                                 <div class="studentsname  students-canvas-3">
-                                    郑雨杰
+                                    {{apprentice3?.name}}
                                 </div>
                                 <div class="studentsRelationship">
                                     徒
                                 </div>
-                                <img class="studentstimg" src="assets/imgs/person/teachers/timg (10).png" alt="头像">
+                                <img class="studentstimg" src="{{apprentice3?.avatar}}" alt="头像">
                             </div>
                         </div>
                     </div>

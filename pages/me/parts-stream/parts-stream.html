@@ -24,15 +24,15 @@
   </ion-refresher>
   <ion-card *ngFor="let par of parts" class="content-div1-wz">
     <div class="content-div1-1-wz border">
-      <p>订单编号 {{par.orderno}}</p>
+      <p>订单编号 {{par?.orderno}}</p>
     </div>
     <div class="content-div1-2-wz border">
-      <div><img src="{{par.img}}"/></div>
+      <div><img src="{{par?.img}}"/></div>
       <div>
-          <label>{{par.version}}</label><br/>
-          <label>{{par.fault}}</label><br/>
-          <label>{{par.color}}</label><br/>
-          <p>{{par.desc}}</p>
+          <label>{{par?.version}}</label><br/>
+          <label>{{par?.fault}}</label><br/>
+          <label>{{par?.color}}</label><br/>
+          <p>{{par?.desc}}</p>
       </div>
     </div>
     <div class="content-div1-3-wz">

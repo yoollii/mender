@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {HttpServiceProvider} from "../../providers/http-service/http-service";
+import {PageDataProvider} from "../../providers/page-data/page-data";
+import { OrderDetailsPage } from '../me/order-details/order-details';
+import { StorageServiceProvider } from '../../providers/storage-service/storage-service';
 
 /**
  * Generated class for the ReceiveRecordPage page.
@@ -15,18 +19,52 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ReceiveRecordPage {
 
-  records = []
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.records = [
-      {orderCode: '201824124324', state: '已申请', quota: 111,parts: 11,money: 3423},
-      {orderCode: '201824575675', state: '未申请', quota: 222,parts: 22, money: 1243},
-      {orderCode: '201824235465', state: '未申请', quota: 333,parts: 33, money: 5643},
-      {orderCode: '201822546546', state: '已申请', quota: 444,parts: 44, money: 76554},
-    ];
+  records = [];
+  haveData: boolean;
+  constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpServiceProvider,
+              private pageData: PageDataProvider,
+              private storage: StorageServiceProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ReceiveRecordPage');
+    this.getRecordList();
+  }
+  getRecordList(operation?: any) {
+    let flag = operation?false:true;
+    this.http.request({
+      url: 'my/receiverecord/',
+      type: 'post',
+      data: {currentPage: this.pageData.next_page},
+      success: res => {
+        this.pageData.load(res);
+        this.records = this.pageData.list;
+        this.haveData = this.pageData.more_data;
+      },
+      complete: res => {
+        if(operation) {
+          operation.complete();
+        }
+      }
+    });
+  }
+  goToOrderDetail(orderDetailNo: string) {
+    this.storage.write('orderDetailNo', {code: orderDetailNo});
+    this.navCtrl.push(OrderDetailsPage);
+  }
+  //下拉刷新
+  doRefresh(refresher) {
+    this.pageData.refresh();
+    this.getRecordList(refresher);
+  }
+  //上拉加载
+  doInfinite(infiniteScroll) {
+    if(this.haveData){
+      this.getRecordList(infiniteScroll);
+    }else{
+      infiniteScroll.enable(false);
+      infiniteScroll.complete();
+    }
+
   }
 
 }

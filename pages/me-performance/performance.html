@@ -19,26 +19,22 @@
         <div class="list-bg-yl">
             <div class="img-wrap-yl">
                 <div class="me-icon-yl">
-                    <img src="assets/imgs/person/timg (10).png" alt="">
+                    <img src="{{Lists?.avatar!=''?Lists?.avatar:student.avatar}}" alt="">
                 </div>
             </div>
             <div class="msg-top-yl">
                 <div class="me-msg-yl">
                     <div class="listbg-yl">
-                        <p>张一</p>
-                        <p>工号：10000000</p>
+                        <p>{{Lists?.name!=''?Lists?.name:student.name}}</p>
+                        <p>工号：{{Lists?.worknum!=''?Lists?.worknum:student.worknum}}</p>
                     </div>
 
                 </div>
                 <div class="extract-yl">
                     <span>评价:</span>
                     <div>
-                        <img class='star' src="assets/imgs/person/star.png" alt="评价星级">
-                        <img class='star' src="assets/imgs/person/star.png">
-                        <img class='star' src="assets/imgs/person/star.png">
-                        <img class='halfstar' src="assets/imgs/person/halfstar.png">
+                        <img class='{{item.style}}' src="{{item.img}}" alt="评价星级" *ngFor="let item of starts" >
                     </div>
-
                 </div>
                 <!-- msg-top-yl -->
             </div>
@@ -46,9 +42,37 @@
         </div>
         <!-- list-bg-yl -->
         <ion-list>
-            <ion-item class='my-content-yl' *ngFor="let list of Lists">
-                <span>{{list.title}}</span>
-                <span item-end class="performance-content-right-yl">{{list.num}}</span>
+            <ion-item class='my-content-yl'>
+                <span>总单量</span>
+                <span item-end class="performance-content-right-yl">{{Lists?.ordertotalcount}}</span>
+            </ion-item>
+            <ion-item class='my-content-yl'>
+                <span>转单量</span>
+                <span item-end class="performance-content-right-yl">{{Lists?.transferordercount}}</span>
+            </ion-item>
+            <ion-item class='my-content-yl'>
+                <span>售后量</span>
+                <span item-end class="performance-content-right-yl">{{Lists?.aftersaleordercount}}</span>
+            </ion-item>
+            <ion-item class='my-content-yl'>
+                <span>日单量</span>
+                <span item-end class="performance-content-right-yl">{{Lists?.orderdaycount}}</span>
+            </ion-item>
+            <ion-item class='my-content-yl'>
+                <span>日收益</span>
+                <span item-end class="performance-content-right-yl">{{Lists?.dayincome}}</span>
+            </ion-item>
+            <ion-item class='my-content-yl'>
+                <span>月单量</span>
+                <span item-end class="performance-content-right-yl">{{Lists?.ordermonthcount}}</span>
+            </ion-item>
+            <ion-item class='my-content-yl'>
+                <span>推广人数</span>
+                <span item-end class="performance-content-right-yl">{{Lists?.extensioncount}}</span>
+            </ion-item>
+            <ion-item class='my-content-yl'>
+                <span>推广收益评分</span>
+                <span item-end class="performance-content-right-yl">{{Lists?.extensionincome}}</span>
             </ion-item>
         </ion-list>
     </div>

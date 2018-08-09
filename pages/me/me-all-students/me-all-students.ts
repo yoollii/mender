@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HttpServiceProvider } from '../../../providers/http-service/http-service';
+import { PageDataProvider } from '../../../providers/page-data/page-data';
+import { StorageServiceProvider } from '../../../providers/storage-service/storage-service';
+import { PerformancePage } from '../../me-performance/performance';
 
 
 /**
@@ -16,11 +20,32 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MeAllStudentsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  apprentices = [];
+  haveData = true;
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private http: HttpServiceProvider,
+              private pageData: PageDataProvider,
+              private storage: StorageServiceProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MeAllStudentsPage');
+    this.getAllApprentice();
   }
-
+  getAllApprentice(operation?: any) {
+    let flag = operation?false:true;
+    this.http.request({
+      url: 'my/masterapprenticelistall',
+      type: 'get',
+      success: res => this.apprentices = res,
+      complete: res => {
+        if(operation) {
+          operation.complete();
+        }
+      }
+    });
+  }
+  goToStudent(student: Object) {
+    this.storage.write('student', student);
+    this.navCtrl.push(PerformancePage);
+  }
 }

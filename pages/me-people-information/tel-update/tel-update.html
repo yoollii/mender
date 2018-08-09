@@ -23,12 +23,12 @@
             <div class="tel-content-input-wz">
                 <label>手机号码 ：</label>
                 <div class="tel-content-tel-wz">
-                    <input type="text" value="13845325463" />
+                    <input type="text" value="" (input)="telphone = telInput.value" #telInput/>
                 </div>
                 <p></p>
                 <pre> 校 验 码 ：</pre>
                 <div class="tel-content-code-wz">
-                    <input type="text" value="623716" class="tel-content-code-input-wz" /><span>免费获取</span>
+                    <input type="text" value="" class="tel-content-code-input-wz" (input)="validateCode = validateCOde.value" #validateCOde/><button [disabled]="isDisabled" (click)="getValiDateCode()">{{vcStr}}</button>
                 </div>
             </div>
             <div class="tel-content-btn-wz">

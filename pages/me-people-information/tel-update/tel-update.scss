@@ -89,6 +89,10 @@ page-tel-update {
             display: inline-block;
             border-left: 0px;
             border-bottom: 1px solid $Themecolor;
+            button {
+                background-color: #222222;
+                color: $Themecolor;
+            }
         }
         .tel-content-code-input-wz {
             border-bottom: 0px;

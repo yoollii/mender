@@ -55,8 +55,21 @@ page-order-details {
       text-align: center;
       margin-top: rem(10);
     }
+    .ionitem5 {
+      height: rem(300);
+      position: relative;
+      label {
+        position: absolute;
+        top: rem(20);
+      }
+    }
   }
   .partsname-list-wz {
+    position: absolute;
+    top: rem(65);
+    height: rem(220);
+    width: 100%;
+    overflow: auto;
     span {
       font-size: rem(22);
       color: #787878;

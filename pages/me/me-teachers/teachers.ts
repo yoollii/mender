@@ -4,6 +4,8 @@ import { MeAllStudentsPage } from '../me-all-students/me-all-students';
 import { AlertController } from 'ionic-angular';
 import * as $ from 'jquery';
 import {HttpServiceProvider} from "../../../providers/http-service/http-service";
+import { StorageServiceProvider } from '../../../providers/storage-service/storage-service';
+import { PerformancePage } from '../../me-performance/performance';
 /**
  * Generated class for the TeachersPage page.
  *
@@ -20,21 +22,21 @@ export class TeachersPage {
   @ViewChild('myCanvas') canvasRef: any;
   student:string;
   teacher:string;
+  userInfo: Object;
   controlText:boolean;
+  apprentice1: object;
+  isHidden1 = true;
+  apprentice2: any;
+  isHidden2 = true;
+  apprentice3: any;
+  isHidden3 = true;
+  teachers: any;
+  isHidden4 = true;
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,
-              private http: HttpServiceProvider) {
+              private http: HttpServiceProvider,
+              private storage: StorageServiceProvider) {
     this.student="assets/imgs/person/teachers/cupColor.png";
     this.teacher='assets/imgs/person/teachers/teacherIcon.png';
-    this.http.request({
-      url: 'my/masterapprenticelistall',
-      type: 'get',
-      success: res => console.log('技师的所有徒弟' + res)
-    });
-    this.http.request({
-      url: 'my/masterapprenticerelationship',
-      type: 'get',
-      success: res => console.log(res)
-    });
   }
   showPrompt(text, type: number) {
     const prompt = this.alertCtrl.create({
@@ -57,7 +59,24 @@ export class TeachersPage {
         {
           text: text,
           handler: data => {
-            console.log('Saved clicked');
+            if(type == 1) {
+              this.http.request({
+                url: 'my/entermymaster/'+data.title,
+                type: 'get',
+                success: res => {
+                  this.TeacherOrApprenticeAlert(text.substring(2, text.length));
+                }
+              });
+            }
+            if(type == 2) {
+              this.http.request({
+                url: 'my/entermyfollower/'+data.title,
+                type: 'get',
+                success: res => {
+                  this.TeacherOrApprenticeAlert(text.substring(2, text.length));
+                }
+              });
+            }
           }
         }
       ]
@@ -65,26 +84,69 @@ export class TeachersPage {
     prompt.present();
   }
   ionViewDidLoad() {
+    this.userInfo = this.storage.read('user');
     this.canvasRef.nativeElement.height=parseInt($('.div').css('height'));
     this.canvasRef.nativeElement.width=parseInt($('.div').css('width'));
     let ctx: CanvasRenderingContext2D =this.canvasRef.nativeElement.getContext('2d');
-
-    // console.log($('.teachers-canvas-1').position().top);
-    //1
-    ctx.strokeStyle = "#7a6846";
-		ctx.moveTo(this.canvasRef.nativeElement.width/2,$('.teachers-canvas-1').offset().top+parseInt($('.teachers-canvas-1').css('height'))/2);
-    ctx.lineTo(this.canvasRef.nativeElement.width/2,$('.teachers-canvas-2').offset().top);
-    //2
-    ctx.moveTo(this.canvasRef.nativeElement.width/2,$('.teachers-canvas-2').offset().top);
-    ctx.lineTo($('.students-canvas-1').offset().left+parseInt($('.students-canvas-1').css('width'))/2,$('.students-canvas-1').offset().top);
-//3
-    ctx.moveTo(this.canvasRef.nativeElement.width/2,$('.teachers-canvas-2').offset().top);
-    ctx.lineTo(this.canvasRef.nativeElement.width/2,$('.students-canvas-2').offset().top);
-//4
-    ctx.moveTo(this.canvasRef.nativeElement.width/2,$('.teachers-canvas-2').offset().top);
-    ctx.lineTo($('.students-canvas-3').offset().left,$('.students-canvas-3').offset().top);
-    ctx.stroke();
-
+    this.http.request({
+      url: 'my/masterapprenticelistall',
+      type: 'get',
+      success: res => {
+        if(res.length >= 3) {
+          this.apprentice1 = res[0];
+          this.apprentice2 = res[1];
+          this.apprentice3 = res[2];
+          return;
+        }
+        if(res.length <= 0) {
+          this.isHidden1 = false;
+          this.isHidden2 = false;
+          this.isHidden3 = false;
+        }
+        if(res.length > 0 && res.length < 3) {
+          this.apprentice1 = res[0];
+          this.isHidden2 = false;
+          this.isHidden3 = false;
+        } 
+        if(res.length > 1 && res.length < 3) {
+          this.apprentice2 = res[1];
+          this.isHidden2 = true;
+        }
+        ctx.strokeStyle = "#7a6846";
+        //2
+        if(res.length > 1) {
+          ctx.moveTo(this.canvasRef.nativeElement.width/2,$('.teachers-canvas-2').offset().top);
+          ctx.lineTo($('.students-canvas-1').position().left,$('.students-canvas-1').offset().top);
+        }
+        //1
+        if(res.length > 0) {
+          ctx.moveTo(this.canvasRef.nativeElement.width/2,$('.teachers-canvas-2').offset().top);
+          ctx.lineTo(this.canvasRef.nativeElement.width/2,$('.students-canvas-2').offset().top);
+        }
+        //3
+        if(res.length > 2) {
+          ctx.moveTo(this.canvasRef.nativeElement.width/2,$('.teachers-canvas-2').offset().top);
+          ctx.lineTo($('.students-canvas-3').position().left,$('.students-canvas-3').offset().top);
+        }
+        ctx.stroke(); 
+      }
+    });
+    this.http.request({
+      url: 'my/masterapprenticerelationship',
+      type: 'get',
+      success: res => {
+        this.teachers = res.master[0];
+        if(this.teachers != null) {
+          
+          ctx.strokeStyle = "#7a6846";
+          ctx.moveTo(this.canvasRef.nativeElement.width/2,$('.teachers-canvas-1').offset().top);
+          ctx.lineTo(this.canvasRef.nativeElement.width/2,$('.teachers-canvas-2').offset().top);
+          ctx.stroke(); 
+        }else {
+          this.isHidden4 = false;
+        }
+      }
+    });
   }
   toStudents(text, type: number){
     this.student="assets/imgs/person/teachers/cupColor.png";
@@ -100,5 +162,17 @@ export class TeachersPage {
   }
   showAllAtudents(){
     this.navCtrl.push(MeAllStudentsPage);
+  }
+  TeacherOrApprenticeAlert(str: string) {
+    const alert = this.alertCtrl.create({
+      cssClass: 'tips-alert',
+      title: str + '请求发送成功'
+    })
+    alert.present();
+  }
+  goToStudent(student: Object) {
+    console.log(1);
+    this.storage.write('student', student);
+    this.navCtrl.push(PerformancePage);
   }
 }

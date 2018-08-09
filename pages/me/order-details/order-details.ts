@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { StorageServiceProvider } from '../../../providers/storage-service/storage-service';
+import { HttpServiceProvider } from '../../../providers/http-service/http-service';
 
 /**
  * Generated class for the OrderDetailsPage page.
@@ -15,11 +17,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class OrderDetailsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  orderDetailNo: Object;
+  orderDetail: Object;
+  detailList = [];
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private storage: StorageServiceProvider,
+              private http: HttpServiceProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad OrderDetailsPage');
+    this.orderDetailNo = this.storage.read('orderDetailNo');
+    this.http.request({
+      url: 'my/receiverecordorderlist/'+this.orderDetailNo['code'],
+      type: 'get',
+      success: res => {
+        this.orderDetail = res;
+        this.detailList = this.orderDetail['detailList'];
+      }
+    });
   }
 
 }

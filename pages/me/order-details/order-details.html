@@ -16,46 +16,34 @@
 <ion-content>
   <div class="black-div-wz"></div>
   <div class="shopchoose-list-wz" >
-    <p>天府国际金融城中心店 ( No.0569 ) </p>
-    <p>高新区天府国际金融中心写字楼4号负一楼大堂</p>
-  </div>
+    <p>{{orderDetail?.shopname}}</p>
+    <p>{{orderDetail?.address}}</p>
+  </div>  
   <div class="content-list-wz">
     <ion-list>
       <ion-item class="item-height-wz">
-        <label>申请工程师 : 张三</label>
+        <label>申请工程师 : {{orderDetail?.worker}}</label>
       </ion-item>
       <ion-item class="item-height-wz">
-        <label>工号 : 10086</label>
+        <label>工号 : {{orderDetail?.worknum}}</label>
       </ion-item>
       <ion-item class="item-height-wz">
-        <label>订单编号 : 2018073024333</label>
+        <label>订单编号 : {{orderDetail?.orderno}}</label>
       </ion-item>
       <ion-item class="item-height-wz">
-        <label>订单状态 : 已受理</label>
+        <label>订单状态 : {{orderDetail?.status == 0 ? '未受理' : '已受理'}}</label>
       </ion-item>
-      <ion-item>
+      <ion-item class="ionitem5">
         <label>申请配件名称 : </label>
         <ion-list class="partsname-list-wz">
-          <ion-item style="border-bottom: none;padding-left: 0px">
-            <span class="partsname1-wz">S8内屏幕</span><span class="partsname2-wz">1600.00*3(占用额度20)</span><span class="partsname3-wz">4800.00</span>
-          </ion-item>
-          <ion-item style="border-bottom: none">
-            <span class="partsname1-wz">S8内屏幕</span><span class="partsname2-wz">1600.00*3(占用额度20)</span><span class="partsname3-wz">4800.00</span>
-          </ion-item>
-          <ion-item style="border-bottom: none">
-            <span class="partsname1-wz">S8内屏幕</span><span class="partsname2-wz">1600.00*3(占用额度20)</span><span class="partsname3-wz">4800.00</span>
-          </ion-item>
-          <ion-item style="border-bottom: none">
-            <span class="partsname1-wz">S8内屏幕</span><span class="partsname2-wz">1600.00*3(占用额度20)</span><span class="partsname3-wz">4800.00</span>
-          </ion-item>
-          <ion-item style="border-bottom: none">
-            <span class="partsname1-wz">S8内屏幕</span><span class="partsname2-wz">1600.00*3(占用额度20)</span><span class="partsname3-wz">4800.00</span>
+          <ion-item style="border-bottom: none;padding-left: 0px" *ngFor="let item of detailList" >
+            <span class="partsname1-wz">{{item.title}}</span><span class="partsname2-wz">{{item.desc}}</span><span class="partsname3-wz">{{item.subtotal}}</span>
           </ion-item>
         </ion-list>
       </ion-item>
       <ion-item class="item-height-wz" style="border-bottom: none">
-        <label>共申请9件配件 占用额度145 共计 : ￥9849.00</label>
-        <p>2018-07-30 16:03:30</p>
+        <label>共申请{{orderDetail?.num}}件配件 占用额度{{orderDetail?.totalquota}} 共计 : ￥{{orderDetail?.totalprice}}</label>
+        <p>{{orderDetail?.createtime}}</p>
       </ion-item>
       </ion-list>
     <button class="btn-wz">物流查询</button>

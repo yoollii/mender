@@ -33,16 +33,13 @@ export class PartsStreamPage {
   getPartsList(operation?:any) {
     let flag = operation?false:true;
     this.http.request({
-      url: 'my/partsflow',
+      url: 'my/partsflow/',
       type: 'post',
-      loading:flag,
-      data: {pageIndex: this.pageData.next_page, pageSize: 10},
+      data: {currentPage: this.pageData.next_page},
       success: res => {
         this.pageData.load(res);
         this.parts = this.pageData.list;
-        console.log(this.parts);
         this.haveData = this.pageData.more_data;
-        console.log(this.haveData);
       },
       complete:res => {
         if(operation){

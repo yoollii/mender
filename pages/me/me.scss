@@ -17,6 +17,7 @@ page-me {
         justify-content: center;
         img {
             width: rem(120);
+            border-radius: 30px;
         }
     }
     .list-bg-yl {
@@ -33,6 +34,7 @@ page-me {
         display: flex;
         margin-top: rem(114);
         .listbg-yl {
+            width: 79%;
             p {
                 margin: 0 0 rem(28) 0;
                 font-size: rem(32);
