@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpServiceProvider } from '../../../providers/http-service/http-service';
 import { PageDataProvider } from '../../../providers/page-data/page-data';
+import { StorageServiceProvider } from '../../../providers/storage-service/storage-service';
+import { PerformancePage } from '../../me-performance/performance';
 
 
 /**
@@ -22,7 +24,8 @@ export class MeAllStudentsPage {
   haveData = true;
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private http: HttpServiceProvider,
-              private pageData: PageDataProvider) {
+              private pageData: PageDataProvider,
+              private storage: StorageServiceProvider) {
   }
 
   ionViewDidLoad() {
@@ -40,5 +43,9 @@ export class MeAllStudentsPage {
         }
       }
     });
+  }
+  goToStudent(student: Object) {
+    this.storage.write('student', student);
+    this.navCtrl.push(PerformancePage);
   }
 }
