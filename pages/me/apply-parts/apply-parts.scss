@@ -1,4 +1,37 @@
+.tips-alert {
+  .alert-wrapper {
+    border-radius: rem(10);
+    background-color: #3c3c3c;
+    width: rem(585);
+    height: rem(265);
+    position: relative;
+    .alert-title {
+      font-family: "Microsoft YaHei UI";
+      font-size: rem(28);
+      color: $Themecolor;
+      font-weight: 500;
+      margin-top: rem(95);
+    }
+    .alert-sub-title {
+      font-family: "Microsoft YaHei UI";
+      font-size: rem(28);
+      color: $Themecolor;
+      margin-top: rem(65);
+    }
+    .alert-head {
+      padding: 0px;
+    }
+  }
+}
 page-apply-parts {
+  .ionitem3 {
+    height: rem(300);
+    position: relative;
+      label {
+        position: absolute;
+        top: rem(20);
+      }
+  }
   .btn-wz {
     color: $Themecolor;
     background-color: #333333;
@@ -67,6 +100,11 @@ page-apply-parts {
     }
   }
   .partsname-list-wz {
+    position: absolute;
+    top: rem(65);
+    height: rem(220);
+    width: 100%;
+    overflow: auto;
     span {
       font-size: rem(22);
       color: #787878;
