@@ -43,11 +43,12 @@ export class TelUpdatePage {
       type: 'get',
       success: res => {
         this.validataCode('验证码已发送，请注意接收');
+        this.setTime();
       }
     });
   }
   setTime() {
-    setTimeout( res => {
+    let si = setInterval( res => {
       if(this.vcTime != 0) {
         this.isDisabled = true;
         this.vcTime--;
@@ -56,7 +57,7 @@ export class TelUpdatePage {
         this.isDisabled = false;
         this.vcTime = 60;
         this.vcStr = '重新获取';
-        return;
+        clearInterval(si);
       }
     }, 1000);
   }
