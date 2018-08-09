@@ -24,7 +24,7 @@
     <ion-row>
       <ion-col col-4 class="nav-section">
         <ul class="nav-list">
-          <li [ngClass]="{'nav-item':true,'active':i==navIndex}" *ngFor="let item of navList;index as i" (click)="navChange(i)">{{item}}</li>
+          <li [ngClass]="{'nav-item':true,'active':i==navIndex}" *ngFor="let item of navList;index as i" (click)="navChange(i)">{{item.title}}</li>
         </ul>
       </ion-col>
       <ion-col class="content-section">

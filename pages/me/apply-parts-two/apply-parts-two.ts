@@ -31,7 +31,6 @@ export class ApplyPartsTwoPage {
 
   ionViewDidLoad() {
     this.getNavList();
-    this.getProductList();
   }
   clickEvent(id:string,str: string) {
     for(let product of this.products) {
@@ -56,7 +55,7 @@ export class ApplyPartsTwoPage {
     })
     alert.present();
   }
-  getProductList(id:number = 1, operation?: any) {
+  getProductList(id:number, operation?: any) {
     let flag = operation ? false : true;
     this.http.request({
       url: 'my/applypartsdetail',
@@ -82,7 +81,10 @@ export class ApplyPartsTwoPage {
     this.http.request({
       url: 'my/applypartsmenu',
       type: 'get',
-      success: res => res.reduce((str, nav) => this.navList.push(nav.title), '')
+      success: res => {
+        this.navList = res;
+        this.getProductList(this.navList[0].id);
+      }
     });
   }
   navChange(index) {
