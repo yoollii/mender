@@ -13,6 +13,7 @@ export class AppConfig {
     static proxy_dev_api = '/dev/api/';
     static proxy_pro_api = '/pro/api/';
     static dev_api = 'http://192.168.1.250:8080/app/';
+   // static dev_api = 'http://192.168.1.15:8080/app/';//xiexin
     static pro_api = '';
     debug;
     api;

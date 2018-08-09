@@ -1,9 +1,10 @@
 import { Component} from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams} from 'ionic-angular';
 import { OrderdetailPage } from './orderdetail/orderdetail';
 import {MessageServiceProvider} from "../../providers/messageService/messageService";
 import { PageDataProvider } from '../../providers/page-data/page-data';
-import { HttpServiceProvider } from '../../providers/http-service/http-service';
+import { HttpServiceProvider } from '../../providers/http-service/http-service'
+
 /**
  * Generated class for the OrderPage page.
  *
@@ -20,6 +21,8 @@ import { HttpServiceProvider } from '../../providers/http-service/http-service';
 export class OrderPage {
   haveData=true;//判定有没有更多数据
   tabsIndex = 0;//tabs的选中项
+  srvIndex = -1;//获取外部传入的tabIndex
+  reload = false;//用于判定tab外进入页面
   tabs = [
     {
       name:'待受理',
@@ -52,6 +55,7 @@ export class OrderPage {
       cnt:0
     }
   ]
+  
   dataList=[];
   constructor(
     public navCtrl: NavController, 
@@ -59,22 +63,38 @@ export class OrderPage {
     private pageData:PageDataProvider,
     private http:HttpServiceProvider,
     public srv: MessageServiceProvider
+    
   ) {
+    
   	 this.srv.getMessage().subscribe(message =>{//从home页或ordermap页进入订单页(第二次到订单页),根据订阅信息显示页面内容
-    	 this.changeTabs(message);
+       //this.changeTabs(message);
+       this.tabsIndex = message;
     });
   }
   ionViewDidLoad() { //第一次进入订单页面,根据tabs页面参数判断是从哪个页面进入的
-	this.orderList();
-    this.orderCount();
-  	  if(parseInt(this.navParams.data)==0 ){//home
-  	  	this.changeTabs(parseInt(this.navParams.data)+1);
+    //  alert(this.navParams.data)
+  	  if(parseInt(this.navParams.data)==1 ){//home
+  	  	this.tabsIndex=1;
   	  }else if(parseInt(this.navParams.data)==1){//ordermap
-  	  	this.changeTabs(parseInt(this.navParams.data)-1);
-  	  }else{//其他页面
-  	  	this.changeTabs(0);
+  	  	//this.changeTabs(parseInt(this.navParams.data)-1);
   	  }
-  	  
+  	  this.orderList();
+      this.orderCount();
+      
+  }
+  ionViewDidEnter(){
+   if(this.reload){
+    this.srv.getMessage().subscribe(msg=>{
+      this.tabsIndex = msg;
+     })
+    this.orderList();
+    this.orderCount();
+   }
+  }
+  ionViewDidLeave(){
+    this.pageData.refresh();
+    this.tabsIndex=0;
+    this.reload = true;
   }
   changeTabs(index){
     if(this.tabsIndex!==index){
@@ -128,6 +148,7 @@ export class OrderPage {
   //下拉刷新
   doRefresh(refresher) {
     this.pageData.refresh();
+    this.orderCount();
     this.orderList(refresher);
   }
   //上拉加载

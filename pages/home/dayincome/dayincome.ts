@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { IncomedetailPage } from '../incomedetail/incomedetail';
+import { HttpServiceProvider } from '../../../providers/http-service/http-service';
 /**
  * Generated class for the DayincomePage page.
  *
@@ -14,22 +15,34 @@ import { IncomedetailPage } from '../incomedetail/incomedetail';
   templateUrl: 'dayincome.html',
 })
 export class DayincomePage {
-  allIncome:number=1920;
-  divide:number=1500;
-  allowance:number=100;
-  extend:number=80;
-  master:number=80;
-  turn:number=80;
-  recommend:number=80;
+  allIncome:number=0;
+  divide:number=0;
+  allowance:number=0;
+  extend:number=0;
+  master:number=0;
+  turn:number=0;
+  recommend:number=0;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http:HttpServiceProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DayincomePage');
+    this.workerdayincomedetail();
   }
   detail(){//订单收入明细
   	this.navCtrl.push(IncomedetailPage);
   }
-
+  workerdayincomedetail(){
+    this.http.request({
+      url:'workerInfo/workerdayincomedetail',
+      type:'get',
+      success:res=>{
+        this.divide=res['ordertotalincome'];
+        this.allowance = res['subsidytotalincome'];
+        this.master = res['followertotalincome'];
+        this.turn = res['tranftotalincome'];
+        this.allIncome = res['daytotalincome'];
+      }
+    })
+  }
 }

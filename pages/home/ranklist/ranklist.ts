@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { HttpServiceProvider } from '../../../providers/http-service/http-service';
 /**
  * Generated class for the RanklistPage page.
  *
@@ -14,12 +14,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'ranklist.html',
 })
 export class RanklistPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  list;
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private http:HttpServiceProvider
+  ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RanklistPage');
+    this.rankList();
   }
-
+  rankList(){
+    this.http.request({
+      url:'workerProfit/workermonthincometop',
+      type:'get',
+      success:res=>{
+        this.list = res;
+      }
+    })
+  }
 }

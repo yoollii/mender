@@ -6,6 +6,7 @@ import { LoginPage } from '../pages/login/login';
 import { TabsPage } from '../pages/tabs/tabs';
 import { StorageServiceProvider } from '../providers/storage-service/storage-service';
 import { Network }  from '@ionic-native/network';
+import { JPushService } from 'ionic2-jpush/dist'
 @Component({
   templateUrl: 'app.html'
 })
@@ -18,6 +19,7 @@ export class MyApp {
     private storage:StorageServiceProvider,
     private network:Network,
     private loadingCtrl:LoadingController,
+    private jPushPlugin:JPushService
   ) {
     platform.ready().then(() => {
       const user= storage.read('user');
@@ -29,6 +31,31 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
       this.checkNetWork();
+      this.init(user['id']);
+      let openNotification = this.jPushPlugin.openNotification()
+         .subscribe( res => {
+           console.log(res);
+           console.log('收到点击通知事件')
+         })
+ 
+ 
+       let receiveNotification = this.jPushPlugin.receiveNotification()
+         .subscribe( res => {
+           console.log(res)
+           console.log('收到通知')
+         })
+ 
+       let receiveMessage = this.jPushPlugin.receiveMessage()
+         .subscribe( res => {
+           console.log(res)
+           console.log('收到自定义消息')
+         })
+ 
+       let backgroundNotification = this.jPushPlugin.backgroundNotification()
+         .subscribe( res => {
+           console.log(res)
+           console.log('收到后台通知')
+         })
     });
   }
   checkNetWork(){
@@ -39,4 +66,13 @@ export class MyApp {
        loader.present();
     }
   }
+  init(alias) {
+    const ctx =this;
+    this.jPushPlugin.init()
+    .then(res =>{
+      console.log('jp_alias',alias);
+      ctx.jPushPlugin.setAlias({sequence:0,alias:alias})
+    })
+    .catch(err => alert(err))
+    }
 }

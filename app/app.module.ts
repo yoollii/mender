@@ -61,8 +61,18 @@ import { AppConfig} from "./app.config";
 import {PartsStockPage} from "../pages/me/parts-stock/parts-stock";
 import {ApplyPartsTwoPage} from "../pages/me/apply-parts-two/apply-parts-two";
 import { PageDataProvider } from '../providers/page-data/page-data';
+//网络检查
 import { Network }  from '@ionic-native/network';
+//拔打电话
 import { CallNumber } from '@ionic-native/call-number';
+//设备
+import { Device } from '@ionic-native/device';
+//app检查
+import { AppAvailability } from '@ionic-native/app-availability';
+//定位
+import { Geolocation } from '@ionic-native/geolocation';
+//极光推送
+import { JPushService } from 'ionic2-jpush/dist'
 @NgModule({
   declarations: [
     MyApp,
@@ -164,7 +174,11 @@ import { CallNumber } from '@ionic-native/call-number';
     AppConfig,
     PageDataProvider,
     Network,
-    CallNumber
+    CallNumber,
+    Device,
+    Geolocation,
+    AppAvailability,
+    JPushService
   ]
 })
 export class AppModule {}

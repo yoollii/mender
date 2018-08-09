@@ -20,6 +20,7 @@ export class TabsPage {
 
   }
   ionChanget(){ //根据_selectHistory看前一个tab页是哪一个
+    
   	if(this.tabRef._selectHistory.length>2){
 	     this.tabindex=this.tabRef._selectHistory[this.tabRef._selectHistory.length-2].split('-')[1];
   	}else{

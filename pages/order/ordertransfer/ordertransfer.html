@@ -24,11 +24,11 @@
 <div class="turn_zq">
 <div class='form1_zq'>
 	<label class='label_zq'>技师工号:</label>
-	<input type="number" class='input_zq' [(ngModel)]="menderNum"  (input)='searchInfo()'/>
+	<input type="text" class='input_zq' [(ngModel)]="menderNum"  (input)='searchInfo()'/>
 	<div class='info_zq' *ngIf='showinfo'>
-		<p>姓名：张有才</p>
-		<p>工号：1234354355</p>
-		<p>电话：12222333345</p>
+		<p>姓名：{{workinfo.name}}</p>
+		<p>工号：{{workinfo.worknum}}</p>
+		<p>电话：{{workinfo.phone}}</p>
 	</div>
 	<div class='info_zq' *ngIf='showinfoe'>
 		<p>未找到该工号技师！</p>
@@ -37,17 +37,12 @@
 <div class="line_zq">
 	<img src="assets/imgs/line.png" alt="" />
 </div>
-<div class='form1_zq'>
+<div class='form1_zq' radio-group [(ngModel)]="reson">
 	<label class='label_zq'>转单原因:</label>
-	<ion-item class='mb_zq'>
-	  <ion-label>主板故障，需专业主板工程师维修。</ion-label>
-	  <ion-checkbox color="dark" checked="false" [(ngModel)]="reason1"></ion-checkbox>
-	</ion-item>
-	<ion-item>
-	  <ion-label>我距离目的地较远，不能按时到达指定地点。</ion-label>
-	  <ion-checkbox color="dark" checked="false" [(ngModel)]="reason2"></ion-checkbox>
-	</ion-item>
-  
+		<ion-item class='mb_zq' *ngFor="let item of resons;index as i" >
+			<ion-radio checked="false" color="dark" value={{item.id}}></ion-radio>
+			<ion-label>{{item.reson}}</ion-label>
+		</ion-item>
 </div>
 </div>
 <button class="sureOrder_zq" (click)='sureTurn()'>确认订单</button>

@@ -36,7 +36,7 @@ export class LoginPage {
   login(tel:HTMLInputElement,pwd:HTMLInputElement,status:HTMLInputElement){
     const telNum = tel.value;
     const password = pwd.value.trim();
-    const checked = status.checked;
+    //const checked = status.checked;
     if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(telNum))){
       this.toast('手机号码不正确');
       return false;

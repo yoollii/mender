@@ -85,7 +85,7 @@ page-ordertransfer {
     border:2px solid $Themecolor;
     background:none;
 }
-.checkbox-ios .checkbox-checked .checkbox-inner{
+.radio-ios .radio-checked .radio-inner{
     height:rem(27);
     width:rem(16);
     top:rem(-10);
@@ -95,8 +95,26 @@ page-ordertransfer {
     border-top-width: 0;
     border-left-width: 0;
 }
+ion-radio {
+    float: left;
+}
+.input-wrapper {
+    float: right;
+}
+.item-ios{
+    .radio-ios{
+        height:rem(26);
+    width:rem(26);
+    border-radius:rem(4);
+    border:2px solid $Themecolor;
+    background:none;
+    } 
+}
+.item-radio-ios-dark.item-radio-checked ion-label {
+    color: $Themecolor
+}
 .mb_zq{
-    margin-top:rem(60);
+    margin-top:rem(40);
 }
 .line_zq{
     width:100%;

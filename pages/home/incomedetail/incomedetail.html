@@ -14,76 +14,37 @@
 
 
 <ion-content class='content_zq'>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+        pullingText="下拉刷新"
+        refreshingText="刷新中..."
+        >
+        </ion-refresher-content>
+      </ion-refresher>
 <ion-list>
-  <ion-item>
+  <ion-item *ngFor="let item of dataList">
     <div class='photo_zq'>
-      <img src="assets/imgs/avatar.png"> 
-      <h2>黄许</h2>
+      <img src={{item.avatar}}> 
+      <h2>{{item.name}}</h2>
     </div>
-    <p>苹果 iphone 6 银色</p>
-    <p>屏幕-外屏碎裂（正常使用、显示正常）/电池故障</p>
-    <p>订单编号：20180705111703076043</p>
-    <p>下单时间：2018-07-05 11:49:53</p>
+    <p>{{item.brand}}</p>
+    <p>{{item.fault}}</p>
+    <p>订单编号：{{item.tradeno}}</p>
+    <p>下单时间：{{item.createtime}}</p>
     <div item-end>
-    	<h2>分成</h2>
-    	<h2>+28.08</h2>
-    </div>
-  </ion-item>
-  <ion-item>
-    <div class='photo_zq'>
-      <img src="assets/imgs/avatar.png"> 
-      <h2>黄许</h2>
-    </div>
-    <p>苹果 iphone 6 银色</p>
-    <p>屏幕-外屏碎裂（正常使用、显示正常）/电池故障</p>
-    <p>订单编号：20180705111703076043</p>
-    <p>下单时间：2018-07-05 11:49:53</p>
-    <div item-end>
-    	<h2>分成</h2>
-    	<h2>+28.08</h2>
-    </div>
-  </ion-item>
-  <ion-item>
-    <div class='photo_zq'>
-      <img src="assets/imgs/avatar.png"> 
-      <h2>黄许</h2>
-    </div>
-    <p>苹果 iphone 6 银色</p>
-    <p>屏幕-外屏碎裂（正常使用、显示正常）/电池故障</p>
-    <p>订单编号：20180705111703076043</p>
-    <p>下单时间：2018-07-05 11:49:53</p>
-    <div item-end>
-    	<h2>分成</h2>
-    	<h2>+28.08</h2>
-    </div>
-  </ion-item>
-  <ion-item>
-    <div class='photo_zq'>
-      <img src="assets/imgs/avatar.png"> 
-      <h2>黄许</h2>
-    </div>
-    <p>苹果 iphone 6 银色</p>
-    <p>屏幕-外屏碎裂（正常使用、显示正常）/电池故障</p>
-    <p>订单编号：20180705111703076043</p>
-    <p>下单时间：2018-07-05 11:49:53</p>
-    <div item-end>
-    	<h2>分成</h2>
-    	<h2>+28.08</h2>
-    </div>
-  </ion-item>
-  <ion-item>
-    <div class='photo_zq'>
-      <img src="assets/imgs/avatar.png"> 
-      <h2>黄许</h2>
-    </div>
-    <p>苹果 iphone 6 银色</p>
-    <p>屏幕-外屏碎裂（正常使用、显示正常）/电池故障</p>
-    <p>订单编号：20180705111703076043</p>
-    <p>下单时间：2018-07-05 11:49:53</p>
-    <div item-end>
-    	<h2>分成</h2>
+      <h2 *ngIf="item.source==1">订单提成</h2>
+      <h2 *ngIf="item.source==2">订单补贴</h2>
+      <h2 *ngIf="item.source==3">转单补贴</h2>
+      <h2 *ngIf="item.source==4">园丁奖</h2>
     	<h2>+28.08</h2>
     </div>
   </ion-item>
 </ion-list>
+<div *ngIf="!haveData" class="no-data">暂无更多数据</div>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content
+        loadingText='加载中...'
+        enabled=false
+        ></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>

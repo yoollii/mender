@@ -3,6 +3,7 @@ import { NavController,Platform,ToastController } from 'ionic-angular';
 import { DayincomePage } from './dayincome/dayincome';
 import { RanklistPage } from './ranklist/ranklist';
 import {MessageServiceProvider} from "../../providers/messageService/messageService";
+import { HttpServiceProvider } from '../../providers/http-service/http-service';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -17,7 +18,16 @@ export class HomePage {
   income:boolean=false;
   myrotate:boolean=false;
   n=0;
-  constructor(public navCtrl: NavController,private toastCtrl:ToastController,private plat:Platform,public srv: MessageServiceProvider) {
+  todayIncome:number = 0;
+  rank:number=0;
+  todayOrderCount:number=0;
+  constructor(
+    public navCtrl: NavController,
+    private toastCtrl:ToastController,
+    private plat:Platform,
+    public srv: MessageServiceProvider,
+    private http:HttpServiceProvider,
+  ) {
     const pl = this.plat;
     this.plat.registerBackButtonAction(res=>{
       this.n++;
@@ -51,7 +61,8 @@ export class HomePage {
   		}
   		this.nowTime=nowtime1.getHours()+' : '+m;
   		
-  	},50000);
+    },50000);
+    this.countRequst();
   }
   orderReZq(){//开始接单
   	if(this.btnText=='开始接单'){
@@ -73,6 +84,8 @@ export class HomePage {
   	this.rankingList=false;
   	this.order=true;
     this.income=false;
+    const tab = this.navCtrl.parent.getByIndex(2);
+    tab.rootParams=1;
     this.srv.sendMessage(1);
     this.navCtrl.parent.select(2);
   }
@@ -89,5 +102,16 @@ export class HomePage {
       duration: 3000
     });
     toast.present();
+  }
+  countRequst(){
+    this.http.request({
+      url:'workerProfit/workerIndex',
+      type:'get',
+      success:res=>{
+        this.todayIncome = res['dayTotalIncome'];
+        this.rank = res['leaderBoard'];
+        this.todayOrderCount = res['orderNumberToday'];
+      }
+    })
   }
 }

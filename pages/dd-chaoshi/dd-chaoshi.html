@@ -7,12 +7,26 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>超时订单</ion-title>
+    <ion-title>{{title}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-    <list-item></list-item>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+        pullingText="下拉刷新"
+        refreshingText="刷新中..."
+        >
+        </ion-refresher-content>
+      </ion-refresher>
+      <list-item (click)="viewDetail(i)" *ngFor ="let item of dataList; index as i" [item]="item"></list-item>
+    <div *ngIf="!haveData" class="no-data">暂无更多数据</div>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content
+        loadingText='加载中...'
+        enabled=false
+        ></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>
