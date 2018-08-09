@@ -29,7 +29,8 @@
       </ion-col>
       <ion-col class="content-section">
           <ion-searchbar class="serch-bar" placeholder="输入关键字" (ionInput)="ionInputEvent(searchInput.value)" #searchInput></ion-searchbar>
-        <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-content>
+          <ion-refresher (ionRefresh)="doRefresh($event)">
           <ion-refresher-content
           pullingText="下拉刷新"
           refreshingText="刷新中..."
@@ -40,12 +41,12 @@
           <div *ngFor="let product of products">
           <ion-row class="pro-item" >
             <ion-col col-4>
-              <img src="{{product.img}}"/>
+              <img src="{{product?.img}}"/>
             </ion-col>
             <ion-col>
-              <label>{{product.title}}</label>
-              <label>￥{{product.diprice}}</label>
-              <label>您的剩余数量 : {{product.num}}</label>
+              <label>{{product?.title}}</label>
+              <label>￥{{product?.diprice}}</label>
+              <label>您的剩余数量 : {{product?.num}}</label>
             </ion-col>
           </ion-row>
           </div>
@@ -57,6 +58,7 @@
             enabled=false
             ></ion-infinite-scroll-content>
         </ion-infinite-scroll>
+        </ion-content>
       </ion-col>
     </ion-row>
   </ion-grid>

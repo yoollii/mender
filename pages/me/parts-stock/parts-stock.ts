@@ -61,6 +61,7 @@ export class PartsStockPage {
     this.http.request({
       url: 'my/partsinventorydetail',
       type: 'post',
+      loading: flag,
       data: {classifyid: index, currentPage: this.pageData.next_page},
       success: res => {
         this.pageData.load(res);
