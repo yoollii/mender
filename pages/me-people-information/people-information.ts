@@ -5,6 +5,8 @@ import {ShopChoosePage} from "../me/shop-choose/shop-choose";
 import {OrderDetailsPage} from "../me/order-details/order-details";
 import {ShoppingCarPage} from "../me/shopping-car/shopping-car";
 import {PartsMallPage} from "../parts-mall/parts-mall";
+import { StorageServiceProvider } from '../../providers/storage-service/storage-service';
+import { HttpServiceProvider } from '../../providers/http-service/http-service';
 
 
 /**
@@ -21,11 +23,21 @@ import {PartsMallPage} from "../parts-mall/parts-mall";
 })
 export class PeopleInformationPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  userInfo: Object;
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private http: HttpServiceProvider,
+              private storage: StorageServiceProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PeopleInformationPage');
+    this.http.request({
+      url: 'workerInfo/infodetail',
+      type: 'get',
+      success: res => {
+        this.userInfo = res;
+        this.userInfo['name'] = this.storage.read('user')['name'];
+      }
+    });
   }
   goToPartsTest() {
     this.navCtrl.push(PartsMallPage);
@@ -33,12 +45,6 @@ export class PeopleInformationPage {
 
   goToTelUpdatePage() {
     this.navCtrl.push(TelUpdatePage);
-  }
-  goToShopChoosePage() {
-    this.navCtrl.push(ShopChoosePage);
-  }
-  goToOrderDetailsPage() {
-    this.navCtrl.push(OrderDetailsPage);
   }
   goToShoppingCar() {
     this.navCtrl.push(ShoppingCarPage);
