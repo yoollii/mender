@@ -40,6 +40,7 @@ page-message-notice {
     font-size: rem(20);
   }
   .content-div1-3-wz {
+    height: rem(50);
     width: 90%;
     margin-left: 5%;
     display: flex;
@@ -50,5 +51,8 @@ page-message-notice {
       font-family: "Microsoft YaHei UI";
       font-size: rem(20);
     }
+  }
+  .scroll-content {
+    border: 0px !important;
   }
 }

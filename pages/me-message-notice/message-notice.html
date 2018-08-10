@@ -14,16 +14,30 @@
 
 <ion-content  class="notice-content-wz">
   <div class="black-div-wz"></div>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content
+        pullingText="下拉刷新"
+        refreshingText="刷新中..."
+      >
+      </ion-refresher-content>
+    <div class="black-div-wz"></div>
+    </ion-refresher>
   <ion-card *ngFor="let message of messages" class="content-div1-wz">
       <div class="content-div1-1-wz border">
-      <p>{{message.date | date: 'yyyy-MM-dd hh-ss-mm'}}</p>
+      <p>{{message.createtime | date: 'yyyy-MM-dd hh-ss-mm'}}</p>
       </div>
       <div class="content-div1-2-wz border">
       <p>{{message.content}}</p>
       </div>
       <div class="content-div1-3-wz">
-      <p>{{message.footer}}</p>
+      <!-- <p>{{message.footer}}</p> -->
       </div>
   </ion-card>
-
+  <div *ngIf="!haveData" class="no-data">暂无更多数据</div>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingText='加载中...'
+      enabled=false
+    ></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
