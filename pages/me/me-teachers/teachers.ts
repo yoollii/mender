@@ -61,8 +61,9 @@ export class TeachersPage {
           handler: data => {
             if(type == 1) {
               this.http.request({
-                url: 'my/entermymaster/'+data.title,
-                type: 'get',
+                url: 'my/masterorfollower',
+                type: 'post',
+                data: {type: 1, workernum: data.title},
                 success: res => {
                   this.TeacherOrApprenticeAlert(text.substring(2, text.length));
                 }
@@ -96,6 +97,16 @@ export class TeachersPage {
           this.apprentice1 = res[0];
           this.apprentice2 = res[1];
           this.apprentice3 = res[2];
+          //第一条线
+          ctx.moveTo(this.canvasRef.nativeElement.width/2,$('.teachers-canvas-2').offset().top);
+          ctx.lineTo(this.canvasRef.nativeElement.width/2,$('.students-canvas-2').offset().top);
+          //第二条线
+          ctx.moveTo(this.canvasRef.nativeElement.width/2,$('.teachers-canvas-2').offset().top);
+          ctx.lineTo($('.students-canvas-1').position().left,$('.students-canvas-1').offset().top);
+          //第三条线
+          ctx.moveTo(this.canvasRef.nativeElement.width/2,$('.teachers-canvas-2').offset().top);
+          ctx.lineTo($('.students-canvas-3').position().left,$('.students-canvas-3').offset().top);
+          ctx.stroke(); 
           return;
         }
         if(res.length <= 0) {
