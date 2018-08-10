@@ -292,5 +292,33 @@ page-apply-parts-two {
   }
   .scroll-content {
     padding: 0px !important;
+    border-top: 0px !important;
   }
+  .shop-car {
+    position: absolute;
+    top: rem(28);
+    right: rem(60);
+    display: block;
+    width: rem(70);
+    height: rem(70);
+    border-radius: 100%;
+    background-color: $Themecolor;
+    background-image: url('../../assets/icon/icon-shopcar.svg');
+    background-repeat: no-repeat;
+    background-size: rem(40);
+    background-position: center;
+    .badge {
+        position: absolute;
+        border-radius: 50%;
+        top: rem(-20);
+        right: rem(-30);
+        background-color: $red-background-color;
+        height: rem(44);
+        width: rem(44);
+        font-size: rem(20);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
 }

@@ -24,11 +24,11 @@
     <ion-row>
       <ion-col col-4 class="nav-section">
         <ul class="nav-list">
-          <li [ngClass]="{'nav-item':true,'active':i==navIndex}" *ngFor="let item of navList;index as i" (click)="navChange(i)">{{item.title}}</li>
+          <li [ngClass]="{'nav-item':true,'active':i==navIndex}" *ngFor="let item of navList;index as i" (click)="navChange(i,item.id)">{{item.title}}</li>
         </ul>
       </ion-col>
       <ion-col class="content-section">
-        <ion-searchbar class="serch-bar" placeholder="输入关键字"></ion-searchbar>
+        <ion-searchbar class="serch-bar" placeholder="输入关键字" (ionInput)="ionInputEvent(searchInput.value)" #searchInput></ion-searchbar>
         <ion-content>
         <ion-refresher (ionRefresh)="doRefresh($event)">
           <ion-refresher-content
