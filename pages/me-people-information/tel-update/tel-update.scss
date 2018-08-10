@@ -86,12 +86,19 @@ page-tel-update {
             width: rem(430);
         }
         .tel-content-code-wz {
+            width: rem(430);
             display: inline-block;
             border-left: 0px;
             border-bottom: 1px solid $Themecolor;
+            input {
+                width: 49%;
+            }
             button {
+                width: 50%;
                 background-color: #222222;
                 color: $Themecolor;
+                font-size: rem(27);
+                text-align: right;
             }
         }
         .tel-content-code-input-wz {

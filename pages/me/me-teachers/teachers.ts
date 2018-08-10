@@ -171,7 +171,6 @@ export class TeachersPage {
     alert.present();
   }
   goToStudent(student: Object) {
-    console.log(1);
     this.storage.write('student', student);
     this.navCtrl.push(PerformancePage);
   }

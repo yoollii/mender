@@ -23,6 +23,7 @@ export class ApplyPartsTwoPage {
   products = [];
   haveData = true;
   buyProducts = {};
+  classId: number;
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpServiceProvider,
               private pageData: PageDataProvider, private alertController: AlertController,
               private storage: StorageServiceProvider,
@@ -55,6 +56,24 @@ export class ApplyPartsTwoPage {
     })
     alert.present();
   }
+  ionInputEvent(searchValue: string) {
+    console.log(this.classId);
+    if(searchValue != '') {
+      this.http.request({
+        url: 'my/applypartssearch',
+        data: {classifyid: this.classId, title: searchValue, currentPage: this.pageData.next_page},
+        success: res => {
+          this.pageData.refresh();
+          this.products = res.list;
+          for(let product of this.products) {
+            product['buyNumber'] = 0;
+          }
+        }
+      });
+    }else {
+      this.getProductList(this.classId);
+    }
+  }
   getProductList(id:number, operation?: any) {
     let flag = operation ? false : true;
     this.http.request({
@@ -68,6 +87,7 @@ export class ApplyPartsTwoPage {
         for(let product of this.products) {
           product['buyNumber'] = 0;
         }
+        console.log(this.products);
         this.haveData = this.pageData.more_data;
       },
       complete: res => {
@@ -83,11 +103,12 @@ export class ApplyPartsTwoPage {
       type: 'get',
       success: res => {
         this.navList = res;
-        this.getProductList(this.navList[0].id);
+        this.classId = this.navList[0].id;
+        this.getProductList(this.classId);
       }
     });
   }
-  navChange(index) {
+  navChange(index, classifyid) {
     if (this.navIndex != index) {
       this.navIndex = index;
       //this.products.splice(0, this.products.length);
@@ -119,12 +140,12 @@ export class ApplyPartsTwoPage {
   //下拉刷新
   doRefresh(refresher) {
     this.pageData.refresh();
-    this.getProductList(this.navIndex+1, refresher);
+    this.getProductList(this.classId, refresher);
   }
   //上拉加载
   doInfinite(infiniteScroll) {
     if(this.haveData){
-      this.getProductList(this.navIndex+1, infiniteScroll);
+      this.getProductList(this.classId, infiniteScroll);
     }else{
       infiniteScroll.enable(false);
       infiniteScroll.complete();
