@@ -33,7 +33,6 @@ export class MeAllStudentsPage {
 
   ionViewDidLoad() {
     this.title = this.navParams.get('title');
-    console.log(this.title);
     if(this.title == '所有徒弟') {
       this.isHidden = true;
       this.getAllApprentice();
