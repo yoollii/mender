@@ -77,7 +77,8 @@ export class OrderPage {
   	  	this.tabsIndex=1;
   	  }else if(parseInt(this.navParams.data)==1){//ordermap
   	  	//this.changeTabs(parseInt(this.navParams.data)-1);
-  	  }
+      }
+      
   	  this.orderList();
       this.orderCount();
       
@@ -87,6 +88,7 @@ export class OrderPage {
     this.srv.getMessage().subscribe(msg=>{
       this.tabsIndex = msg;
      })
+     this.pageData.refresh();
     this.orderList();
     this.orderCount();
    }

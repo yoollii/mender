@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ActionSheetController, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ActionSheetController, Platform,Events } from 'ionic-angular';
 import { PartsMallPage } from '../../parts-mall/parts-mall';
 import { HttpServiceProvider } from '../../../providers/http-service/http-service';
 import { OrdertransferPage } from '../../order/ordertransfer/ordertransfer';
@@ -54,12 +54,16 @@ export class OrderdetailPage {
     public actionSheetCtrl: ActionSheetController,
     public pl: Platform,
     private geolocation: Geolocation,
-    private appConfig: AppConfig
+    private appConfig: AppConfig,
+    private events:Events
   ) {
     let str = this.navParams.data['item'];
     this.item = JSON.parse(str);
     this.platform = this.device.platform;
     this.isMapInstall();
+    events.subscribe('detail:change', (index) => {//配件发生改变时
+      this.orderDetail();
+    });
   }
 
   ionViewDidLoad() {
@@ -180,7 +184,9 @@ export class OrderdetailPage {
     }
   }
   partsMall() {
-    this.navCtrl.push(PartsMallPage);
+    this.navCtrl.push(PartsMallPage,{
+      order:this.item
+    });
   }
   showAlert(msg) {
     const alert = this.alertCtrl.create({

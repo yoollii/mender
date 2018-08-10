@@ -90,9 +90,11 @@ export class ApplyPartsTwoPage {
   navChange(index) {
     if (this.navIndex != index) {
       this.navIndex = index;
+      //this.products.splice(0, this.products.length);
+      this.pageData.refresh();
+      this.getProductList(parseInt(index) + 1);
     }
-    this.products.splice(0, this.products.length);
-    this.getProductList(parseInt(index) + 1);
+    
   }
   goToApplyParts() {
     if(JSON.stringify(this.buyProducts) == '{}') {

@@ -14,11 +14,19 @@
 
 
 <ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingText="下拉刷新" refreshingText="刷新中...">
+        </ion-refresher-content>
+    </ion-refresher>
     <div class="black-div-wz"></div>
-    <div class="shopchoose-list-wz" *ngFor="let shop of shops">
-        <label>{{shop.name}}</label>
+    <div class="shopchoose-list-wz" *ngFor="let item of dataList">
+        <label>{{item.title}}</label>
         <br/>
-        <span>{{shop.address}}</span>
-        <label>{{shop.distance}}</label>
+        <span>{{item.img}}</span>
+        <label>￥{{item.orprice}}</label>
     </div>
+    <div *ngIf="!haveData" class="no-data">暂无更多数据</div>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content loadingText='加载中...' enabled=false></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>

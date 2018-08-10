@@ -53,6 +53,7 @@ import { InterceptorServiceProvider } from '../providers/interceptor-service/int
 import { StorageServiceProvider } from '../providers/storage-service/storage-service';
 import { HttpServiceProvider } from '../providers/http-service/http-service';
 import {ShoppingCarPage} from "../pages/me/shopping-car/shopping-car";
+import { ShoppingCartPage } from '../pages/parts-mall/shopping-cart/shopping-cart';//选取配件 购物车
 import {PartsStreamPage} from "../pages/me/parts-stream/parts-stream";
 import {ApplyPartsPage} from "../pages/me/apply-parts/apply-parts";
 import {MyPartsPage} from "../pages/me/my-parts/my-parts";
@@ -108,7 +109,8 @@ import { JPushService } from 'ionic2-jpush/dist'
     ApplyPartsPage,
     MyPartsPage,
     PartsStockPage,
-    ApplyPartsTwoPage
+    ApplyPartsTwoPage,
+    ShoppingCartPage
   ],
   imports: [
     BrowserModule,
@@ -160,7 +162,8 @@ import { JPushService } from 'ionic2-jpush/dist'
     ApplyPartsPage,
     MyPartsPage,
     PartsStockPage,
-    ApplyPartsTwoPage
+    ApplyPartsTwoPage,
+    ShoppingCartPage
   ],
   providers: [
     StatusBar,

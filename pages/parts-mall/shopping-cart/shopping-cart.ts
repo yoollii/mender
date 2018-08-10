@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {HttpServiceProvider} from "../../../providers/http-service/http-service";
+import { PageDataProvider } from '../../../providers/page-data/page-data';
 /**
  * Generated class for the ShoppingCartPage page.
  *
@@ -14,24 +15,59 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'shopping-cart.html',
 })
 export class ShoppingCartPage {
-
-  shops = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.shops = [
-      {name: '天府国际金融城1号店 ( NO.0569 ) ', address: '高新区天府国际金融中心写字楼1号负一楼大堂', distance: 315},
-      {name: '天府国际金融城2号店 ( NO.0569 ) ', address: '高新区天府国际金融中心写字楼2号负一楼大堂', distance: 325},
-      {name: '天府国际金融城3号店 ( NO.0569 ) ', address: '高新区天府国际金融中心写字楼3号负一楼大堂', distance: 335},
-      {name: '天府国际金融城4号店 ( NO.0569 ) ', address: '高新区天府国际金融中心写字楼4号负一楼大堂', distance: 345},
-      {name: '天府国际金融城5号店 ( NO.0569 ) ', address: '高新区天府国际金融中心写字楼5号负一楼大堂', distance: 355},
-      {name: '天府国际金融城6号店 ( NO.0569 ) ', address: '高新区天府国际金融中心写字楼6号负一楼大堂', distance: 365},
-      {name: '天府国际金融城7号店 ( NO.0569 ) ', address: '高新区天府国际金融中心写字楼7号负一楼大堂', distance: 375},
-      {name: '天府国际金融城8号店 ( NO.0569 ) ', address: '高新区天府国际金融中心写字楼8号负一楼大堂', distance: 385},
-      {name: '天府国际金融城9号店 ( NO.0569 ) ', address: '高新区天府国际金融中心写字楼9号负一楼大堂', distance: 395},
-    ]
+  dataList=[];
+  haveData=true;//判定有没有更多数据
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private http:HttpServiceProvider,
+    private pageData:PageDataProvider
+  ) {
+   
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ShoppingCartPage');
+    this.pageData.refresh();
+    this.partsList();
   }
+  partsList(operation?:any){
+    let flag = operation?false:true;
+    this.http.request({
+      url:'order/workerbackpack',
+      loading:flag,
+      data:{
+        currentPage:this.pageData.next_page,
+        orderno:this.navParams.data['orderno'],
+        pageSize:10,
+      },
+      success:res=>{
+        this.pageData.load(res);
+        this.dataList = this.pageData.list;
+        this.haveData = this.pageData.more_data;
+      },
+      complete:res=>{
+        if(operation){
+          operation.complete();
+         
+        }
+       
+      }
+    })
+  }
+  //下拉刷新
+  doRefresh(refresher) {
+    this.pageData.refresh();
 
+    this.partsList(refresher);
+  }
+  //上拉加载
+  doInfinite(infiniteScroll) {
+    if(this.haveData){
+      this.partsList(infiniteScroll);
+    }else{
+      infiniteScroll.enable(false);
+      infiniteScroll.complete();
+    }
+   
+  }
 }

@@ -1,4 +1,16 @@
 page-login {
+  .bg-ground-bottom {
+    position: absolute;
+    width:100%;
+    height: rem(300);
+    left:-30%;
+    bottom:4%;
+    transform: rotate(-10deg);
+    background-image: url('../../assets/imgs/person/background-top.png');
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+  }
     .content{
         .log-icon-ys{
           .top-jl-ys{
@@ -10,8 +22,8 @@ page-login {
            display: block;
            margin: 0 auto;
          }
-          background: url("../../assets/imgs/logbg.png");
-          background-position: 0% 0%;
+          background: url("../../assets/imgs/person/backgrounp-bottom.png");
+          background-position: 0% 150%;
           background-repeat: no-repeat;
           background-size: 100%;
         }

@@ -21,6 +21,7 @@ export class HomePage {
   todayIncome:number = 0;
   rank:number=0;
   todayOrderCount:number=0;
+  workstatus:string ='0';
   constructor(
     public navCtrl: NavController,
     private toastCtrl:ToastController,
@@ -65,14 +66,25 @@ export class HomePage {
     this.countRequst();
   }
   orderReZq(){//开始接单
-  	if(this.btnText=='开始接单'){
-  		this.btnText='结束接单';
-  	  this.myrotate=true;//开始旋转动画
-  	}else{
-  		this.btnText='开始接单';
-  	  this.myrotate=false;//结束旋转动画
-  	}
-  	
+  	// if(this.btnText=='开始接单'){
+  	// 	this.btnText='结束接单';
+  	//   this.myrotate=true;//开始旋转动画
+  	// }else{
+  	// 	this.btnText='开始接单';
+  	//   this.myrotate=false;//结束旋转动画
+  	// }
+  	this.http.request({
+      url:'workerInfo/workerStartOrEnd/'+this.workstatus,
+      type:'get',
+      success:res=>{
+        this.workstatus = res['acceptOrderStatus'];
+        if(this.workstatus =='1'){
+          this.myrotate = true;
+        }else{
+          this.myrotate = false;
+        }
+      }
+    })
   }
   rankingListZq(){//排行榜
   	this.rankingList=true;
@@ -111,6 +123,10 @@ export class HomePage {
         this.todayIncome = res['dayTotalIncome'];
         this.rank = res['leaderBoard'];
         this.todayOrderCount = res['orderNumberToday'];
+        this.workstatus = res['acceptOrderStatus'];
+        if(this.workstatus=='1'){
+          this.myrotate = true;
+        }
       }
     })
   }

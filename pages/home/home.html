@@ -13,7 +13,7 @@
   <div class='nowTime_zq'>{{nowTime}}</div>
   <div class='nowDay_zq'>{{nowDay}} 星期{{nowweek==1?'一':nowweek==2?'二':nowweek==3?'三':nowweek==4?'四':nowweek==5?'五':nowweek==6?'六':'日'}}</div>
   <div class="homeBg_zq">
-  	<button (click)='orderReZq()'>{{btnText}}</button>
+  	<button (click)='orderReZq()'>{{workstatus=='0'?'开始接单':'结束接单	'}}</button>
   	<div [ngClass]="{'div_zq':true,'myrotate':myrotate}">
   		
   	</div>
