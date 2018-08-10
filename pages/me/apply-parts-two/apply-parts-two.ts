@@ -45,6 +45,7 @@ export class ApplyPartsTwoPage {
         if(this.buyProducts[id] == 0) {
           delete this.buyProducts[id];
         }
+        console.log(this.buyProducts);
         break;
       }
     }
@@ -57,7 +58,6 @@ export class ApplyPartsTwoPage {
     alert.present();
   }
   ionInputEvent(searchValue: string) {
-    console.log(this.classId);
     if(searchValue != '') {
       this.http.request({
         url: 'my/applypartssearch',
@@ -87,7 +87,6 @@ export class ApplyPartsTwoPage {
         for(let product of this.products) {
           product['buyNumber'] = 0;
         }
-        console.log(this.products);
         this.haveData = this.pageData.more_data;
       },
       complete: res => {
