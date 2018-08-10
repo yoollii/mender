@@ -26,6 +26,7 @@ export class PartsStockPage {
   }
 
   ionViewDidLoad() {
+    this.pageData.refresh();
     this.getNavList();
   }
   ionInputEvent(searchValue: string) {
@@ -34,19 +35,23 @@ export class PartsStockPage {
         url: 'my/partsinventorysearch',
         data: {classifyid: this.classId, title: searchValue, currentPage: 1},
         success: res => {
-          this.products.splice(0, this.products.length);
+          this.pageData.refresh();
           this.products = res.list;
         }
       });
+    }else {
+      this.getproductList(this.classId);
     }
   }
   navChange(index, classifyid){
     if(this.navIndex!=index){
       this.navIndex = index;
+      this.classId = classifyid;
+      // this.products.splice(0, this.products.length);
+      this.pageData.refresh();
+      this.getproductList(classifyid);
     }
-    this.classId = classifyid;
-    this.products.splice(0, this.products.length);
-    this.getproductList(classifyid);
+    
   }
   getNavList() {
     this.http.request({
@@ -55,7 +60,7 @@ export class PartsStockPage {
       success: res => {
         this.navList = res;
         this.classId = this.navList[0].classifyid;
-        this.getproductList(this.navList[0].classifyid);
+        this.getproductList(this.classId);
       }
     });
   }
@@ -68,7 +73,6 @@ export class PartsStockPage {
       data: {classifyid: index, currentPage: this.pageData.next_page},
       success: res => {
         this.pageData.load(res);
-        console.log(res);
         this.products = this.pageData.list;
         this.haveData = this.pageData.more_data;
       },
