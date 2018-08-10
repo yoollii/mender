@@ -148,6 +148,9 @@ export class TeachersPage {
       }
     });
   }
+  goToStudents() {
+    this.navCtrl.push(MeAllStudentsPage, {title: '申请列表'});
+  }
   toStudents(text, type: number){
     this.student="assets/imgs/person/teachers/cupColor.png";
     this.teacher='assets/imgs/person/teachers/teacherIcon.png';
@@ -161,7 +164,7 @@ export class TeachersPage {
     this.showPrompt(text, type);
   }
   showAllAtudents(){
-    this.navCtrl.push(MeAllStudentsPage);
+    this.navCtrl.push(MeAllStudentsPage, {title: '所有徒弟'});
   }
   TeacherOrApprenticeAlert(str: string) {
     const alert = this.alertCtrl.create({
