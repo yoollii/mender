@@ -65,6 +65,9 @@ export class ApplyPartsTwoPage {
         success: res => {
           this.pageData.refresh();
           this.products = res.list;
+          for(let product of this.products) {
+            product['buyNumber'] = 0;
+          }
         }
       });
     }else {
@@ -84,6 +87,7 @@ export class ApplyPartsTwoPage {
         for(let product of this.products) {
           product['buyNumber'] = 0;
         }
+        console.log(this.products);
         this.haveData = this.pageData.more_data;
       },
       complete: res => {
@@ -100,7 +104,6 @@ export class ApplyPartsTwoPage {
       success: res => {
         this.navList = res;
         this.classId = this.navList[0].id;
-        console.log(this.classId);
         this.getProductList(this.classId);
       }
     });
