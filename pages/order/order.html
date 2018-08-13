@@ -24,26 +24,27 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-content class="list-content">
-    <div *ngIf="dataList.length>0">
-    <ion-refresher (ionRefresh)="doRefresh($event)">
+  <ion-content class="list-content" >
+    <ion-refresher (ionRefresh)="doRefresh($event)" *ngIf="dataList.length>0">
       <ion-refresher-content
       pullingText="下拉刷新"
       refreshingText="刷新中..."
       >
       </ion-refresher-content>
     </ion-refresher>
-    <div class='custom-list' >
+    <div class='custom-list' *ngIf="dataList.length>0">
       <list-item (click)="viewDetail(i)" *ngFor ="let item of dataList; index as i" [item]="item"></list-item>
     </div>
-    <div *ngIf="!haveData" class="no-data">暂无更多数据</div>
+    <div *ngIf="!haveData&&dataList.length>0" class="no-data">暂无更多数据</div>
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
         <ion-infinite-scroll-content
         loadingText='加载中...'
         enabled=true
         ></ion-infinite-scroll-content>
     </ion-infinite-scroll>
-  </div>
-  <empty-list [text]='emptyText' *ngIf="dataList.length==0"></empty-list>
+    <empty-list [text]='emptyText' *ngIf="dataList.length==0"></empty-list>
   </ion-content>
+  <!-- <ion-content *ngIf="dataList.length==0" class="list-content">
+      
+  </ion-content> -->
 </ion-content>
