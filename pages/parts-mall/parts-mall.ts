@@ -33,6 +33,7 @@ export class PartsMallPage {
   }
 
   ionViewDidLoad() {
+    this.pageData.refresh();
     this.getNavList();
   }
   ionViewDidEnter(){
@@ -85,7 +86,7 @@ export class PartsMallPage {
       url: 'order/partsinventorydetail',
       type: 'post',
       loading: flag,
-      data : {classifyid: id, currentPage: this.pageData.next_page},
+      data : {classifyid: id, currentPage: this.pageData.next_page,orderno:this.orderno},
       success: res => {
         this.pageData.load(res);
         this.products = this.pageData.list;
