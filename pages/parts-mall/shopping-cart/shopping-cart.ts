@@ -32,6 +32,9 @@ export class ShoppingCartPage {
   }
   partsList(operation?:any){
     let flag = operation?false:true;
+    if (!this.pageData.more_data) {
+      return false;
+    }
     this.http.request({
       url:'order/workerbackpack',
       loading:flag,
@@ -65,7 +68,7 @@ export class ShoppingCartPage {
     if(this.haveData){
       this.partsList(infiniteScroll);
     }else{
-      infiniteScroll.enable(false);
+      //infiniteScroll.enable(false);
       infiniteScroll.complete();
     }
    
