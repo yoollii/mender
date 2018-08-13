@@ -115,7 +115,9 @@ export class OrderdetailPage {
         orderno: me.item['orderno']
       },
       success: res => {
-        me.showAlert('订单已取消');
+        me.showAlert('订单已取消',function(){
+          me.navCtrl.pop();
+        });
       }
     })
   }
@@ -141,7 +143,9 @@ export class OrderdetailPage {
         orderno: me.item['orderno']
       },
       success: res => {
-        me.showAlert('已结束该订单');
+        me.showAlert('已结束该订单',function(){
+          me.navCtrl.pop();
+        });
       }
     })
   }
@@ -188,11 +192,18 @@ export class OrderdetailPage {
       order:this.item
     });
   }
-  showAlert(msg) {
+  showAlert(msg,cb?:any) {
     const alert = this.alertCtrl.create({
       title: '提示',
       subTitle: msg,
-      buttons: ['确定']
+      buttons: [{
+        text:'确定',
+        handler:()=>{
+          if(cb && typeof cb =='function'){
+            cb();
+          }
+        }
+      }]
     });
     alert.present();
   }
@@ -354,7 +365,7 @@ export class OrderdetailPage {
       if(this.appConfig.debug){
         alert(this.platform+'未配置地图导航')
       }else{
-        this.showAlert('暂不支持地图导航')
+        this.showAlert('暂不支持地图导航');
       }
     }
    

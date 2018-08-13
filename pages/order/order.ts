@@ -23,6 +23,7 @@ export class OrderPage {
   tabsIndex = 0;//tabs的选中项
   srvIndex = -1;//获取外部传入的tabIndex
   reload = false;//用于判定tab外进入页面
+  isInit = true;//用于判定详情页状态下，不刷新页面;
   tabs = [
     {
       name: '待受理',
@@ -69,12 +70,14 @@ export class OrderPage {
     this.srv.getMessage().subscribe(message => {//从home页或ordermap页进入订单页(第二次到订单页),根据订阅信息显示页面内容
       //this.changeTabs(message);
       this.tabsIndex = message;
+      this.srvIndex = message;
     });
   }
   ionViewDidLoad() { //第一次进入订单页面,根据tabs页面参数判断是从哪个页面进入的
     //  alert(this.navParams.data)
     if (parseInt(this.navParams.data) == 1) {//home
       this.tabsIndex = 1;
+      this.srvIndex = 1;
     } else if (parseInt(this.navParams.data) == 1) {//ordermap
       //this.changeTabs(parseInt(this.navParams.data)-1);
     }
@@ -96,9 +99,12 @@ export class OrderPage {
     }
   }
   ionViewDidLeave() {
-    this.pageData.refresh();
-    this.tabsIndex = 0;
-    this.reload = true;
+    if (this.srvIndex != -1&&this.isInit) {//判定
+      this.pageData.refresh();
+      this.tabsIndex = 0;
+      this.reload = true;
+    }
+    this.isInit = true;//不管刷不刷新，统一更新状态
   }
   changeTabs(index) {
     if (this.tabsIndex !== index) {
@@ -109,6 +115,7 @@ export class OrderPage {
   }
   viewDetail(idx) {
     const item = this.dataList[idx];
+    this.isInit = false;//详情面不刷新数据
     this.navCtrl.push(OrderdetailPage, {
       item: JSON.stringify(item)
     });
