@@ -26,8 +26,11 @@ page-order {
         &.active+.badge {
             background:$red-background-color
         }
-        &.wait,&.money {
+        &.money {
             background-size: rem(60);
+        }
+        &.wait {
+            background-size: rem(57);
         }
         
     }
