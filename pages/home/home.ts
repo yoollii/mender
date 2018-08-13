@@ -4,6 +4,8 @@ import { DayincomePage } from './dayincome/dayincome';
 import { RanklistPage } from './ranklist/ranklist';
 import {MessageServiceProvider} from "../../providers/messageService/messageService";
 import { HttpServiceProvider } from '../../providers/http-service/http-service';
+import { JPushService } from 'ionic2-jpush/dist';
+import { MessageNoticePage } from '../../pages/me-message-notice/message-notice';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -28,6 +30,7 @@ export class HomePage {
     private plat:Platform,
     public srv: MessageServiceProvider,
     private http:HttpServiceProvider,
+    private jPushPlugin:JPushService
   ) {
     const pl = this.plat;
     this.plat.registerBackButtonAction(res=>{
@@ -38,6 +41,43 @@ export class HomePage {
         pl.exitApp();
       }
     })
+    let openNotification = this.jPushPlugin.openNotification()
+    .subscribe( res => {
+      console.log(JSON.stringify(res));
+      console.log('收到点击通知事件')
+      const type = res['extras']['type'];//后台推送通知判定依据
+     this.doPushEvent(type);
+    })
+
+
+  let receiveNotification = this.jPushPlugin.receiveNotification()
+    .subscribe( res => {
+      console.log(JSON.stringify(res))
+      console.log('收到通知')
+
+    })
+
+  let receiveMessage = this.jPushPlugin.receiveMessage()
+    .subscribe( res => {
+      console.log(JSON.stringify(res))
+      console.log('收到自定义消息')
+    })
+
+  let backgroundNotification = this.jPushPlugin.backgroundNotification()
+    .subscribe( res => {
+      console.log(JSON.stringify(res))
+      console.log('收到后台通知')
+    })
+  }
+  doPushEvent(type:string){
+    switch(type){
+      case '1'://通知列表页面
+      this.navCtrl.push(MessageNoticePage);
+      break;
+      case '2'://跳转到拜师列表页面
+      this.navCtrl.push(MessageNoticePage);
+      break;
+    }
   }
   ionViewDidLoad() {
   	let nowtime=new Date();

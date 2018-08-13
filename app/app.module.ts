@@ -62,6 +62,7 @@ import { AppConfig} from "./app.config";
 import {PartsStockPage} from "../pages/me/parts-stock/parts-stock";
 import {ApplyPartsTwoPage} from "../pages/me/apply-parts-two/apply-parts-two";
 import { PageDataProvider } from '../providers/page-data/page-data';
+
 //网络检查
 import { Network }  from '@ionic-native/network';
 //拔打电话
@@ -74,6 +75,7 @@ import { AppAvailability } from '@ionic-native/app-availability';
 import { Geolocation } from '@ionic-native/geolocation';
 //极光推送
 import { JPushService } from 'ionic2-jpush/dist'
+import { PushEventsProvider } from '../providers/push-events/push-events';
 @NgModule({
   declarations: [
     MyApp,
@@ -181,7 +183,8 @@ import { JPushService } from 'ionic2-jpush/dist'
     Device,
     Geolocation,
     AppAvailability,
-    JPushService
+    JPushService,
+    PushEventsProvider
   ]
 })
 export class AppModule {}

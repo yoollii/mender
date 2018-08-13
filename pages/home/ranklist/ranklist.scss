@@ -7,9 +7,12 @@ page-ranklist {
    justify-content: center;
    background:url(../assets/imgs/avatarB.png);
    background-size:100% 100%;
+   background-position: center;
    img{
-       width:rem(99);
-       height:rem(99);
+       width:rem(96);
+       height:rem(96);
+       border-radius: 50%;
+       margin-left: rem(2)
    }
 }
 .list-ios{

@@ -78,3 +78,8 @@ $Themecolor:#d1ae69; //主题色
     color:#747474;
     width:100%;
 }
+.has-refresher{
+    &> .scroll-content {
+        border-top-width: 0;
+    }
+} 

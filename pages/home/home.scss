@@ -31,9 +31,10 @@ page-home {
      font-size:rem(22); 
   }
   .homeBg_zq{
-      height:rem(300);
+      height:rem(380);
       width:100%;
-      margin-top:rem(38);
+      margin-top:rem(66);
+      margin-bottom:rem(60);
       background:url(../../assets/imgs/home_bg.png);
       background-size:100% 100%;
       position: relative;
@@ -41,25 +42,26 @@ page-home {
       justify-content: center;
       align-items: center;
       .div_zq{
-          height:rem(300);
-          width:rem(300);
+          height:rem(447);
+          width:rem(450);
           background:url(../../assets/imgs/home_circle.png);
           background-size:100% 100%;
           position: absolute;
           z-index:1;
+          background-position: center;
       }
       @keyframes myrotate {
         0% {
         transform:rotate(0deg);
-        transform-origin: center center;
+       
         }
         100% {
         transform:rotate(360deg);
-        transform-origin: center center;
+          
         }
         }
       .myrotate{
-          animation:1s myrotate linear infinite normal;
+          animation:3s myrotate linear infinite normal;
       }
       button{
           font-size:rem(72);
@@ -68,11 +70,15 @@ page-home {
           color:transparent;
           -webkit-text-stroke:1px $Themecolor;
           background-color:rgba(0,0,0,0);
-          width:rem(180);
-          height: rem(180);
+          width:rem(210);
+          height: rem(210);
           border-radius: 50%;
           position: absolute;
           z-index:2;
+          letter-spacing: rem(20);
+          text-align: center;
+          line-height: rem(80);
+          margin-left: rem(10)
       }
   }
 

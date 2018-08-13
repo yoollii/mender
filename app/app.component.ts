@@ -6,7 +6,7 @@ import { LoginPage } from '../pages/login/login';
 import { TabsPage } from '../pages/tabs/tabs';
 import { StorageServiceProvider } from '../providers/storage-service/storage-service';
 import { Network }  from '@ionic-native/network';
-import { JPushService } from 'ionic2-jpush/dist'
+import { JPushService } from 'ionic2-jpush/dist';
 @Component({
   templateUrl: 'app.html'
 })
@@ -22,7 +22,7 @@ export class MyApp {
     private jPushPlugin:JPushService
   ) {
     platform.ready().then(() => {
-      const user= storage.read('user');
+      const user= this.storage.read('user');
       if(user['token']){//判断用户token是否存在
         this.rootPage = TabsPage;
       }else{
@@ -32,32 +32,10 @@ export class MyApp {
       splashScreen.hide();
       this.checkNetWork();
       this.init(user['id']);
-      let openNotification = this.jPushPlugin.openNotification()
-         .subscribe( res => {
-           console.log(res);
-           console.log('收到点击通知事件')
-         })
- 
- 
-       let receiveNotification = this.jPushPlugin.receiveNotification()
-         .subscribe( res => {
-           console.log(res)
-           console.log('收到通知')
-         })
- 
-       let receiveMessage = this.jPushPlugin.receiveMessage()
-         .subscribe( res => {
-           console.log(res)
-           console.log('收到自定义消息')
-         })
- 
-       let backgroundNotification = this.jPushPlugin.backgroundNotification()
-         .subscribe( res => {
-           console.log(res)
-           console.log('收到后台通知')
-         })
+     
     });
   }
+ 
   checkNetWork(){
     if(this.network.type=='unknown'||this.network.type=="none"){
        let loader = this.loadingCtrl.create({

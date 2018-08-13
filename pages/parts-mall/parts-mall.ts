@@ -133,7 +133,7 @@ export class PartsMallPage {
     // let sendParam1 = 'data:'+sendParam;
     this.http.request({
       url: 'order/applypartssubmit',
-      type: 'post',
+      type: 'put',
       data: {data:sendParam,orderno:this.orderno},
       success: res => {
        // this.storage.write('orderCode',res);

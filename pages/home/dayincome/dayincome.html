@@ -1,4 +1,3 @@
-
 <ion-header>
 
   <ion-navbar>
@@ -9,32 +8,50 @@
 
 
 <ion-content class='content_zq'>
-<div class='blackdiv'></div>
-<div class="rankname_zq">共计{{allIncome}}元</div>
-<div class='blackdiv'></div>
-<ion-list>
-	<div class="flexcc_zq">
-	<button class='orderdetail_zq' (click)='detail()'>订单收入明细</button>
-	</div>
-  <ion-item> 
-    <h1>订单分成{{divide}}元</h1>
-  </ion-item>
-  <ion-item> 
-    <h1>订单补贴{{allowance}}元</h1>
-  </ion-item>
-  <!-- <ion-item> 
-    <h1>推广分成{{extend}}元</h1>
-  </ion-item> -->
-  <ion-item> 
-    <h1>师傅分成{{master}}元</h1>
-  </ion-item>
-  <ion-item> 
-    <h1>转单佣金{{turn}}元</h1>
-  </ion-item>
-  <!-- <ion-item> 
-    <h1>荐才奖励{{recommend}}元</h1>
-  </ion-item> -->
- 
-</ion-list> 
-<img src="assets/imgs/incomebg.png"  class='incomeimg_zq'alt="" />
+  <div class='blackdiv'></div>
+  <div class="rankname_zq">共计{{allIncome}}元</div>
+  <div class='blackdiv'></div>
+  <!-- <ion-list>
+    <div class="flexcc_zq">
+      <button class='orderdetail_zq' (click)='detail()'>订单收入明细</button>
+    </div>
+    <ion-item class="border">
+      <h1>订单分成{{divide}}元</h1>
+    </ion-item>
+    <ion-item class="border">
+      <h1>订单补贴{{allowance}}元</h1>
+    </ion-item>
+    <ion-item class="border">
+      <h1>师傅分成{{master}}元</h1>
+    </ion-item>
+    <ion-item class="border">
+      <h1>转单佣金{{turn}}元</h1>
+    </ion-item>
+  </ion-list> -->
+  <div class="flexcc_zq">
+      <button class='orderdetail_zq' (click)='detail()'>订单收入明细</button>
+    </div>
+  <ion-grid>
+    <ion-row class="border">
+      <ion-col>
+        <h1>订单分成{{divide}}元</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row class="border">
+      <ion-col>
+        <h1>订单补贴{{allowance}}元</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row class="border">
+      <ion-col>
+        <h1>师傅分成{{master}}元</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1>转单佣金{{turn}}元</h1>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <img src="assets/imgs/incomebg.png" class='incomeimg_zq' alt="" />
 </ion-content>

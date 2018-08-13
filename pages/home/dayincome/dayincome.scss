@@ -29,10 +29,17 @@ page-dayincome {
    justify-content: center;
    background:linear-gradient(to right, #242424, #2c2c2c, #242424);
 }
-.item-ios h1{
+.item-ios h1,ion-col>h1{
     color:$Themecolor;
     text-align:center;
     font-size:rem(36); 
+    font-weight: 300;
+    margin:0;
+}
+ion-row {
+    padding:rem(30) rem(0);
+    margin: 0 rem(20);
+    box-sizing: border-box;
 }
 .item-ios{
     padding-left:rem(6);
@@ -53,6 +60,7 @@ page-dayincome {
     border-radius:rem(8);
     color:#808080;
     background-color:#383838;
+    margin:rem(20) rem(10);
 }
 .content_zq{
     background:#222;

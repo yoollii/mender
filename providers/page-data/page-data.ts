@@ -16,16 +16,18 @@ export class PageDataProvider {
     this.next_page=1;
     this.total_page = 1;
     this.list = [];
+    this.more_data = true;
   }
   public load(data){
     this.current_page = data['pageIndex']?data['pageIndex']:1;
     this.next_page = data['nextPage']?data['nextPage']:1;
     this.total_page = data['total']?data['total']:1;
+    this.current_page = data['currentPage']?data['currentPage']:1;
     this.list = data['list']?this.list.concat(data['list']):this.list;
     this.more_data = this.haveData(this.haveData);
   }
   private haveData(data){
-    if(this.total_page==this.next_page){
+    if(this.total_page==this.current_page){
       return false;
     }
     return true;
