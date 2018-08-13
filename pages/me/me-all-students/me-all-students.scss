@@ -1,3 +1,28 @@
+.tips-alert {
+    .alert-wrapper {
+      border-radius: rem(10);
+      background-color: #3c3c3c;
+      width: rem(585);
+      height: rem(265);
+      position: relative;
+      .alert-title {
+        font-family: "Microsoft YaHei UI";
+        font-size: rem(35);
+        color: $Themecolor;
+        font-weight: 500;
+        margin-top: rem(95);
+      }
+      .alert-sub-title {
+        font-family: "Microsoft YaHei UI";
+        font-size: rem(28);
+        color: $Themecolor;
+        margin-top: rem(65);
+      }
+      .alert-head {
+        padding: 0px;
+      }
+    }
+  }
 page-me-all-students {
     .imgBorder {
         height: rem(152);
@@ -47,4 +72,15 @@ page-me-all-students {
         width: rem(150);
         height: rem(110);
     }
+    button {
+        background-color: #282828;
+        color: $Themecolor;
+        position: absolute;
+        border-radius: rem(10);
+        padding: rem(26) rem(58);
+        margin-bottom: rem(50);
+        bottom: 0;
+        right: rem(27);
+    }
+   
 }
