@@ -44,11 +44,19 @@ list-item {
     ul {
         font-size: rem(20);
         padding: 0;
+        padding-right: rem(20);
         display: inline-block;
+        width:rem(400);
         li {
+            width:100%;
             list-style: none;
             line-height: rem(28);
         }
+    }
+    .price {
+      display:block;
+      margin-top: rem(42);
+      font-size: $item_font_size;
     }
 }
   .list-item-bottom-ys{
