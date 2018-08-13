@@ -13,7 +13,7 @@ import { Component, Input } from '@angular/core';
 export class EmptyListComponent {
   @Input() text:string;
   constructor() {
-   
+    
   }
 
 }
