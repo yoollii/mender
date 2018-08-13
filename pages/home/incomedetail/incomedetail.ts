@@ -16,6 +16,7 @@ import { PageDataProvider } from '../../../providers/page-data/page-data';
 })
 export class IncomedetailPage {
   haveData=true;//判定有没有更多数据
+  emptyText = '暂无任何收入明细';
   dataList=[];
   constructor(
     public navCtrl: NavController,

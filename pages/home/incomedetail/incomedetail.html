@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content class='content_zq'>
+<ion-content class='content_zq' *ngIf="dataList.length>0">
     <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content
         pullingText="下拉刷新"
@@ -47,4 +47,7 @@
         enabled=false
         ></ion-infinite-scroll-content>
     </ion-infinite-scroll>
+</ion-content>
+<ion-content *ngIf="dataList.length==0">
+  <empty-list [text]="emptyText"></empty-list>
 </ion-content>

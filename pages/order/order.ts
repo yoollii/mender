@@ -24,6 +24,7 @@ export class OrderPage {
   srvIndex = -1;//获取外部传入的tabIndex
   reload = false;//用于判定tab外进入页面
   isInit = true;//用于判定详情页状态下，不刷新页面;
+  emptyText='暂无订单数据'
   tabs = [
     {
       name: '待受理',

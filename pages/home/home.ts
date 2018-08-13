@@ -6,6 +6,7 @@ import {MessageServiceProvider} from "../../providers/messageService/messageServ
 import { HttpServiceProvider } from '../../providers/http-service/http-service';
 import { JPushService } from 'ionic2-jpush/dist';
 import { MessageNoticePage } from '../../pages/me-message-notice/message-notice';
+import { MeAllStudentsPage } from '../me/me-all-students/me-all-students';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -75,7 +76,7 @@ export class HomePage {
       this.navCtrl.push(MessageNoticePage);
       break;
       case '2'://跳转到拜师列表页面
-      this.navCtrl.push(MessageNoticePage);
+      this.navCtrl.push(MeAllStudentsPage);
       break;
     }
   }

@@ -25,6 +25,7 @@
     </ion-row>
   </ion-grid>
   <ion-content class="list-content">
+    <div *ngIf="dataList.length>0">
     <ion-refresher (ionRefresh)="doRefresh($event)">
       <ion-refresher-content
       pullingText="下拉刷新"
@@ -42,5 +43,7 @@
         enabled=true
         ></ion-infinite-scroll-content>
     </ion-infinite-scroll>
+  </div>
+  <empty-list [text]='emptyText' *ngIf="dataList.length==0"></empty-list>
   </ion-content>
 </ion-content>
