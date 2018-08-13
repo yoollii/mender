@@ -1,7 +1,7 @@
 <!-- Generated template for the ListItemComponent component -->
 <ion-card>
   <ion-item>
-    <div class="list-item-top-ys">
+    <div class="list-item-top-ys border border-point-left">
       <span>订单编号</span>
       <span>{{item.orderno}}</span>
       <span *ngIf="item.status==1">待受理</span>
@@ -10,7 +10,7 @@
       <span *ngIf="item.status==4">已支付</span>
       <span *ngIf="item.status==5">已完成</span>
     </div>
-    <div class="list-item-content-ys">
+    <div class="list-item-content-ys border">
       <img src={{item.img}} alt="">
       <ul>
         <li>{{item.version}}</li>
@@ -18,11 +18,22 @@
         <li>颜色：{{item.color}}</li>
       </ul>
     </div>
-    <div class="list-item-bottom-ys">
+    <div class="list-item-bottom-ys border">
       <span>暂无接单</span>
       <span>维修订单</span>
-      <span>共计一项</span>
+      <span> 共计一项 </span>
       <span>订单金额¥{{item.fee}}</span>
+    </div>
+    <div class="flex">
+      <div class="stars">
+        <div *ngIf="item.status==5&&item.comment" class="flex comment">
+            评价：
+            <img src="../../assets/imgs/person/star.png" class="star" alt="" *ngFor="let item of item.stars">
+        </div>
+      </div>
+      <div class="server-type" *ngIf="item.status==2&&item.servertype==1">上门维修</div>
+      <div class="server-type" *ngIf="item.status==2&&item.servertype==2">到店维修</div>
+      <div class="server-type" *ngIf="item.status==2&&item.servertype==3">邮寄</div>
     </div>
   </ion-item>
 </ion-card>

@@ -38,33 +38,7 @@ page-orderdetail {
         font-size: rem(22);
         color:$Themecolor;
     }
-    .border {
-        position: relative;
-       
-        &:after {
-            content:"";
-            display: block;
-            position: absolute;
-            bottom:0;
-            left:0;
-            right:0;
-            height: rem(2);
-            background-color:$Themecolor;
-            transform: scaleY(.5);
-        }
-        &:before {
-            content:"";
-            display: block;
-            position: absolute;
-            bottom:0;
-            right:0;
-            width:rem(10);
-            height: rem(10);
-            background-color:$Themecolor;
-            border-radius: 100%;
-            transform: translateY(50%)
-        }
-    }
+    
     .foot-tabs {
         position: fixed;
         bottom:0;

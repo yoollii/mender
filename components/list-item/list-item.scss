@@ -1,3 +1,5 @@
+$border-color:#6c5c3e;
+$item_font_size:rem(20);
 list-item {
   .item-ios,.card-ios{
     background-color: #353535;
@@ -15,21 +17,24 @@ list-item {
     font-size: rem(24);
     font-weight: 500;
     color: #ffffff;
+    padding-bottom: rem(6);
     margin-top:rem(22);
-    border-bottom: 2px solid #6c5c3e;
+    margin-left:rem(10);
+    padding-right: rem(10);
+    box-sizing: border-box;
     span:first-child{
       padding: 0 rem(14);
     }
     span:last-child{
       float: right;
-      margin-right: rem(33);
       color: #d1ae69;
     }
   }
   .list-item-content-ys {
-    border-bottom: 2px solid #6c5c3e;
     padding-top: rem(20);
     font-weight: 500;
+    padding-right: rem(10);
+    box-sizing: border-box;
     padding-bottom: rem(20);
     img {
         display: inline-block;
@@ -47,11 +52,13 @@ list-item {
     }
 }
   .list-item-bottom-ys{
-    border-bottom: 2px solid #6c5c3e;
     font-size: rem(20);
     padding: rem(17) 0;
     font-weight: 500;
-
+    text-align: right;
+    margin-bottom: rem(10);
+    padding-right: rem(10);
+    box-sizing: border-box;
     span:first-child{
       margin:0 rem(10) 0 20%;
       color: #d1ae69;
@@ -60,5 +67,58 @@ list-item {
       color: #d1ae69;
       margin-right: rem(2);
     }
+  }
+  .border {
+    position: relative;
+    &.border-point-left {
+      &:before {
+        right:100%;
+      }
+    }
+    &:after {
+      content:"";
+      display: block;
+      position: absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      height: 2px;
+      background-color:$border-color;
+      transform: scaleY(.5);
+    }
+    &:before {
+      content:"";
+      display: block;
+      position: absolute;
+      bottom:0;
+      right:0;
+      width:4px;
+      height: 4px;
+      background-color:$border-color;
+      border-radius: 100%;
+      transform: translateY(calc(50% - 1px));
+      z-index: 10;
+    }
+  }
+  .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .server-type {
+    color:$Themecolor;
+    text-align:right;
+    font-size: $item_font_size;
+    padding-right: rem(10);
+    font-weight: bold;
+  }
+  .star {
+    display: block;
+    width:rem(26);
+
+  }
+  .comment {
+    font-size: $item_font_size;
+    color:$Themecolor;
   }
 }

@@ -17,6 +17,7 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 $Themecolor:#d1ae69; //主题色
+$border-color:#6c5c3e;
 .content {
     color: #fff;
     background-color: #181818;
@@ -32,7 +33,7 @@ $Themecolor:#d1ae69; //主题色
     left:0;
     right:0;
     height: rem(2);
-    background-color:$Themecolor;
+    background-color:$border-color;
     transform: scaleY(.5);
   }
   &:before {
@@ -43,7 +44,7 @@ $Themecolor:#d1ae69; //主题色
     right:0;
     width:rem(10);
     height: rem(10);
-    background-color:$Themecolor;
+    background-color:$border-color;
     border-radius: 100%;
     transform: translateY(50%)
   }

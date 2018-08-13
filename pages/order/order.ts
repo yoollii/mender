@@ -4,7 +4,7 @@ import { OrderdetailPage } from './orderdetail/orderdetail';
 import {MessageServiceProvider} from "../../providers/messageService/messageService";
 import { PageDataProvider } from '../../providers/page-data/page-data';
 import { HttpServiceProvider } from '../../providers/http-service/http-service'
-
+import * as $ from 'jquery';
 /**
  * Generated class for the OrderPage page.
  *
@@ -84,6 +84,8 @@ export class OrderPage {
       
   }
   ionViewDidEnter(){
+    let scrollContent= $('.list-content .scroll-content');//去除滚动区域下的margin-bottom;
+    scrollContent.css('marginBottom','0px');
    if(this.reload){
     this.srv.getMessage().subscribe(msg=>{
       this.tabsIndex = msg;
@@ -125,6 +127,9 @@ export class OrderPage {
   }
   orderList(operation?:any){
     let flag = operation?false:true;
+    if(!this.pageData.more_data){
+      return false;
+    }
     this.http.request({
       url:'order/orderlist',
       loading:flag,
@@ -134,6 +139,25 @@ export class OrderPage {
         pageSize:10,
       },
       success:res=>{
+        
+        let resList = res['list'];
+        for (let index = 0; index < resList.length; index++) {
+          const item = resList[index];
+          item['stars']=[];
+          if(item['status']==5&&item['comment']){
+            let comments = parseFloat(item['comment']);
+            let last = comments%1;
+            let intStars = Math.ceil(comments);
+            for (let index = 0; index < intStars; index++) {
+              item['stars'].push(1);
+            }
+            if(last>0){
+              item['stars'].push(last);//
+            }
+          }
+          
+        }
+        
         this.pageData.load(res);
         this.dataList = this.pageData.list;
         this.haveData = this.pageData.more_data;
@@ -152,13 +176,14 @@ export class OrderPage {
     this.pageData.refresh();
     this.orderCount();
     this.orderList(refresher);
+    
   }
   //上拉加载
   doInfinite(infiniteScroll) {
     if(this.haveData){
       this.orderList(infiniteScroll);
     }else{
-      infiniteScroll.enable(false);
+     // infiniteScroll.enable(false);
       infiniteScroll.complete();
     }
    
