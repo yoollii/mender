@@ -20,6 +20,7 @@ import { RanklistPage } from '../pages/home/ranklist/ranklist';
 import { OrderdetailPage } from '../pages/order/orderdetail/orderdetail';
 import { OrderacceptPage } from '../pages/order/orderaccept/orderaccept';
 import { OrdertransferPage } from '../pages/order/ordertransfer/ordertransfer';
+import { UserCommentPage } from '../pages/user-comment/user-comment';
 //配件商城
 import { PartsMallPage } from '../pages/parts-mall/parts-mall';
 
@@ -112,7 +113,8 @@ import { PushEventsProvider } from '../providers/push-events/push-events';
     MyPartsPage,
     PartsStockPage,
     ApplyPartsTwoPage,
-    ShoppingCartPage
+    ShoppingCartPage,
+    UserCommentPage
   ],
   imports: [
     BrowserModule,
@@ -165,7 +167,8 @@ import { PushEventsProvider } from '../providers/push-events/push-events';
     MyPartsPage,
     PartsStockPage,
     ApplyPartsTwoPage,
-    ShoppingCartPage
+    ShoppingCartPage,
+    UserCommentPage
   ],
   providers: [
     StatusBar,

@@ -1,0 +1,42 @@
+page-user-comment {
+    .rankname_zq{
+        height:rem(120);
+        width:100%;
+        font-size:rem(30); 
+        color:$Themecolor;
+        display: flex;
+        align-items:center ;
+        justify-content: center;
+        margin:rem(30) 0;
+        background:linear-gradient(to right, #242424, #2c2c2c, #242424);
+     }
+     .flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin:rem(80) 0;
+      }
+      .star {
+        display: block;
+        width:rem(100);
+        margin:0 rem(10);
+      }
+      .footer {
+          background-image: url('../../assets/imgs/gear.png');
+          background-position: rem(30) center;
+          background-repeat: no-repeat;
+          background-size: rem(170) rem(500);
+          padding-left:rem(230);
+          box-sizing: border-box;
+          width:100%;
+          height: rem(500);
+          line-height: rem(500);
+          color:rgba($color: #fff, $alpha: .2);
+          font-size: rem(30);
+          margin-top: rem(100);
+      }
+      .no-comment {
+          font-size: rem(40);
+          color:rgba($color: #fff, $alpha: .5);
+      }
+}

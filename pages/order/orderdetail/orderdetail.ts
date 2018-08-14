@@ -8,6 +8,7 @@ import { Device } from '@ionic-native/device';
 import { AppAvailability } from '@ionic-native/app-availability';
 import { Geolocation } from '@ionic-native/geolocation';
 import { AppConfig } from '../../../app/app.config';
+import { UserCommentPage } from '../../user-comment/user-comment';
 declare let startApp: any;
 declare var BMap; //declare var BMap: any;
 /**
@@ -104,6 +105,11 @@ export class OrderdetailPage {
   transferOrder() {
     this.navCtrl.push(OrdertransferPage, {
       order: this.item
+    });
+  }
+  viewComment(){
+    this.navCtrl.push(UserCommentPage,{
+      orderItem:this.item
     });
   }
   cancelOrderRequest(me) {
