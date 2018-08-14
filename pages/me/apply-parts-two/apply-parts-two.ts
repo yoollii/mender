@@ -32,6 +32,7 @@ export class ApplyPartsTwoPage {
   }
 
   ionViewDidLoad() {
+    this.pageData.refresh();
     this.getNavList();
   }
   clickEvent(id:string,str: string) {
@@ -72,6 +73,7 @@ export class ApplyPartsTwoPage {
         }
       });
     }else {
+      this.pageData.refresh();
       this.getProductList(this.classId);
     }
   }
@@ -145,6 +147,7 @@ export class ApplyPartsTwoPage {
   //上拉加载
   doInfinite(infiniteScroll) {
     if(this.haveData){
+      this.pageData.refresh();
       this.getProductList(this.classId, infiniteScroll);
     }else{
       infiniteScroll.enable(false);
