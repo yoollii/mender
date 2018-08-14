@@ -21,6 +21,7 @@ export class PartsStockPage {
   products = [];
   haveData = true;
   classId: number;
+  emptyText = '暂无配件数据';
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpServiceProvider,
               private pageData: PageDataProvider) {
   }
@@ -60,7 +61,7 @@ export class PartsStockPage {
       success: res => {
         this.navList = res;
         this.classId = this.navList[0].classifyid;
-        this.getproductList(this.classId);
+        // this.getproductList(this.classId);
       }
     });
   }
