@@ -1,4 +1,4 @@
-$pannel-background-color: radial-gradient(90% 110%, #3d3d3d, rgb(43, 43, 43));
+$pannel-background-color:linear-gradient(to right, #242424, #2c2c2c, #242424);;
 $grey-text-color:#787878;
 $nav-active-color:#d1af6a;
 $red-background-color:#dc3c14;
@@ -67,7 +67,7 @@ page-parts-mall {
         color: $Themecolor;
     }
     .wel-text {
-        font-size: rem(16);
+        font-size: rem(20);
         color: $grey-text-color;
     }
 

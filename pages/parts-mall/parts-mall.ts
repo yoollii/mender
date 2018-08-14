@@ -82,6 +82,9 @@ export class PartsMallPage {
   }
   getProductList(id:number, operation?: any) {
     let flag = operation ? false : true;
+    if(!this.pageData.more_data){
+      return false;
+    }
     this.http.request({
       url: 'order/partsinventorydetail',
       type: 'post',
@@ -156,7 +159,7 @@ export class PartsMallPage {
       const classifyid = this.navList[this.navIndex]['classifyid'];
       this.getProductList(classifyid, infiniteScroll);
     }else{
-      infiniteScroll.enable(false);
+     // infiniteScroll.enable(false);
       infiniteScroll.complete();
     }
   }
