@@ -14,7 +14,7 @@
 
 <ion-content  class="notice-content-wz">
   <div class="black-div-wz"></div>
-  <ion-refresher (ionRefresh)="doRefresh($event)">
+  <ion-refresher (ionRefresh)="doRefresh($event)" *ngIf="messages.length>0" >
       <ion-refresher-content
         pullingText="下拉刷新"
         refreshingText="刷新中..."
@@ -33,11 +33,12 @@
       <!-- <p>{{message.footer}}</p> -->
       </div>
   </ion-card>
-  <div *ngIf="!haveData" class="no-data">暂无更多数据</div>
+  <div *ngIf="!haveData&&messages.length>0" class="no-data">暂无更多数据</div>
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
     <ion-infinite-scroll-content
       loadingText='加载中...'
       enabled=false
     ></ion-infinite-scroll-content>
   </ion-infinite-scroll>
+  <empty-list [text]='emptyText' *ngIf="messages.length==0"></empty-list>
 </ion-content>
