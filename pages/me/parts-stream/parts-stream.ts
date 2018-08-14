@@ -29,6 +29,7 @@ export class PartsStreamPage {
   }
 
   ionViewDidLoad() {
+    this.pageData.refresh();
     this.getPartsList();
   }
   getPartsList(operation?:any) {
@@ -58,6 +59,7 @@ export class PartsStreamPage {
   //上拉加载
   doInfinite(infiniteScroll) {
     if(this.haveData){
+      this.pageData.refresh();
       this.getPartsList(infiniteScroll);
     }else{
       infiniteScroll.enable(false);
