@@ -24,6 +24,7 @@ export class ApplyPartsTwoPage {
   haveData = true;
   buyProducts = {};
   classId: number;
+  emptyText = '暂无配件数据';
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpServiceProvider,
               private pageData: PageDataProvider, private alertController: AlertController,
               private storage: StorageServiceProvider,
