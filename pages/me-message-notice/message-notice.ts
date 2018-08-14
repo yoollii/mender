@@ -26,6 +26,7 @@ export class MessageNoticePage {
   }
 
   ionViewDidLoad() {
+    this.pageData.refresh();
     this.getMessage();
   }
 
@@ -56,6 +57,7 @@ export class MessageNoticePage {
   //上拉加载
   doInfinite(infiniteScroll) {
     if(this.haveData){
+      this.pageData.refresh();
       this.getMessage(infiniteScroll);
     }else{
       infiniteScroll.enable(false);
