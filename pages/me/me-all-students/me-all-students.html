@@ -26,4 +26,5 @@
             <button *ngIf="!isHidden" (click)="sureGetApprentice(item?.worknum);$event.stopPropagation();">确认收徒</button>
         </ion-item>
     </ion-list>
+    <empty-list [text]='emptyText' *ngIf="apprentices.length==0"></empty-list>
 </ion-content>
