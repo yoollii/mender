@@ -30,7 +30,7 @@
       <ion-col class="content-section">
           <ion-searchbar class="serch-bar" placeholder="输入关键字" (ionInput)="ionInputEvent(searchInput.value)" #searchInput></ion-searchbar>
           <ion-content>
-          <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher (ionRefresh)="doRefresh($event)" *ngIf="products.length>0">
           <ion-refresher-content
           pullingText="下拉刷新"
           refreshingText="刷新中..."
@@ -62,4 +62,5 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+  <!-- <empty-list [text]='emptyText' *ngIf="products.length==0"></empty-list> -->
 </ion-content>

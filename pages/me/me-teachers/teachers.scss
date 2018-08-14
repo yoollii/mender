@@ -175,9 +175,12 @@ page-teachers {
             max-width: 32%;
         }
         .show-all-yl {
+            height: rem(90);
             background-color: #282828;
             color: $Themecolor;
-            position: absolute;
+            // position: absolute;
+            position: fixed;
+            top: 77%;
             border-radius: rem(10);
             padding: rem(26) rem(58);
             bottom: 0;

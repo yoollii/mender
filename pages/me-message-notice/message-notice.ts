@@ -19,6 +19,7 @@ export class MessageNoticePage {
 
   messages = [];
   haveData = true;
+  emptyText = '暂无消息通知';
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private http: HttpServiceProvider,
               private pageData: PageDataProvider) {

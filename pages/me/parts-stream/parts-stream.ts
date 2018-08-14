@@ -19,6 +19,7 @@ export class PartsStreamPage {
 
   parts = [];
   haveData = true;
+  emptyText = '暂无配件数据';
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,

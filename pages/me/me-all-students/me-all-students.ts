@@ -24,6 +24,7 @@ export class MeAllStudentsPage {
   haveData = true;
   title: string;
   isHidden = true;
+  emptyText: string;
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private http: HttpServiceProvider,
               private pageData: PageDataProvider,
@@ -36,10 +37,12 @@ export class MeAllStudentsPage {
     if(this.title == '所有徒弟') {
       this.isHidden = true;
       this.getAllApprentice();
+      this.emptyText = '暂无徒弟';
     }
     if(this.title == '申请列表') {
       this.isHidden = false;
       this.getwantmyfollower();
+      this.emptyText = '暂无申请记录';
     }
   }
   getAllApprentice() {

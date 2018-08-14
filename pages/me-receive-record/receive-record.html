@@ -36,11 +36,12 @@
       </div>
     </ion-item>
   </ion-card>
-  <div *ngIf="!haveData" class="no-data">暂无更多数据</div>
+  <div *ngIf="!haveData&&records.length>0" class="no-data">暂无更多数据</div>
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
     <ion-infinite-scroll-content
       loadingText='加载中...'
       enabled=false
     ></ion-infinite-scroll-content>
   </ion-infinite-scroll>
+  <empty-list [text]='emptyText' *ngIf="records.length==0"></empty-list>
 </ion-content>

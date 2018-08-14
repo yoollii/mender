@@ -21,6 +21,7 @@ export class ReceiveRecordPage {
 
   records = [];
   haveData: boolean;
+  emptyText = '暂无领取记录';
   constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpServiceProvider,
               private pageData: PageDataProvider,
               private storage: StorageServiceProvider) {
