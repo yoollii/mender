@@ -13,22 +13,22 @@
   <ion-list>
    <ion-item>
       <ion-label color="primary">手机号码:</ion-label>
-      <ion-input placeholder="请输入手机号码" #tel></ion-input>
+      <ion-input placeholder="请输入手机号码" #tel type="tel" ></ion-input>
    </ion-item>
 
    <ion-item>
            <ion-label color="primary">输入密码:</ion-label>
-           <ion-input placeholder="请输入密码" type="password" #password></ion-input>
+           <ion-input placeholder="请输入密码" type="password" #password clearInput=true></ion-input>
    </ion-item>
 
     <button type='button' (click)="login(tel,password,status)" color='light' class="c-button" ion-button block>登陆</button>
    <ion-grid>
      <ion-row>
        <ion-col class="flex">
-          <ion-checkbox checked="true" #status></ion-checkbox>
-          <ion-label>记住登录</ion-label>
+          <!-- <ion-checkbox checked="true" #status></ion-checkbox>
+          <ion-label>记住登录</ion-label> -->
        </ion-col>
-       <ion-col text-right>
+       <ion-col text-right (click)="findPwd()">
          忘记密码？
        </ion-col>
      </ion-row>

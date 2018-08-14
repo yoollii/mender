@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content class="my-ion-content">
     <ion-grid>
       <ion-row class="tip">
         <ion-col >
@@ -21,28 +21,28 @@
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col col-4 text-right align-self-end>
+        <ion-col col-3 text-right align-self-end>
           手机号码：
         </ion-col>
         <ion-col align-self-end>
-          <ion-input class="border"></ion-input>
+          <ion-input class="border" type="tel" #tel clearInput=true readonly={{readonly}}></ion-input>
         </ion-col>
       </ion-row>
       <ion-row >
-        <ion-col col-4 text-right align-self-end>
+        <ion-col col-3 text-right align-self-end>
           校验码：
         </ion-col>
         <ion-col align-self-end class="valicode">
-          <ion-input class="border"></ion-input>
-          <button>免费获取</button>
+          <ion-input class="border" type="text" #validcode></ion-input>
+          <button (click)="getValiCode(tel)">{{time==10?(readonly?'重新获取':'免费获取'):timeText}}</button>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col col-4 text-right align-self-end>
+        <ion-col col-3 text-right align-self-end>
           新密码：
         </ion-col>
         <ion-col align-self-end>
-          <ion-input class="border" type='password'></ion-input>
+          <ion-input class="border" type='password' #pwd clearInput=true></ion-input>
         </ion-col>
       </ion-row>
       <ion-row>

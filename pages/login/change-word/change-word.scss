@@ -1,15 +1,23 @@
 page-change-word {
+    .my-ion-content {
+        background-image: url('../../../assets/imgs/person/notice/mm3.png');
+        background-size: 85%;
+        background-repeat: no-repeat;
+        background-position:right rem(-150) ;
+
+    }
     ion-grid.grid {
-        background-color:rgba($color: #eee, $alpha: 0.1);
+        background-color:rgba($color: #333, $alpha: 0.1);
         position: absolute;
         top:rem(38);
         bottom:0;
         left:0;
         right:0;
         ion-row {
-            width:80%;
+            width:90%;
             margin:rem(33) auto;
             color:$Themecolor;
+            font-size: rem(28);
             ion-input {
                 .text-input {
                     margin:0;
@@ -17,7 +25,8 @@ page-change-word {
                 }
             }
             .c-button {
-                background-color:#646464
+                background-color:#313131;
+                color:$Themecolor;
             }
             .comment {
                 p {
@@ -25,7 +34,7 @@ page-change-word {
                     padding:0;
                     font-size:rem(24);
                     color:#646464;
-                    line-height: rem(30);
+                    line-height: rem(32);
                 }
             }
             .valicode {
@@ -41,7 +50,8 @@ page-change-word {
                     font-size:rem(30);
                     color:#646464;
                     text-align: center;
-                    font-weight: 300;
+                    font-weight: 400;
+
                 }
             }
         }

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams,ToastController ,App,Platform} from
 import { HttpServiceProvider } from '../../providers/http-service/http-service';
 import { StorageServiceProvider } from '../../providers/storage-service/storage-service';
 import { TabsPage } from '../../pages/tabs/tabs';
+import { ChangeWordPage } from './change-word/change-word';
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -68,5 +69,8 @@ export class LoginPage {
       duration: 3000
     });
     toast.present();
+  }
+  findPwd(){
+    this.navCtrl.push(ChangeWordPage);
   }
 }
