@@ -12,7 +12,8 @@ export class AppConfig {
     //由于网页调试存在跨域问题,在网页中调试需要用反向代理
     static proxy_dev_api = '/dev/api/';
     static proxy_pro_api = '/pro/api/';
-     static dev_api = 'http://192.168.1.250:8080/app/';
+   // static dev_api = 'http://192.168.1.250:8080/app/';
+    static dev_api ='http://rm.ngrok.michaelch.xyz/app/'
     //static dev_api = 'http://192.168.1.30:8080/app/';//shangmengxin
    // static dev_api = 'http://192.168.1.15:8080/app/';//xiexin
     static pro_api = '';

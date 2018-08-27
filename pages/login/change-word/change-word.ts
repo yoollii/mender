@@ -15,8 +15,8 @@ import { HttpServiceProvider } from '../../../providers/http-service/http-servic
 })
 export class ChangeWordPage {
   readonly:boolean = false;
-  time:number = 10;
-  timeText:string = '10s';
+  time:number = 60;
+  timeText:string = '60s';
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -27,6 +27,26 @@ export class ChangeWordPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChangeWordPage');
+  }
+  changeWord(tel:HTMLInputElement,valicode:HTMLInputElement,pwd:HTMLInputElement){
+    const telnum = tel.value;
+    const code = valicode.value;
+    const password = pwd.value;
+    this.http.request({
+      url:'workerInfo/enterchangeworkerpassword',
+      data:{
+        telphone:telnum,
+        code:code,
+        password:password
+      },
+      type:'put',
+      success:res=>{
+        this.toast('修改密码成功');
+        setTimeout(()=>{
+          this.navCtrl.pop();
+        },3000)
+      }
+    })
   }
   getValiCode(tel:HTMLInputElement){
     const telNum = tel.value;

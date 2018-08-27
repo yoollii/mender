@@ -34,7 +34,7 @@
         </ion-col>
         <ion-col align-self-end class="valicode">
           <ion-input class="border" type="text" #validcode></ion-input>
-          <button (click)="getValiCode(tel)">{{time==10?(readonly?'重新获取':'免费获取'):timeText}}</button>
+          <button (click)="getValiCode(tel)">{{timeText=='60s'?(readonly?'重新获取':'免费获取'):timeText}}</button>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -47,7 +47,7 @@
       </ion-row>
       <ion-row>
         <ion-col>
-          <button block ion-button color='dark' class="c-button">确定</button>
+          <button block ion-button color='dark' class="c-button" (click)="changeWord(tel,validcode,pwd)">确定</button>
         </ion-col>
       </ion-row>
       <ion-row>
