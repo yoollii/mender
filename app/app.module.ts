@@ -77,6 +77,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 //极光推送
 import { JPushService } from 'ionic2-jpush/dist'
 import { PushEventsProvider } from '../providers/push-events/push-events';
+import { BackButtonProvider } from '../providers/back-button/back-button';
 @NgModule({
   declarations: [
     MyApp,
@@ -187,7 +188,8 @@ import { PushEventsProvider } from '../providers/push-events/push-events';
     Geolocation,
     AppAvailability,
     JPushService,
-    PushEventsProvider
+    PushEventsProvider,
+    BackButtonProvider
   ]
 })
 export class AppModule {}

@@ -4,6 +4,7 @@ import { HttpServiceProvider } from '../../providers/http-service/http-service';
 import { StorageServiceProvider } from '../../providers/storage-service/storage-service';
 import { TabsPage } from '../../pages/tabs/tabs';
 import { ChangeWordPage } from './change-word/change-word';
+import { BackButtonProvider } from '../../providers/back-button/back-button';
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -18,17 +19,13 @@ export class LoginPage {
     private toastCtrl:ToastController,
     private storage:StorageServiceProvider,
     private app:App,
-    private plat:Platform
+    private plat:Platform,
+    private backButtonService: BackButtonProvider,
   ) {
     const pl = this.plat;
-    this.plat.registerBackButtonAction(res=>{
-      this.n++;
-      if(this.n<2){
-        this.toast('再次按返回键将退出程序');
-      }else{
-        pl.exitApp();
-      }
-    })
+    this.plat.ready().then(() => {
+      this.backButtonService.registerBackButtonAction(null);
+    });
   }
 
   ionViewDidLoad() {

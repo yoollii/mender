@@ -33,15 +33,7 @@ export class HomePage {
     private http:HttpServiceProvider,
     private jPushPlugin:JPushService
   ) {
-    const pl = this.plat;
-    this.plat.registerBackButtonAction(res=>{
-      this.n++;
-      if(this.n<2){
-        this.toast('再次按返回键将退出程序');
-      }else{
-        pl.exitApp();
-      }
-    })
+    
     let openNotification = this.jPushPlugin.openNotification()
     .subscribe( res => {
       console.log(JSON.stringify(res));
