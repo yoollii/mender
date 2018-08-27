@@ -28,6 +28,7 @@ export class ReceiveRecordPage {
   }
 
   ionViewDidLoad() {
+    this.pageData.refresh();
     this.getRecordList();
   }
   getRecordList(operation?: any) {
@@ -60,6 +61,7 @@ export class ReceiveRecordPage {
   //上拉加载
   doInfinite(infiniteScroll) {
     if(this.haveData){
+      this.pageData.refresh();
       this.getRecordList(infiniteScroll);
     }else{
       infiniteScroll.enable(false);

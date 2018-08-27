@@ -41,6 +41,7 @@ export class PartsStockPage {
         }
       });
     }else {
+      this.pageData.refresh();
       this.getproductList(this.classId);
     }
   }
@@ -61,7 +62,7 @@ export class PartsStockPage {
       success: res => {
         this.navList = res;
         this.classId = this.navList[0].classifyid;
-        // this.getproductList(this.classId);
+        this.getproductList(this.classId);
       }
     });
   }
@@ -92,6 +93,7 @@ export class PartsStockPage {
   //上拉加载
   doInfinite(infiniteScroll) {
     if(this.haveData){
+      this.pageData.refresh();
       this.getproductList(this.classId, infiniteScroll);
     }else{
       infiniteScroll.enable(false);
