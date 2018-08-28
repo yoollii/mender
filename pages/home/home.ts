@@ -48,7 +48,7 @@ export class HomePage {
       console.log(JSON.stringify(res))
       console.log('收到通知')
 
-    })
+    }) 
 
   let receiveMessage = this.jPushPlugin.receiveMessage()
     .subscribe( res => {
